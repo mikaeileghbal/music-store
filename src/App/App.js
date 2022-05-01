@@ -11,12 +11,17 @@ function App() {
     <div className="App">
       <Header />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/basket" element={<Basket />} />
-        <Route path="/album" element={<Album />} />
-        <Route path="*" element={<NotFound404 />} />
-      </Routes>
+      <div className="container">
+        <div className="sidebar">side menu</div>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/basket" element={<Basket />} />
+            <Route path="/album" element={<Album />} />
+            <Route path="*" element={<NotFound404 />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
