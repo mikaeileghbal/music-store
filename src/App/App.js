@@ -1,11 +1,22 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Album from "./pages/Album";
+import Basket from "./pages/Basket";
+import NotFound404 from "./pages/NotFound404";
+import Header from "./view/Header";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Music Store</h1>
-      </header>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/basket" element={<Basket />} />
+        <Route path="/album" element={<Album />} />
+        <Route path="*" element={<NotFound404 />} />
+      </Routes>
     </div>
   );
 }
