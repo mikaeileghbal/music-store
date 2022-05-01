@@ -27,3 +27,11 @@ code {
 a {
   text-decoration: none;
 }
+
+.button {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #3d3d3d;
+  background-color: #282c34;
+  color: white;
+}
