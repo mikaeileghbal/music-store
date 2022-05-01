@@ -1,0 +1,33 @@
+.container {
+  max-width: 1280px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+.App-header {
+  background-color: #282c34;
+  padding: 16px 0;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 16px;
+}
+
+nav a {
+  color: white;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.logo {
+  text-transform: uppercase;
+  color: rgb(172, 14, 88);
+}

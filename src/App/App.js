@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Album from "./pages/Album";
 import Basket from "./pages/Basket";
 import NotFound404 from "./pages/NotFound404";
-import Header from "./view/Header";
+import Header from "./view/header/Header";
 
 function App() {
   return (
