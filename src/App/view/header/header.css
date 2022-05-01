@@ -28,4 +28,6 @@ nav a {
 .logo {
   text-transform: uppercase;
   color: rgb(172, 14, 88);
+  font-weight: 600;
+  font-size: 1.5rem;
 }
