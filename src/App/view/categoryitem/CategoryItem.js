@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import "./catgoryitem.css";
 
 export default function CategoryItem() {
@@ -12,8 +12,8 @@ export default function CategoryItem() {
 
   return (
     <div className="card">
-      <h3>Category name</h3>
       <img src="./images/category-1.jpg" alt="category name" />
+      <h3>Category name</h3>
       <p>lorem ipsum 15 lorem ipsum 15 lorem ipsum 15 lorem ipsum 15</p>
       <button
         type="button"
