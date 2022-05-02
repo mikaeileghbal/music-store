@@ -1,15 +1,3 @@
-.App .container {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  align-items: flex-start;
-}
-
-.App .sidebar {
-  width: 100%;
-  background-color: antiquewhite;
-}
-
-.App .content,
-.App .sidebar {
-  padding: 1em;
+.main {
+  background-color: #f2f2f2;
 }

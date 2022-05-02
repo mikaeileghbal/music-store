@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: silver;
+}
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -15,8 +23,11 @@ body {
 
 .container {
   max-width: 1280px;
-
   margin: 0 auto;
+}
+
+.content {
+  width: 100%;
 }
 
 code {
@@ -34,4 +45,11 @@ a {
   border: 1px solid #3d3d3d;
   background-color: #282c34;
   color: white;
+  cursor: pointer;
+}
+
+.card {
+  background-color: white;
+  padding: 1em;
+  margin-bottom: 1em;
 }
