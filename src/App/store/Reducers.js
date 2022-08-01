@@ -1,10 +1,13 @@
 import ActionType from "./actionTypes";
 
+const albumTable = {
+  ADD_ALBUM: function (state, action) {
+    return state.album;
+  },
+};
+
 export default function album(state, action) {
-  switch (action.type) {
-    case ActionType.ADD_ALBUM:
-      return state;
-    default:
-      return state;
-  }
+  return albumTable[action.type]
+    ? albumTable[action.type](state, action)
+    : state;
 }

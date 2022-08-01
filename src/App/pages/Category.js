@@ -1,4 +1,4 @@
-import FilterMenu from "../view/filtermenu/FilterMenu";
+import FilterMenu from "../view/FilterMenu/FilterMenu";
 import "./category.css";
 
 export default function Home() {

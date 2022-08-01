@@ -1,4 +1,4 @@
-import CategoryItem from "../view/categoryitem/CategoryItem";
+import CategoryItem from "../view/CategoryItem/CategoryItem";
 import "./home.css";
 
 export default function Home() {

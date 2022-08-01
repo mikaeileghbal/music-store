@@ -4,7 +4,8 @@ import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Basket from "./pages/Basket";
 import NotFound404 from "./pages/NotFound404";
-import Header from "./view/header/Header";
+import Header from "./view/Header/Header";
+import data from "../data";
 
 function App() {
   return (
