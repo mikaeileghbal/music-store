@@ -1,17 +1,17 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Category from "./pages/Category";
-import Basket from "./pages/Basket";
+
+import Home from "./pages/Home/Home";
+import Basket from "./pages/Basket/Basket";
 import NotFound404 from "./pages/NotFound404";
-import Header from "./view/Header/Header";
-import data from "../data";
+import Category from "./pages/Category/Category";
+
+import { Header } from "./components";
 
 function App() {
   return (
     <div className="App">
       <Header />
-
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
