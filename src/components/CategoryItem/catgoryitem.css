@@ -1,1 +1,29 @@
+.card {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
 
+.cat-image {
+  background-color: red;
+}
+.cat-image img {
+  width: 100%;
+}
+
+.cat-content {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 25px 25px;
+  flex: 1 1 auto;
+}
+
+.cat-content > h2 {
+  margin-bottom: 15px;
+}
+
+.cat-content > p {
+  margin-top: auto;
+  margin-bottom: 0;
+  line-height: 2.1;
+}

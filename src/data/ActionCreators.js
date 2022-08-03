@@ -1,4 +1,4 @@
-import { ActionTypes } from "./types";
+import { ActionTypes, DataTypes } from "./Types";
 import { data as phData } from "./placeholderData";
 
 export const loadData = (dataType) => ({
@@ -8,3 +8,5 @@ export const loadData = (dataType) => ({
     data: phData[dataType],
   },
 });
+
+console.log(loadData(DataTypes.CATEGORIES));
