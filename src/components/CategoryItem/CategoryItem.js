@@ -15,8 +15,8 @@ export default function CategoryItem({ image, title }) {
   return (
     <article className="card">
       <figure className="cat-image">
-        <Link to={`/category/${title}`}>
-          <div>
+        <Link to={`/category/${title}`} className="cat-link">
+          <div className="cat-image-wrapper">
             <img src={`./images/${image}`} alt="category name" />
           </div>
         </Link>
