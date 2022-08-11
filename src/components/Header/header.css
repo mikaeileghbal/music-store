@@ -1,7 +1,10 @@
 .App-header {
-  background-color: #282c34;
+  background-color: #1a1a1a;
   padding: 16px 0;
   color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 
 .App-header .container {
@@ -66,7 +69,7 @@ nav a {
   display: flex;
   margin-right: 1em;
   background-color: white;
-  padding: 1px;
+  padding: 0px;
 }
 
 input[type="text"] {

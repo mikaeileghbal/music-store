@@ -52,7 +52,7 @@ a {
   padding: 8px 12px;
   font-size: 16px;
   border: 1px solid #3d3d3d;
-  background-color: #282c34;
+  background-color: #1a1a1a;
   color: white;
   cursor: pointer;
 }
@@ -73,6 +73,7 @@ a {
   line-height: 1.4;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .button--category:hover {
   background-color: var(--theme-color);
   color: white;

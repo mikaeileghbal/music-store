@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 
@@ -26,9 +25,6 @@ function CategoryPresent({ categories, loadData }) {
   return (
     <div className="container">
       <div className="content">
-        <div className="card">
-          <h1>Home</h1>
-        </div>
         <div className="category">
           {categories?.map((category) => (
             <CategoryItem

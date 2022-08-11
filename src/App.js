@@ -8,12 +8,12 @@ import Basket from "./pages/Basket/Basket";
 import NotFound404 from "./pages/NotFound404";
 import CategoryDetail from "./pages/CategoryDetail/CategoryDetail";
 
-import { Header } from "./components";
+import { Footer, Header } from "./components";
 
 function App() {
   return (
     <Provider store={shopDataStore}>
-      <div className="App">
+      <>
         <Header />
         <main className="main">
           <Routes>
@@ -23,7 +23,8 @@ function App() {
             <Route path="*" element={<NotFound404 />} />
           </Routes>
         </main>
-      </div>
+        <Footer />
+      </>
     </Provider>
   );
 }

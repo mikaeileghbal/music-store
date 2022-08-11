@@ -1,0 +1,8 @@
+.category-hero {
+  margin: 70px auto 24px;
+  padding-top: 64px;
+}
+
+.category-hero > img {
+  width: 100%;
+}
