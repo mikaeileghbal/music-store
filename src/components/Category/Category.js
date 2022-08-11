@@ -31,6 +31,7 @@ function CategoryPresent({ categories, loadData }) {
               key={category.id}
               title={category.title}
               image={category.image}
+              category={category.category}
             />
           ))}
         </div>

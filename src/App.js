@@ -18,7 +18,7 @@ function App() {
         <main className="main">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/category:category" element={<CategoryDetail />} />
+            <Route path="/category/:category" element={<CategoryDetail />} />
             <Route path="/basket" element={<Basket />} />
             <Route path="*" element={<NotFound404 />} />
           </Routes>
