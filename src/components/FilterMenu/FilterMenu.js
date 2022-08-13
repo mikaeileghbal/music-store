@@ -1,10 +1,10 @@
 import React from "react";
-import "./filtermenu.css";
+import "./FilterMenu.css";
 
 export default function FilterMenu() {
   return (
     <section className="filter-menu card">
-      <h3>Genere</h3>
+      <h3>Genre</h3>
       <div>
         <ul>
           <li>
@@ -38,9 +38,14 @@ export default function FilterMenu() {
             </label>
           </li>
         </ul>
-        <button type="button" className="button button--filter">
-          More...
-        </button>
+        <div className="filter-menu-footer">
+          <button
+            type="button"
+            className="button button--category button--filter"
+          >
+            see all
+          </button>
+        </div>
       </div>
     </section>
   );

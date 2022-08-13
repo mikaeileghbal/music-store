@@ -1,0 +1,29 @@
+.category-detail {
+  max-width: 1240px;
+}
+
+.category-detail h2 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #363636;
+  text-transform: capitalize;
+  padding: 42px 0 45px;
+}
+.container.category {
+  display: grid;
+  grid-template-columns: 19% 80%;
+  align-items: flex-start;
+}
+
+.content,
+.sidebar {
+  padding: 0em;
+}
+
+.sidebar {
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 3px;
+}

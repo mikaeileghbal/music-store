@@ -5,7 +5,7 @@ import { CategoryItem, FilterMenu } from "../../components";
 import { DataTypes } from "../../data/Types";
 import { loadData } from "../../data/ActionCreators";
 
-import "./category.css";
+import "./CategoryDetail.css";
 import { useState } from "react";
 
 const mapStateProps = (state) => ({
@@ -29,7 +29,7 @@ function CategoryDetailPresentation({ products, loadData }) {
 
   useEffect(() => {
     loadData(DataTypes.PRODUCTS);
-  }, []);
+  }, [loadData]);
 
   useEffect(() => {
     setItems(products.filter((product) => product.category === category));
@@ -37,7 +37,7 @@ function CategoryDetailPresentation({ products, loadData }) {
   }, [category]);
 
   return (
-    <>
+    <div className="category-detail container">
       <div className="category-header">
         <h2>{category}</h2>
       </div>
@@ -46,6 +46,14 @@ function CategoryDetailPresentation({ products, loadData }) {
           <FilterMenu />
           <FilterMenu />
           <FilterMenu />
+          <div className="button-wrapper">
+            <button className="button button--category button--filter">
+              apply
+            </button>
+            <button className="button button--category button--filter">
+              clear all
+            </button>
+          </div>
         </div>
         <div className="container">
           <div className="content">
@@ -64,7 +72,7 @@ function CategoryDetailPresentation({ products, loadData }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

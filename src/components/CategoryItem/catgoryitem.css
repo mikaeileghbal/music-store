@@ -22,11 +22,24 @@
 }
 
 .cat-content {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 40px 25px 25px;
   flex: 1 1 auto;
   border-top: 3px solid #fcc900;
+}
+
+.cat-content::before {
+  position: absolute;
+  content: "";
+  left: 30px;
+  top: -20px;
+  width: 36px;
+  height: 36px;
+  background-color: #fcc900;
+  transform: rotate(45deg);
+  border: none;
 }
 
 .cat-content > h2 {

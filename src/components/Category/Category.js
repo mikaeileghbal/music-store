@@ -23,7 +23,7 @@ function CategoryPresent({ categories, loadData }) {
   }, [loadData]);
 
   return (
-    <div className="container">
+    <div className="cat-container container">
       <div className="content">
         <div className="category">
           {categories?.map((category) => (

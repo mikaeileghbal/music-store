@@ -78,3 +78,12 @@ a {
   background-color: var(--theme-color);
   color: white;
 }
+
+.button--filter {
+  border: 1px solid var(--theme-color);
+}
+
+ul,
+ol {
+  list-style-type: none;
+}

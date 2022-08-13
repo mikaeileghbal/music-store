@@ -198,7 +198,7 @@ export const data = {
     {
       id: 7,
       name: "Unsteady Chair",
-      category: "Chess",
+      category: "country",
       description: "Secretly give your opponent a disadvantage",
       price: 29.95,
       image: "botysf-feature_panel.webp",
