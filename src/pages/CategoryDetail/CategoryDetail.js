@@ -5,7 +5,7 @@ import { CategoryItem, FilterMenu } from "../../components";
 import { DataTypes } from "../../data/Types";
 import { loadData } from "../../data/ActionCreators";
 
-import "./CategoryDetail.css";
+import "./CategoryDetail.scss";
 import { useState } from "react";
 
 const mapStateProps = (state) => ({
@@ -46,14 +46,7 @@ function CategoryDetailPresentation({ products, loadData }) {
           <FilterMenu />
           <FilterMenu />
           <FilterMenu />
-          <div className="button-wrapper">
-            <button className="button button--category button--filter">
-              apply
-            </button>
-            <button className="button button--category button--filter">
-              clear all
-            </button>
-          </div>
+          <FooterButtons />
         </div>
         <div className="container">
           <div className="content">
@@ -77,3 +70,23 @@ function CategoryDetailPresentation({ products, loadData }) {
 }
 
 export default CategoryDetail;
+
+function FooterButtons() {
+  return (
+    <div className="button-wrapper">
+      <FooterButton text="apply" disabled={false} />
+      <FooterButton text="clear all" disabled={true} />
+    </div>
+  );
+}
+
+function FooterButton({ disabled, text }) {
+  return (
+    <button
+      disabled={disabled}
+      className="button button--category button--filter"
+    >
+      {text}
+    </button>
+  );
+}

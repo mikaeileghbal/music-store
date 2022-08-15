@@ -83,6 +83,17 @@ a {
   border: 1px solid var(--theme-color);
 }
 
+button:disabled {
+  background-color: transparent;
+  color: gray;
+  border-color: gray;
+  cursor: not-allowed;
+}
+button:disabled:hover {
+  background-color: transparent;
+  color: gray;
+}
+
 ul,
 ol {
   list-style-type: none;

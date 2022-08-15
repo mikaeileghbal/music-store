@@ -5,7 +5,7 @@ import { loadData } from "../../data/ActionCreators";
 import { DataTypes } from "../../data/Types";
 
 import CategoryItem from "../CategoryItem/CategoryItem";
-import "./Category.css";
+import "./Category.scss";
 
 const mapStateToProps = (state) => ({
   categories: state.categories,

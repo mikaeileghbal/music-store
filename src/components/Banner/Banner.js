@@ -1,6 +1,6 @@
 import React from "react";
 import banner from "../../assets/images/banner.webp";
-import "./Banner.css";
+import "./Banner.scss";
 
 export default function Banner() {
   return (
