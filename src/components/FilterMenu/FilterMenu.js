@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useSelection } from "../../utils/hooks";
 import "./FilterMenu.css";
 
 const MenuItems = [
@@ -14,17 +15,12 @@ const MenuItems = [
   "Country",
 ];
 
-export default function FilterMenu() {
-  const [selections, setSelections] = useState({});
-  const [isSelected, setIsSelected] = useState(false);
-
-  const handleSelected = (e, key) => {
-    setSelections({ ...selections, [key]: e.target.checked });
-  };
+export default function FilterMenu({ onSelected, id }) {
+  const { handleSelected, isSelected } = useSelection();
 
   useEffect(() => {
-    setIsSelected(Object.values(selections).some((item) => item));
-  }, [selections]);
+    onSelected(isSelected, id);
+  }, [isSelected]);
 
   return (
     <section className="filter-menu card">

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { connect } from "react-redux";
-import { CategoryItem, FilterMenu } from "../../components";
+import { CategoryItem, Sidebar } from "../../components";
 import { DataTypes } from "../../data/Types";
 import { loadData } from "../../data/ActionCreators";
 
@@ -42,12 +42,7 @@ function CategoryDetailPresentation({ products, loadData }) {
         <h2>{category}</h2>
       </div>
       <div className="container category">
-        <div className="sidebar">
-          <FilterMenu />
-          <FilterMenu />
-          <FilterMenu />
-          <FooterButtons />
-        </div>
+        <Sidebar />
         <div className="container">
           <div className="content">
             <div className="category">
@@ -70,23 +65,3 @@ function CategoryDetailPresentation({ products, loadData }) {
 }
 
 export default CategoryDetail;
-
-function FooterButtons() {
-  return (
-    <div className="button-wrapper">
-      <FooterButton text="apply" disabled={false} />
-      <FooterButton text="clear all" disabled={true} />
-    </div>
-  );
-}
-
-function FooterButton({ disabled, text }) {
-  return (
-    <button
-      disabled={disabled}
-      className="button button--category button--filter"
-    >
-      {text}
-    </button>
-  );
-}
