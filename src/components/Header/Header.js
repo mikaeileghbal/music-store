@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./header.css";
+import "./Header.scss";
 import { FaSearch, FaShoppingCart, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 

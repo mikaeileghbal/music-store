@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 
 import { loadData } from "../../data/ActionCreators";
 import { DataTypes } from "../../data/Types";
-
 import CategoryItem from "../CategoryItem/CategoryItem";
+
 import "./Category.scss";
 
 const mapStateToProps = (state) => ({

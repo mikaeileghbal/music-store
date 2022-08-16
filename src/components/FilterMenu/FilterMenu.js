@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelection } from "../../utils/hooks";
-import "./FilterMenu.css";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowUp,
+} from "react-icons/md";
+import "./FilterMenu.scss";
 
 const MenuItems = [
   "Rock & Pop",
@@ -16,35 +20,67 @@ const MenuItems = [
 ];
 
 export default function FilterMenu({ onSelected, id }) {
+  const [toggle, setToggle] = useState(true);
   const { handleSelected, isSelected } = useSelection();
 
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
   useEffect(() => {
     onSelected(isSelected, id);
   }, [isSelected]);
 
   return (
     <section className="filter-menu card">
-      <h3>Genre</h3>
-      <div>
-        <List>
-          {MenuItems.map((item, i) => (
-            <Item
-              key={i}
-              onChange={(args) => {
-                console.log(i);
-                handleSelected(args, i);
-              }}
-            >
-              {item}
-            </Item>
-          ))}
-        </List>
-        <FilterMenuFooter isSelected={isSelected} />
-      </div>
+      <header>
+        <h3>Genre</h3>
+        {toggle ? getArrow(handleToggle, true) : getArrow(handleToggle, false)}
+      </header>
+      {toggle ? renderList(handleSelected, isSelected) : ""}
     </section>
   );
 }
 
+function getArrow(onClick, isOpen) {
+  if (isOpen)
+    return (
+      <MdOutlineKeyboardArrowUp
+        color="#ec0577"
+        size={24}
+        className="arrow"
+        onClick={onClick}
+      />
+    );
+
+  return (
+    <MdOutlineKeyboardArrowDown
+      color="#ec0577"
+      size={24}
+      className="arrow"
+      onClick={onClick}
+    />
+  );
+}
+
+function renderList(handleSelected, isSelected) {
+  return (
+    <div>
+      <List>
+        {MenuItems.map((item, i) => (
+          <Item
+            key={i}
+            onChange={(args) => {
+              handleSelected(args, i);
+            }}
+          >
+            {item}
+          </Item>
+        ))}
+      </List>
+      <FilterMenuFooter isSelected={isSelected} />
+    </div>
+  );
+}
 function List({ children }) {
   return <ul>{children}</ul>;
 }

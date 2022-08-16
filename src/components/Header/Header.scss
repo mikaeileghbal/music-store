@@ -6,32 +6,34 @@
   position: fixed;
   top: 0;
   z-index: 10;
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
 }
 
-.App-header .container {
-  display: flex;
-  align-items: center;
-}
+nav {
+  ul {
+    padding-left: 16px;
+  }
 
-nav ul {
-  padding-left: 16px;
+  li {
+    display: inline-block;
+    margin: 0 16px;
+  }
+
+  a {
+    color: white;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 1em 0;
+  }
 }
 
 .button-container {
   margin-left: auto;
-}
-
-nav li {
-  display: inline-block;
-  margin: 0 16px;
-}
-
-nav a {
-  color: white;
-  text-transform: capitalize;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 1em 0;
 }
 
 .logo {
@@ -50,21 +52,22 @@ nav a {
   margin-left: 0.5em;
   cursor: pointer;
   transition: border-color 0.3s ease;
-}
 
-.button--header:hover {
-  border-color: #ec0577;
-}
+  &:hover {
+    border-color: #ec0577;
+  }
 
-.button--header:focus {
-  outline: 1px solid #ec0577;
-  border: 1px solid #ec0577;
+  &:focus {
+    outline: 1px solid #ec0577;
+    border: 1px solid #ec0577;
+  }
 }
 
 .button--search:hover,
 .button--search:focus {
   background-color: #ec0577;
 }
+
 .search-container {
   padding: 0;
   display: flex;

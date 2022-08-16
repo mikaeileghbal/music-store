@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { shopDataStore } from "./data/DataStore";

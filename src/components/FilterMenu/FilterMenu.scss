@@ -1,0 +1,55 @@
+.filter-menu {
+  padding: 18px 10px 0;
+  margin-bottom: 20px;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .arrow {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  h3 {
+    padding: 12px 0;
+    margin-top: -18px;
+  }
+
+  ul {
+    padding: 0 0 20px;
+    border-top: 1px solid #e6e2df;
+
+    li {
+      border-bottom: 1px solid #e6e2df;
+      font-size: 13px;
+    }
+
+    li label {
+      display: inline-block;
+      padding: 8px 0 8px 20px;
+      line-height: 1.2;
+      vertical-align: middle;
+      color: #3d3d3d;
+    }
+  }
+
+  input[type="checkbox"] {
+    margin-right: 10px;
+    margin-left: -20px;
+    vertical-align: middle;
+    line-height: 1.15;
+    font-size: 100%;
+    display: inline-block;
+  }
+}
+
+.filter-menu-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding: 0 0 20px;
+  overflow: hidden;
+}

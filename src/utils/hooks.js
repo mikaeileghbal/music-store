@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export function useSelection() {
   const [selections, setSelections] = useState({});
   const [isSelected, setIsSelected] = useState(false);
+  const [render, reRender] = useState();
 
   const handleSelected = (e, key) => {
     setSelections({
@@ -12,8 +13,8 @@ export function useSelection() {
   };
 
   const clearAll = () => {
-    console.log("clear");
     setSelections({});
+    reRender(null);
   };
 
   useEffect(() => {

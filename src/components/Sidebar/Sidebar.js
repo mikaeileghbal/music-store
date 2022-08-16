@@ -6,7 +6,7 @@ import "./Sidebar.scss";
 
 export default function Sidebar() {
   const { isSelected, handleSelected, clearAll } = useSelection();
-  console.log(clearAll);
+
   return (
     <div className="sidebar">
       <FilterMenu onSelected={handleSelected} id={0} />
