@@ -83,6 +83,29 @@ a {
   border: 1px solid var(--theme-color);
 }
 
+.button--flat {
+  border: 1px solid var(--theme-color);
+  background-color: var(--theme-color);
+  color: white;
+
+  &:hover {
+    color: white;
+    background-color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+  }
+}
+
+.button--option {
+  padding: 10px 10px;
+  font-size: 16px;
+  border: 1px solid #d4d6d9;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
 button:disabled {
   background-color: transparent;
   color: gray;

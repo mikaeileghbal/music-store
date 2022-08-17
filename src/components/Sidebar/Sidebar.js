@@ -20,7 +20,7 @@ export default function Sidebar() {
 function FooterButtons({ isSelected, clearAll }) {
   return (
     <div className="button-wrapper">
-      <FooterButton text="apply" disabled={false} />
+      <FooterButton text="apply" disabled={false} flat="button--flat" />
       <FooterButton
         text="clear all"
         disabled={!isSelected}
@@ -30,11 +30,11 @@ function FooterButtons({ isSelected, clearAll }) {
   );
 }
 
-function FooterButton({ disabled, text, clearAll }) {
+function FooterButton({ disabled, text, clearAll, flat }) {
   return (
     <button
       disabled={disabled}
-      className="button button--category button--filter"
+      className={`button button--category button--filter ${flat}`}
       onClick={clearAll}
     >
       {text}

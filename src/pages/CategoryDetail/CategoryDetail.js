@@ -7,6 +7,7 @@ import { loadData } from "../../data/ActionCreators";
 
 import "./CategoryDetail.scss";
 import { useState } from "react";
+import Options from "../../components/Options/Options";
 
 const mapStateProps = (state) => ({
   products: state.products,
@@ -44,6 +45,7 @@ function CategoryDetailPresentation({ products, loadData }) {
       <div className="container category">
         <Sidebar />
         <div className="container">
+          <Options />
           <div className="content">
             <div className="category">
               {items?.map((p) => (

@@ -1,0 +1,36 @@
+.options {
+  display: flex;
+  background-color: white;
+  padding: 10px 20px;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 25px;
+
+  .button--flat {
+    padding: 11px 19px;
+    height: 40px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 5px 8px 5px 0;
+
+    .title {
+      text-transform: capitalize;
+      font-size: 14px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    button {
+      margin-right: 6px;
+    }
+
+    .select--option {
+      padding: 10px 10px;
+      border: 1px solid #d4d6d9;
+    }
+  }
+}
