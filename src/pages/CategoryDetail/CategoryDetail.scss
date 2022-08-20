@@ -1,12 +1,12 @@
 .category-detail {
   max-width: 1240px;
 
-  h2 {
+  .category-header > .category-name {
     font-size: 36px;
     font-weight: 600;
     color: #363636;
     text-transform: capitalize;
-    padding: 42px 0 45px;
+    padding: 0px 0 24px;
   }
 }
 

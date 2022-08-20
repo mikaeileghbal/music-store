@@ -1,23 +1,15 @@
 import React from "react";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
-import "./CatgoryItem.scss";
+import "./Product.scss";
 
-export default function CategoryItem({
+export default function Product({
   image,
   category,
   title,
   price = 0,
   description = "",
 }) {
-  const navigate = useNavigate();
-
-  const showCategory = (e) => {
-    console.log("clicked");
-    e.preventDefault();
-    navigate(`/category:1`);
-  };
-
   return (
     <article className="card">
       <CatImage image={image} category={category} />
@@ -47,14 +39,17 @@ function CatImage({ image, category }) {
 function CatContent({ title, description, price, category }) {
   return (
     <div className="cat-content">
-      <h2 className="cat-title">{title}</h2>
-      {description.length > 0 && <p>{description}</p>}
-      {price > 0 && <p>{`$${price}`}</p>}
-      <p className="link-wrapper">
-        <Link to={`/category/${category}`} className="button button--category">
-          view all
-        </Link>
-      </p>
+      <h2 className="title">{title}</h2>
+      <h3 className="artist">artist</h3>
+
+      {price > 0 && <p className="price">{`$${price}`}</p>}
+      <p className="media-type">CD box set</p>
+      <div className="button-wrapper">
+        <button className="button button--category button--100">
+          add to basket
+          <MdOutlineKeyboardArrowRight size={24} />
+        </button>
+      </div>
     </div>
   );
 }

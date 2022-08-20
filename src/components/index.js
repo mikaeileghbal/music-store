@@ -6,6 +6,7 @@ import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import Banner from "./Banner/Banner";
 import Category from "./Category/Category";
+import Product from "./Product/Product";
 
 export {
   Cart,
@@ -16,4 +17,5 @@ export {
   Sidebar,
   Banner,
   Category,
+  Product,
 };

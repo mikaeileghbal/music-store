@@ -106,6 +106,10 @@ a {
   align-items: center;
 }
 
+.button--100 {
+  width: 100%;
+}
+
 button:disabled {
   background-color: transparent;
   color: gray;

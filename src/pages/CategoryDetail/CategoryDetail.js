@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { connect } from "react-redux";
-import { CategoryItem, Sidebar } from "../../components";
+import { Product, Sidebar } from "../../components";
 import { DataTypes } from "../../data/Types";
 import { loadData } from "../../data/ActionCreators";
 
@@ -40,7 +40,7 @@ function CategoryDetailPresentation({ products, loadData }) {
   return (
     <div className="category-detail container">
       <div className="category-header">
-        <h2>{category}</h2>
+        <h2 className="category-name">{category}</h2>
       </div>
       <div className="container category">
         <Sidebar />
@@ -49,7 +49,7 @@ function CategoryDetailPresentation({ products, loadData }) {
           <div className="content">
             <div className="category">
               {items?.map((p) => (
-                <CategoryItem
+                <Product
                   key={p.id}
                   title={p.name}
                   image={p.image}
