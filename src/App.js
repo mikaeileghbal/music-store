@@ -9,6 +9,7 @@ import NotFound404 from "./pages/NotFound404";
 import CategoryDetail from "./pages/CategoryDetail/CategoryDetail";
 
 import { Footer, Header } from "./components";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/category/:category" element={<CategoryDetail />} />
             <Route path="/basket" element={<Basket />} />
+            <Route path="/:name" element={<ProductDetail />} />
             <Route path="*" element={<NotFound404 />} />
           </Routes>
         </main>

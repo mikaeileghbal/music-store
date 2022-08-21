@@ -1,0 +1,116 @@
+.section-album {
+  padding: 10px 1.2em;
+  display: flex;
+  .album-art {
+    flex: 50%;
+    display: flex;
+    gap: 10px;
+    padding-right: 30px;
+
+    .left {
+      flex: 68%;
+      text-align: center;
+    }
+    .right {
+      flex: 32%;
+      img {
+        width: 55%;
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .album-description {
+    flex: 50%;
+
+    h1 {
+      font-size: 28px;
+      text-transform: capitalize;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-transform: capitalize;
+      font-size: 18px;
+    }
+  }
+}
+
+.info-meta {
+  margin-bottom: 30px;
+
+  .price {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  & > p {
+    margin: 15px 0;
+  }
+
+  .barcode {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-right: 4px;
+
+    + span {
+      font-size: 13px;
+    }
+  }
+  .link {
+    border: none;
+    background: transparent;
+    margin-left: 5px;
+    color: red;
+    font-size: 16px;
+    text-decoration: underline;
+  }
+}
+
+.meta-detail {
+  margin-top: 30px;
+  padding: 10px 0;
+  border-top: 1px solid #d4d6d9;
+  border-bottom: 1px solid #d4d6d9;
+
+  li {
+    font-size: 14px;
+    line-height: 1.8;
+
+    > span {
+      font-weight: 700;
+    }
+  }
+}
+
+.social-wrapper {
+  display: flex;
+  align-items: center;
+
+  > span {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .social {
+    display: flex;
+
+    .social-icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #00acee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 8px;
+
+      svg {
+        color: white;
+      }
+    }
+  }
+}
