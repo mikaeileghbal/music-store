@@ -1,7 +1,6 @@
 import { ActionTypes, DataTypes } from "./Types";
-import { data, data as phData } from "./placeholderData";
+import { data as phData } from "./placeholderData";
 
-console.log(data);
 export const loadData = (dataType) => ({
   type: ActionTypes.DATA_LOAD,
   payload: {

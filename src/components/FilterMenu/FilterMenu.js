@@ -1,54 +1,60 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { useSelection } from "../../utils/hooks";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
+
 import "./FilterMenu.scss";
 
-const MenuItems = [
-  "Rock & Pop",
-  "Metal",
-  "R&B & Soul",
-  "  K-pop",
-  "Reggae",
-  "General",
-  "Classical",
-  "Dance",
-  "Country",
-];
+const FilterContext = createContext({});
 
-export default function FilterMenu({ onSelected, id }) {
+const useFilter = () => useContext(FilterContext);
+
+export default function FilterMenu({ MenuItems, onSelected, id }) {
+  const [selection, setSelection] = useState({});
   const [toggle, setToggle] = useState(true);
-  const { handleSelected, isSelected } = useSelection();
+
+  console.log("MenuItems", MenuItems);
+  //const { handleSelected, isSelected } = useSelection();
 
   const handleToggle = () => {
-    setToggle(!toggle);
+    setToggle((toggle) => !toggle);
   };
+
+  const handleSelection = (e) => {
+    setSelection({ ...selection, [e.target.name]: e.target.checked });
+  };
+
   useEffect(() => {
-    onSelected(isSelected, id);
-  }, [isSelected]);
+    //onSelected(isSelected, id);
+    console.log(selection);
+  }, [selection]);
 
   return (
-    <section className="filter-menu card">
-      <header>
-        <h3>Genre</h3>
-        {toggle ? getArrow(handleToggle, true) : getArrow(handleToggle, false)}
-      </header>
-      {toggle ? renderList(handleSelected, isSelected) : ""}
-    </section>
+    <FilterContext.Provider
+      value={{ MenuItems, selection, handleToggle, handleSelection }}
+    >
+      <section className="filter-menu card">
+        <header>
+          <h3>Genre</h3>
+          {toggle
+            ? getArrow(handleToggle, true)
+            : getArrow(handleToggle, false)}
+        </header>
+        {toggle ? <RenderList /> : ""}
+      </section>
+    </FilterContext.Provider>
   );
 }
 
-function getArrow(onClick, isOpen) {
+function getArrow(handleToggle, isOpen) {
   if (isOpen)
     return (
       <MdOutlineKeyboardArrowUp
         color="#ec0577"
         size={24}
         className="arrow"
-        onClick={onClick}
+        onClick={handleToggle}
       />
     );
 
@@ -57,50 +63,65 @@ function getArrow(onClick, isOpen) {
       color="#ec0577"
       size={24}
       className="arrow"
-      onClick={onClick}
+      onClick={handleToggle}
     />
   );
 }
 
-function renderList(handleSelected, isSelected) {
+function RenderList() {
+  const { MenuItems } = useFilter();
+  console.log("in render", MenuItems);
   return (
     <div>
       <List>
         {MenuItems.map((item, i) => (
-          <Item
-            key={i}
-            onChange={(args) => {
-              handleSelected(args, i);
-            }}
-          >
-            {item}
-          </Item>
+          <Item key={i}>{item}</Item>
         ))}
       </List>
-      <FilterMenuFooter isSelected={isSelected} />
+      <FilterMenuFooter />
     </div>
   );
 }
+
 function List({ children }) {
   return <ul>{children}</ul>;
 }
 
-function Item({ children, onChange }) {
+function Item({ children }) {
+  const { selection, handleSelection } = useFilter();
+
   return (
     <li>
       <label>
-        <input type="checkbox" onChange={(e) => onChange(e)} />
+        <input
+          name={children}
+          type="checkbox"
+          onChange={(e) => handleSelection(e)}
+          value={selection[children]}
+        />
         {children}
       </label>
     </li>
   );
 }
 
-function FilterMenuFooter({ isSelected }) {
+function FilterMenuFooter() {
+  const { selection } = useFilter();
+
+  const isSelected = (selection) => {
+    let isSelected = false;
+    for (const key of Object.keys(selection)) {
+      if (selection[key]) {
+        isSelected = true;
+      }
+    }
+    return isSelected;
+  };
+
   return (
     <div className="filter-menu-footer">
       <FilterMenuButton isVisible={true} text="see all" />
-      <FilterMenuButton isVisible={isSelected} text="apply" />
+      <FilterMenuButton isVisible={isSelected(selection)} text="apply" />
     </div>
   );
 }

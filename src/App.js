@@ -3,13 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { shopDataStore } from "./data/DataStore";
 
-import Home from "./pages/Home/Home";
-import Basket from "./pages/Basket/Basket";
-import NotFound404 from "./pages/NotFound404";
-import CategoryDetail from "./pages/CategoryDetail/CategoryDetail";
-
+import {
+  Home,
+  Basket,
+  CategoryDetail,
+  ProductDetail,
+  NotFound404,
+} from "./pages";
 import { Footer, Header } from "./components";
-import ProductDetail from "./pages/ProductDetail/ProductDetail";
 
 function App() {
   return (

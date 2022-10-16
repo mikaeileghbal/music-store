@@ -4,14 +4,26 @@ import { useSelection } from "../../utils/hooks";
 import FilterMenu from "../FilterMenu/FilterMenu";
 import "./Sidebar.scss";
 
+const MenuItems = [
+  "Rock & Pop",
+  "Metal",
+  "R&B & Soul",
+  "  K-pop",
+  "Reggae",
+  "General",
+  "Classical",
+  "Dance",
+  "Country",
+];
+
 export default function Sidebar() {
   const { isSelected, handleSelected, clearAll } = useSelection();
 
   return (
     <div className="sidebar">
-      <FilterMenu onSelected={handleSelected} id={0} />
-      <FilterMenu onSelected={handleSelected} id={1} />
-      <FilterMenu onSelected={handleSelected} id={2} />
+      <FilterMenu MenuItems={MenuItems} onSelected={handleSelected} id={0} />
+      <FilterMenu MenuItems={MenuItems} onSelected={handleSelected} id={1} />
+      <FilterMenu MenuItems={MenuItems} onSelected={handleSelected} id={2} />
       <FooterButtons isSelected={isSelected} clearAll={clearAll} />
     </div>
   );
