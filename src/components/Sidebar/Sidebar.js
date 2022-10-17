@@ -1,6 +1,6 @@
-import { clear } from "@testing-library/user-event/dist/clear";
-import React from "react";
-import { useSelection } from "../../utils/hooks";
+import React, { useContext, useState, useEffect, createContext } from "react";
+import { isSelected } from "../../utils/hooks";
+
 import FilterMenu from "../FilterMenu/FilterMenu";
 import "./Sidebar.scss";
 
@@ -16,26 +16,48 @@ const MenuItems = [
   "Country",
 ];
 
+const SidebarContext = createContext({});
+
+export const useSidebar = () => useContext(SidebarContext);
+
 export default function Sidebar() {
-  const { isSelected, handleSelected, clearAll } = useSelection();
+  const [groupSelection, setGroupSelection] = useState({});
+
+  const handleGroupSelection = (selection, name) => {
+    setGroupSelection({ ...groupSelection, [name]: selection });
+  };
+
+  const clearAll = () => {
+    setGroupSelection({});
+  };
+
+  useEffect(() => {
+    console.log(groupSelection);
+  }, [groupSelection]);
 
   return (
-    <div className="sidebar">
-      <FilterMenu MenuItems={MenuItems} onSelected={handleSelected} id={0} />
-      <FilterMenu MenuItems={MenuItems} onSelected={handleSelected} id={1} />
-      <FilterMenu MenuItems={MenuItems} onSelected={handleSelected} id={2} />
-      <FooterButtons isSelected={isSelected} clearAll={clearAll} />
-    </div>
+    <SidebarContext.Provider
+      value={{ groupSelection, handleGroupSelection, clearAll }}
+    >
+      <div className="sidebar">
+        <FilterMenu MenuItems={MenuItems} name="genre" />
+        <FilterMenu MenuItems={MenuItems} name="format" />
+        <FilterMenu MenuItems={MenuItems} name="date" />
+        <FooterButtons />
+      </div>
+    </SidebarContext.Provider>
   );
 }
 
-function FooterButtons({ isSelected, clearAll }) {
+function FooterButtons() {
+  const { groupSelection, clearAll } = useSidebar();
+
   return (
     <div className="button-wrapper">
       <FooterButton text="apply" disabled={false} flat="button--flat" />
       <FooterButton
         text="clear all"
-        disabled={!isSelected}
+        disabled={!isSelected(groupSelection)}
         clearAll={clearAll}
       />
     </div>

@@ -8,6 +8,7 @@ import { loadData } from "../../data/ActionCreators";
 import "./CategoryDetail.scss";
 import { useState } from "react";
 import Options from "../../components/Options/Options";
+import Pager from "../../components/Pager/Pager";
 
 const mapStateProps = (state) => ({
   products: state.products,
@@ -59,6 +60,7 @@ function CategoryDetailPresentation({ products, loadData }) {
                 />
               ))}
             </div>
+            <Pager pageCount={10} />
           </div>
         </div>
       </div>

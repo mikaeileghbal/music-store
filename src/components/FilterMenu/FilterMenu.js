@@ -3,19 +3,19 @@ import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
+import { useSidebar } from "../Sidebar/Sidebar";
 
 import "./FilterMenu.scss";
+import { isSelected } from "../../utils/hooks";
 
 const FilterContext = createContext({});
 
 const useFilter = () => useContext(FilterContext);
 
-export default function FilterMenu({ MenuItems, onSelected, id }) {
+export default function FilterMenu({ MenuItems, name }) {
   const [selection, setSelection] = useState({});
   const [toggle, setToggle] = useState(true);
-
-  console.log("MenuItems", MenuItems);
-  //const { handleSelected, isSelected } = useSelection();
+  const { handleGroupSelection } = useSidebar();
 
   const handleToggle = () => {
     setToggle((toggle) => !toggle);
@@ -26,9 +26,8 @@ export default function FilterMenu({ MenuItems, onSelected, id }) {
   };
 
   useEffect(() => {
-    //onSelected(isSelected, id);
-    console.log(selection);
-  }, [selection]);
+    handleGroupSelection(selection, name);
+  }, [selection, name]);
 
   return (
     <FilterContext.Provider
@@ -70,7 +69,7 @@ function getArrow(handleToggle, isOpen) {
 
 function RenderList() {
   const { MenuItems } = useFilter();
-  console.log("in render", MenuItems);
+
   return (
     <div>
       <List>
@@ -107,16 +106,6 @@ function Item({ children }) {
 
 function FilterMenuFooter() {
   const { selection } = useFilter();
-
-  const isSelected = (selection) => {
-    let isSelected = false;
-    for (const key of Object.keys(selection)) {
-      if (selection[key]) {
-        isSelected = true;
-      }
-    }
-    return isSelected;
-  };
 
   return (
     <div className="filter-menu-footer">
