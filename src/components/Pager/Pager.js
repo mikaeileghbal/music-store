@@ -20,24 +20,57 @@ export default function Pager({ pageCount }) {
 
   return (
     <div>
-      <div>
-        {page} of {pageCount}
-      </div>
-      <div>
-        {pages.map((item) => (
-          <Page key={item} current={item === page}>
-            {item}
-          </Page>
-        ))}
-      </div>
-      <div>
-        <button type="button" onClick={handlePrevious}>
-          Previous
-        </button>
-        <button type="button" onClick={handleNext}>
-          Next
-        </button>
-      </div>
+      <PagerStatus page={page} pageCount={pageCount} />
+      <PagerPages page={page} pages={pages} />
+      <PagerButtons
+        handleNext={handleNext}
+        handlePrevious={handlePrevious}
+        page={page}
+        pageCount={pageCount}
+      />
+    </div>
+  );
+}
+
+function PagerStatus({ page, pageCount }) {
+  return (
+    <div>
+      {page} of {pageCount}
+    </div>
+  );
+}
+
+function PagerPages({ page, pages }) {
+  return (
+    <div>
+      {pages.map((item) => (
+        <Page key={item} current={item === page}>
+          {item}
+        </Page>
+      ))}
+    </div>
+  );
+}
+
+function PagerButtons({ handleNext, handlePrevious, page, pageCount }) {
+  return (
+    <div>
+      <button
+        className="button"
+        disabled={page === 1}
+        type="button"
+        onClick={handlePrevious}
+      >
+        Previous
+      </button>
+      <button
+        className="button"
+        disabled={page === pageCount}
+        type="button"
+        onClick={handleNext}
+      >
+        Next
+      </button>
     </div>
   );
 }
