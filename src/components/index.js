@@ -7,6 +7,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import Banner from "./Banner/Banner";
 import Category from "./Category/Category";
 import Product from "./Product/Product";
+import Carousel from "./Carousel/Carousel";
 
 export {
   Cart,
@@ -18,4 +19,5 @@ export {
   Banner,
   Category,
   Product,
+  Carousel,
 };

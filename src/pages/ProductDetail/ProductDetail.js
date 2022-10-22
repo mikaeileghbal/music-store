@@ -8,6 +8,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import album from "../../assets/images/killing-me.webp";
+import { Carousel } from "../../components";
 
 export default function ProductDetail() {
   return (
@@ -77,7 +78,9 @@ export default function ProductDetail() {
         </div>
       </section>
       <section className="section-add"></section>
-      <section className="section-like"></section>
+      <section className="section-like">
+        <Carousel />
+      </section>
       <section className="section-details"></section>
     </div>
   );
