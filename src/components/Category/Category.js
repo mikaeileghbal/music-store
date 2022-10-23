@@ -13,6 +13,7 @@ export default function Category() {
 
   useEffect(() => {
     dispatch(loadData(DataTypes.CATEGORIES));
+    dispatch(loadData(DataTypes.PRODUCTS));
   }, [loadData]);
 
   return (

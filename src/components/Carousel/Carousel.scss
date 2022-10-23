@@ -19,5 +19,11 @@
     .carousel-item {
       border: 1px solid yellow;
     }
+
+    img {
+      width: 100%;
+      grid-column: 1 / 6;
+      object-fit: cover;
+    }
   }
 }

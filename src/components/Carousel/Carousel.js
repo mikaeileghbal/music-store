@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import "./Carousel.scss";
 
-const items = ["1", "2", "3", "4"];
-
-export default function Carousel() {
+export default function Carousel({ items, render }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -43,28 +41,31 @@ export default function Carousel() {
           className="inner"
           style={{ transform: `translateX(-${currentIndex * 25}%)` }}
         >
-          {items.map((item, index) => (
-            <div className="carousel-group" key={item}>
-              <h1 className="carousel-item">{item}</h1>
-              <h1 className="carousel-item">{item}</h1>
-              <h1 className="carousel-item">{item}</h1>
-              <h1 className="carousel-item">{item}</h1>
-              <h1 className="carousel-item">{item}</h1>
-            </div>
-          ))}
+          {items.map((item) => render(item))}
         </div>
       </div>
-      <div className="buttons-wrap">
-        <button type="button" onClick={handlePrev}>
-          Prev
-        </button>
-        <span>
-          {currentIndex + 1} / {items.length}
-        </span>
-        <button type="button" onClick={handleNext}>
-          Next
-        </button>
-      </div>
+      <CarouselAction
+        handleNext={handleNext}
+        handlePrev={handlePrev}
+        currentIndex={currentIndex}
+        length={items.length}
+      />
+    </div>
+  );
+}
+
+function CarouselAction({ handlePrev, handleNext, currentIndex, length }) {
+  return (
+    <div className="buttons-wrap">
+      <button type="button" onClick={handlePrev}>
+        Prev
+      </button>
+      <span>
+        {currentIndex + 1} / {length}
+      </span>
+      <button type="button" onClick={handleNext}>
+        Next
+      </button>
     </div>
   );
 }
