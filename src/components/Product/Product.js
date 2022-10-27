@@ -9,10 +9,11 @@ export default function Product({
   title,
   price = 0,
   description = "",
+  to,
 }) {
   return (
     <article className="card">
-      <CatImage image={image} category={category} />
+      <CatImage image={image} to={to} />
       <CatContent
         title={title}
         description={description}
@@ -23,10 +24,10 @@ export default function Product({
   );
 }
 
-function CatImage({ image, category }) {
+function CatImage({ image, to }) {
   return (
     <figure className="cat-image">
-      <Link to={`/category/${category}`} className="cat-link">
+      <Link to={to} className="cat-link">
         <div className="cat-image-wrapper">
           <img src={`../images/${image}`} alt="category name" />
         </div>

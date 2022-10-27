@@ -146,6 +146,7 @@ export const data = {
       image: "botysf-feature_panel.webp",
     },
   ],
+
   products: [
     {
       id: 1,
@@ -356,5 +357,6 @@ export const data = {
       image: "botysf-feature_panel.webp",
     },
   ],
+
   orders: [],
 };

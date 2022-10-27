@@ -9,6 +9,7 @@ import "./Category.scss";
 
 export default function Category() {
   const categories = useSelector((state) => state.categories);
+  const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 .carousel-container {
   overflow: hidden;
-  height: 150px;
+  //height: 150px;
   position: relative;
 
   .inner {
@@ -8,6 +8,7 @@
     display: grid;
     grid-auto-flow: column;
     transition: 0.6s;
+    gap: 0.5em;
   }
   .carousel-group {
     height: 150px;

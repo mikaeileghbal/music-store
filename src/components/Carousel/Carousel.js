@@ -7,14 +7,14 @@ export default function Carousel({ items, render }) {
 
   const handlePrev = () => {
     if (currentIndex === 0) {
-      setCurrentIndex(items.length - 1);
+      setCurrentIndex(items.length / 5 - 1);
     } else {
       setCurrentIndex((state) => state - 1);
     }
   };
 
   const handleNext = () => {
-    if (currentIndex === items.length - 1) {
+    if (currentIndex === items.length / 5 - 1) {
       setCurrentIndex(0);
     } else {
       setCurrentIndex((state) => state + 1);
@@ -48,7 +48,7 @@ export default function Carousel({ items, render }) {
         handleNext={handleNext}
         handlePrev={handlePrev}
         currentIndex={currentIndex}
-        length={items.length}
+        length={items.length / 5}
       />
     </div>
   );

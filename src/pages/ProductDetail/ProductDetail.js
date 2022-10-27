@@ -8,16 +8,17 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import album from "../../assets/images/killing-me.webp";
-import { Carousel } from "../../components";
-import { useSelection } from "../../utils/hooks";
+import { Carousel, Product } from "../../components";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ProductDetail() {
-  const products = useSelection((state) => state);
+  const { products } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  console.log("products: ", products);
+  const carouselProducts = products.splice(0, 20);
+
+  console.log("carouselproducts: ", carouselProducts);
 
   return (
     <div class="container">
@@ -87,38 +88,23 @@ export default function ProductDetail() {
       </section>
       <section className="section-add"></section>
       <section className="section-like">
-        <Carousel render={render} items={items} />
-        <Carousel render={render2} items={items2} />
+        <Carousel render={renderCarousel} items={carouselProducts} />
       </section>
       <section className="section-details"></section>
     </div>
   );
 }
 
-function render(item) {
+function renderCarousel(p) {
   return (
-    <div className="carousel-group" key={item}>
-      <h1 className="carousel-item">{item}</h1>
-      <h1 className="carousel-item">{item}</h1>
-      <h1 className="carousel-item">{item}</h1>
-      <h1 className="carousel-item">{item}</h1>
-      <h1 className="carousel-item">{item}</h1>
-    </div>
+    <Product
+      key={p.id}
+      title={p.name}
+      image={p.image}
+      category={p.category}
+      description={p.description}
+      price={p.price}
+      to={`/${p.name}`}
+    />
   );
 }
-
-function render2(item) {
-  return (
-    <div className="carousel-group" key={item}>
-      <img src={`./images/${item}`} alt="likes" />
-    </div>
-  );
-}
-
-const items = ["1", "2", "3", "4"];
-const items2 = [
-  "3vinyl55_feature_panel.webp",
-  "blackpink-fp.webp",
-  "flash50_feature_panel.webp",
-  "now_feature-panel.webp",
-];
