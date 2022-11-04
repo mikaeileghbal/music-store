@@ -8,6 +8,9 @@ import Banner from "./Banner/Banner";
 import Category from "./Category/Category";
 import Product from "./Product/Product";
 import Carousel from "./Carousel/Carousel";
+import Social from "./Social/Social";
+import List from "./List/List";
+import ListItem from "./ListItem/ListItem";
 
 export {
   Cart,
@@ -20,4 +23,7 @@ export {
   Category,
   Product,
   Carousel,
+  Social,
+  List,
+  ListItem,
 };

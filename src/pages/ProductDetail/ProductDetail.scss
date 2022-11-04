@@ -1,6 +1,7 @@
 .section-album {
   padding: 10px 1.2em;
   display: flex;
+
   .album-art {
     flex: 50%;
     display: flex;
@@ -11,16 +12,19 @@
       flex: 68%;
       text-align: center;
     }
+
     .right {
       flex: 32%;
       img {
         width: 55%;
       }
     }
+
     img {
       width: 100%;
     }
   }
+
   .album-description {
     flex: 50%;
 
@@ -39,7 +43,7 @@
   }
 }
 
-.info-meta {
+.meta-info {
   margin-bottom: 30px;
 
   .price {
@@ -60,6 +64,7 @@
       font-size: 13px;
     }
   }
+
   .link {
     border: none;
     background: transparent;
