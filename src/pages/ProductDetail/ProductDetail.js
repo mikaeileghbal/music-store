@@ -2,26 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./ProductDetail.scss";
 import { VscZoomIn } from "react-icons/vsc";
-<<<<<<< HEAD
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
-import album from "../../assets/images/killing-me.webp";
-import { Carousel, Product } from "../../components";
-
-import { useDispatch, useSelector } from "react-redux";
-
-export default function ProductDetail() {
-  const { products } = useSelector((state) => state);
-  const dispatch = useDispatch();
-
-  const carouselProducts = products.splice(0, 20);
-
-  console.log("carouselproducts: ", carouselProducts);
-=======
 
 import album from "../../assets/images/killing-me.webp";
 import { Carousel, List, ListItem, Product, Social } from "../../components";
@@ -37,7 +17,6 @@ export default function ProductDetail() {
     setCarouselProducts(selectedProducts);
     console.log("carouselproducts: ", selectedProducts);
   }, [products]);
->>>>>>> develop
 
   return (
     <div class="container">
@@ -47,32 +26,13 @@ export default function ProductDetail() {
       </section>
       <section className="section-add"></section>
       <section className="section-like">
-<<<<<<< HEAD
-        <Carousel render={renderCarousel} items={carouselProducts} />
-=======
         <Carousel render={render} items={carouselProducts} />
->>>>>>> develop
       </section>
       <section className="section-details"></section>
     </div>
   );
 }
 
-<<<<<<< HEAD
-function renderCarousel(p) {
-  return (
-    <Product
-      key={p.id}
-      title={p.name}
-      image={p.image}
-      category={p.category}
-      description={p.description}
-      price={p.price}
-      to={`/${p.name}`}
-    />
-  );
-}
-=======
 function AlbumImage() {
   return (
     <div class="album-art">
@@ -141,4 +101,3 @@ function render(product) {
     />
   );
 }
->>>>>>> develop
