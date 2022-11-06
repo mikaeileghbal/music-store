@@ -26,14 +26,17 @@ export default function FilterMenu({ MenuItems, name }) {
     setSelection({ ...selection, [e.target.name]: e.target.checked });
   };
 
+  useEffect(() => {
+    console.log(selection);
+    handleGroupSelection(selection, name);
+  }, [selection]);
+
   return (
     <FilterContext.Provider
       value={{
+        name,
         MenuItems,
         handleToggle,
-        handleGroupSelection,
-        groupSelection,
-        name,
         selection,
         handleSelection,
       }}

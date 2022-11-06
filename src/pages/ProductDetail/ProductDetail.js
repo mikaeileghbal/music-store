@@ -12,10 +12,8 @@ export default function ProductDetail() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("products: ", products);
     const selectedProducts = products.slice(0, 20);
     setCarouselProducts(selectedProducts);
-    console.log("carouselproducts: ", selectedProducts);
   }, [products]);
 
   return (

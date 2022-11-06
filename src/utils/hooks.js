@@ -25,13 +25,12 @@ export function useSelection() {
 }
 
 export function isSelected(selection) {
-  // console.log("Selection in hook: ", selection);
-  // for (const entry of Object.entries(selection)) {
-  //   console.log("entry :", entry);
-  //   for (const item of Object.entries(entry[1])) {
-  //     console.log(item);
-  //     if (item[1]) return true;
-  //   }
-  // }
-  // return false;
+  if (selection) {
+    for (const entry of Object.entries(selection)) {
+      for (const item of Object.entries(entry[1])) {
+        if (item[1]) return true;
+      }
+    }
+  }
+  return false;
 }

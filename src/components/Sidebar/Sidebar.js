@@ -37,7 +37,7 @@ export default function Sidebar() {
   const handleGroupSelection = (selected, name) => {
     setGroupSelection({
       ...groupSelection,
-      [name]: { ...groupSelection[name], [selected]: true },
+      [name]: removeUncheckedItems({ ...groupSelection[name], ...selected }),
     });
   };
 
@@ -54,8 +54,8 @@ export default function Sidebar() {
   };
 
   useEffect(() => {
-    // console.log("group selection:", groupSelection);
-    // setSelected(isSelected(groupSelection));
+    console.log("group selection:", groupSelection);
+    setSelected(isSelected(groupSelection));
   }, [groupSelection]);
 
   useEffect(() => {

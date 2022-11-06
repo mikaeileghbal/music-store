@@ -27,8 +27,6 @@ function CategoryDetailPresentation({ products, loadData }) {
   const { category } = useParams();
   const [items, setItems] = useState([]);
 
-  console.log(products);
-
   useEffect(() => {
     loadData(DataTypes.PRODUCTS);
   }, [loadData]);
