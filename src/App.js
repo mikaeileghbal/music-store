@@ -19,10 +19,14 @@ function App() {
         <Header />
         <main className="main">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/category/:category" element={<CategoryDetail />} />
-            <Route path="/basket" element={<Basket />} />
-            <Route path="/:name" element={<ProductDetail />} />
+            <Route exact path="/" element={<Home />} />
+            <Route
+              exact
+              path="/category/:category"
+              element={<CategoryDetail />}
+            />
+            <Route exact path="/basket" element={<Basket />} />
+            <Route exact path="/:name" element={<ProductDetail />} />
             <Route path="*" element={<NotFound404 />} />
           </Routes>
         </main>

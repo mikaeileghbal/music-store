@@ -13,7 +13,11 @@ export default function Product({
 }) {
   return (
     <article className="card">
+<<<<<<< HEAD
       <CatImage image={image} to={to} />
+=======
+      <CatImage image={image} category={category} title={title} />
+>>>>>>> develop
       <CatContent
         title={title}
         description={description}
@@ -24,10 +28,17 @@ export default function Product({
   );
 }
 
+<<<<<<< HEAD
 function CatImage({ image, to }) {
   return (
     <figure className="cat-image">
       <Link to={to} className="cat-link">
+=======
+function CatImage({ image, category, title }) {
+  return (
+    <figure className="cat-image">
+      <Link to={`/${title}`} className="cat-link">
+>>>>>>> develop
         <div className="cat-image-wrapper">
           <img src={`../images/${image}`} alt="category name" />
         </div>

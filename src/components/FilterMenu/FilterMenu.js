@@ -7,6 +7,7 @@ import { useSidebar } from "../Sidebar/Sidebar";
 
 import "./FilterMenu.scss";
 import { isSelected } from "../../utils/hooks";
+import { List } from "../../components";
 
 const FilterContext = createContext({});
 
@@ -15,7 +16,7 @@ const useFilter = () => useContext(FilterContext);
 export default function FilterMenu({ MenuItems, name }) {
   const [selection, setSelection] = useState({});
   const [toggle, setToggle] = useState(true);
-  const { handleGroupSelection } = useSidebar();
+  const { handleGroupSelection, groupSelection } = useSidebar();
 
   const handleToggle = () => {
     setToggle((toggle) => !toggle);
@@ -25,17 +26,21 @@ export default function FilterMenu({ MenuItems, name }) {
     setSelection({ ...selection, [e.target.name]: e.target.checked });
   };
 
-  useEffect(() => {
-    handleGroupSelection(selection, name);
-  }, [selection, name]);
-
   return (
     <FilterContext.Provider
-      value={{ MenuItems, selection, handleToggle, handleSelection }}
+      value={{
+        MenuItems,
+        handleToggle,
+        handleGroupSelection,
+        groupSelection,
+        name,
+        selection,
+        handleSelection,
+      }}
     >
       <section className="filter-menu card">
         <header>
-          <h3>Genre</h3>
+          <h3>{name}</h3>
           {toggle
             ? getArrow(handleToggle, true)
             : getArrow(handleToggle, false)}
@@ -82,20 +87,19 @@ function RenderList() {
   );
 }
 
-function List({ children }) {
-  return <ul>{children}</ul>;
-}
-
 function Item({ children }) {
-  const { selection, handleSelection } = useFilter();
+  const { handleGroupSelection, groupSelection, name } = useFilter();
+  const { handleSelection, selection } = useFilter();
+
+  //console.log("grpoup: ", groupSelection);
 
   return (
     <li>
-      <label>
+      <label className="filter-menu-item">
         <input
           name={children}
           type="checkbox"
-          onChange={(e) => handleSelection(e)}
+          onChange={(e) => handleSelection(e, children)}
           value={selection[children]}
         />
         {children}
@@ -105,12 +109,12 @@ function Item({ children }) {
 }
 
 function FilterMenuFooter() {
-  const { selection } = useFilter();
+  const {} = useFilter();
 
   return (
     <div className="filter-menu-footer">
       <FilterMenuButton isVisible={true} text="see all" />
-      <FilterMenuButton isVisible={isSelected(selection)} text="apply" />
+      <FilterMenuButton isVisible={isSelected()} text="apply" />
     </div>
   );
 }

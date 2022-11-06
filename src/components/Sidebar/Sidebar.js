@@ -8,7 +8,7 @@ const MenuItems = [
   "Rock & Pop",
   "Metal",
   "R&B & Soul",
-  "  K-pop",
+  "K-pop",
   "Reggae",
   "General",
   "Classical",
@@ -16,50 +16,77 @@ const MenuItems = [
   "Country",
 ];
 
+const selection = {
+  date: {
+    "k-pop": "true",
+    rock: "true",
+  },
+  genre: {
+    pop: "true",
+  },
+};
+
 const SidebarContext = createContext({});
 
 export const useSidebar = () => useContext(SidebarContext);
 
 export default function Sidebar() {
   const [groupSelection, setGroupSelection] = useState({});
+  const [selected, setSelected] = useState(false);
 
-  const handleGroupSelection = (selection, name) => {
-    setGroupSelection({ ...groupSelection, [name]: selection });
+  const handleGroupSelection = (selected, name) => {
+    setGroupSelection({
+      ...groupSelection,
+      [name]: { ...groupSelection[name], [selected]: true },
+    });
   };
 
   const clearAll = () => {
-    setGroupSelection({});
+    // setSelection({});
+    // setGroupSelection({});
+  };
+
+  const removeUncheckedItems = (list) => {
+    for (const key in list) {
+      if (!list[key]) delete list[key];
+    }
+    return list;
   };
 
   useEffect(() => {
-    console.log(groupSelection);
+    // console.log("group selection:", groupSelection);
+    // setSelected(isSelected(groupSelection));
   }, [groupSelection]);
+
+  useEffect(() => {
+    //handleGroupSelection(selection);
+  }, [selection]);
 
   return (
     <SidebarContext.Provider
-      value={{ groupSelection, handleGroupSelection, clearAll }}
+      value={{
+        groupSelection,
+        handleGroupSelection,
+        clearAll,
+      }}
     >
       <div className="sidebar">
         <FilterMenu MenuItems={MenuItems} name="genre" />
         <FilterMenu MenuItems={MenuItems} name="format" />
         <FilterMenu MenuItems={MenuItems} name="date" />
-        <FooterButtons />
+        <FooterButtons selected={selected} />
       </div>
     </SidebarContext.Provider>
   );
 }
 
-function FooterButtons() {
-  const { groupSelection, clearAll } = useSidebar();
+function FooterButtons({ selected }) {
+  const { clearAll } = useSidebar();
 
   return (
     <div className="button-wrapper">
       <FooterButton text="apply" disabled={false} flat="button--flat" />
-      <FooterButton
-        text="clear all"
-        disabled={!isSelected(groupSelection)}
-        clearAll={clearAll}
-      />
+      <FooterButton text="clear all" disabled={!selected} clearAll={clearAll} />
     </div>
   );
 }

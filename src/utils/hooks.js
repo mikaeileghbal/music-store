@@ -25,17 +25,13 @@ export function useSelection() {
 }
 
 export function isSelected(selection) {
-  let resault = false;
-  for (const key of Object.keys(selection)) {
-    if (typeof selection[key] === "object") {
-      console.log("key is object");
-      console.log(selection[key]);
-      return isSelected(selection[key]);
-    } else {
-      console.log("is not object");
-      if (selection[key]) {
-        return true;
-      }
-    }
-  }
+  // console.log("Selection in hook: ", selection);
+  // for (const entry of Object.entries(selection)) {
+  //   console.log("entry :", entry);
+  //   for (const item of Object.entries(entry[1])) {
+  //     console.log(item);
+  //     if (item[1]) return true;
+  //   }
+  // }
+  // return false;
 }
