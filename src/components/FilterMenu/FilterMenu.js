@@ -90,7 +90,8 @@ function RenderList() {
 function Item({ children }) {
   const { handleGroupSelection, groupSelection, name } = useFilter();
   const { handleSelection, selection } = useFilter();
-  console.log("grpoup: ", groupSelection);
+
+  //console.log("grpoup: ", groupSelection);
 
   return (
     <li>

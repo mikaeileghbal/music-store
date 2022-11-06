@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./ProductDetail.scss";
 import { VscZoomIn } from "react-icons/vsc";
 
 import album from "../../assets/images/killing-me.webp";
 import { Carousel, List, ListItem, Product, Social } from "../../components";
-
-import { useDispatch } from "react-redux";
 
 export default function ProductDetail() {
   const { products } = useSelector((state) => state);
@@ -13,9 +12,10 @@ export default function ProductDetail() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("products: ", products);
     const selectedProducts = products.slice(0, 20);
     setCarouselProducts(selectedProducts);
-    console.log("carouselproducts: ", carouselProducts);
+    console.log("carouselproducts: ", selectedProducts);
   }, [products]);
 
   return (
@@ -26,30 +26,9 @@ export default function ProductDetail() {
       </section>
       <section className="section-add"></section>
       <section className="section-like">
-        <Carousel render={render} items={items} />
-        <Carousel render={render2} items={items2} />
+        <Carousel render={render} items={carouselProducts} />
       </section>
       <section className="section-details"></section>
-    </div>
-  );
-}
-
-function render(item) {
-  return (
-    <div className="carousel-group" key={item}>
-      <h1 className="carousel-item">{item}</h1>
-      <h1 className="carousel-item">{item}</h1>
-      <h1 className="carousel-item">{item}</h1>
-      <h1 className="carousel-item">{item}</h1>
-      <h1 className="carousel-item">{item}</h1>
-    </div>
-  );
-}
-
-function render2(item) {
-  return (
-    <div className="carousel-group" key={item}>
-      <img src={`./images/${item}`} alt="likes" />
     </div>
   );
 }
@@ -108,5 +87,17 @@ function MetaDetail() {
         Released: <span>14th December 2021</span>
       </List>
     </List>
+  );
+}
+
+function render(product) {
+  return (
+    <Product
+      category={product.category}
+      image={product.image}
+      title={product.title}
+      description={product.description}
+      price={product.price}
+    />
   );
 }
