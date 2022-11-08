@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { Product, Sidebar } from "../../components";
 import { DataTypes } from "../../data/Types";
 import { loadData } from "../../data/ActionCreators";
@@ -8,28 +8,16 @@ import { loadData } from "../../data/ActionCreators";
 import "./CategoryDetail.scss";
 import { useState } from "react";
 import Options from "../../components/Options/Options";
+import Pager from "../../components/Pager/Pager";
 
-const mapStateProps = (state) => ({
-  products: state.products,
-});
-
-const mapDispatchToProps = {
-  loadData,
-};
-
-const CategoryDetail = connect(
-  mapStateProps,
-  mapDispatchToProps
-)(CategoryDetailPresentation);
-
-function CategoryDetailPresentation({ products, loadData }) {
+function CategoryDetail() {
+  const { products } = useSelector((state) => state.modelData);
+  const dispatch = useDispatch();
   const { category } = useParams();
   const [items, setItems] = useState([]);
 
-  console.log(products);
-
   useEffect(() => {
-    loadData(DataTypes.PRODUCTS);
+    dispatch(loadData(DataTypes.PRODUCTS));
   }, [loadData]);
 
   useEffect(() => {
@@ -59,6 +47,7 @@ function CategoryDetailPresentation({ products, loadData }) {
                 />
               ))}
             </div>
+            <Pager pageCount={10} />
           </div>
         </div>
       </div>

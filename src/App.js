@@ -3,13 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { shopDataStore } from "./data/DataStore";
 
-import Home from "./pages/Home/Home";
-import Basket from "./pages/Basket/Basket";
-import NotFound404 from "./pages/NotFound404";
-import CategoryDetail from "./pages/CategoryDetail/CategoryDetail";
-
+import {
+  Home,
+  Basket,
+  CategoryDetail,
+  ProductDetail,
+  NotFound404,
+} from "./pages";
 import { Footer, Header } from "./components";
-import ProductDetail from "./pages/ProductDetail/ProductDetail";
 
 function App() {
   return (
@@ -18,10 +19,14 @@ function App() {
         <Header />
         <main className="main">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/category/:category" element={<CategoryDetail />} />
-            <Route path="/basket" element={<Basket />} />
-            <Route path="/:name" element={<ProductDetail />} />
+            <Route exact path="/" element={<Home />} />
+            <Route
+              exact
+              path="/category/:category"
+              element={<CategoryDetail />}
+            />
+            <Route exact path="/basket" element={<Basket />} />
+            <Route exact path="/:name" element={<ProductDetail />} />
             <Route path="*" element={<NotFound404 />} />
           </Routes>
         </main>

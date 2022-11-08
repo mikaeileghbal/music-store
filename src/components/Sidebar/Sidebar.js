@@ -1,31 +1,68 @@
-import { clear } from "@testing-library/user-event/dist/clear";
-import React from "react";
-import { useSelection } from "../../utils/hooks";
+import React, { useContext, useState, useEffect, createContext } from "react";
+import { useSelector } from "react-redux";
+import { isSelected } from "../../utils/hooks";
+
 import FilterMenu from "../FilterMenu/FilterMenu";
 import "./Sidebar.scss";
 
+const SidebarContext = createContext({});
+
+export const useSidebar = () => useContext(SidebarContext);
+
 export default function Sidebar() {
-  const { isSelected, handleSelected, clearAll } = useSelection();
+  const [groupSelection, setGroupSelection] = useState({});
+  const [selected, setSelected] = useState(false);
+  const { filterMenu } = useSelector((state) => state.stateData);
+  console.log("filtermenu", filterMenu);
+
+  const handleGroupSelection = (selected, name) => {
+    setGroupSelection({
+      ...groupSelection,
+      [name]: removeUncheckedItems({ ...groupSelection[name], ...selected }),
+    });
+  };
+
+  const clearAll = () => {
+    // setSelection({});
+    // setGroupSelection({});
+  };
+
+  const removeUncheckedItems = (list) => {
+    for (const key in list) {
+      if (!list[key]) delete list[key];
+    }
+    return list;
+  };
+
+  useEffect(() => {
+    setSelected(isSelected(groupSelection));
+  }, [groupSelection]);
 
   return (
-    <div className="sidebar">
-      <FilterMenu onSelected={handleSelected} id={0} />
-      <FilterMenu onSelected={handleSelected} id={1} />
-      <FilterMenu onSelected={handleSelected} id={2} />
-      <FooterButtons isSelected={isSelected} clearAll={clearAll} />
-    </div>
+    <SidebarContext.Provider
+      value={{
+        groupSelection,
+        handleGroupSelection,
+        clearAll,
+      }}
+    >
+      <div className="sidebar">
+        <FilterMenu MenuItems={filterMenu.date} name="genre" />
+        <FilterMenu MenuItems={filterMenu.genre} name="format" />
+        <FilterMenu MenuItems={filterMenu.year} name="date" />
+        <FooterButtons selected={selected} />
+      </div>
+    </SidebarContext.Provider>
   );
 }
 
-function FooterButtons({ isSelected, clearAll }) {
+function FooterButtons({ selected }) {
+  const { clearAll } = useSidebar();
+
   return (
     <div className="button-wrapper">
       <FooterButton text="apply" disabled={false} flat="button--flat" />
-      <FooterButton
-        text="clear all"
-        disabled={!isSelected}
-        clearAll={clearAll}
-      />
+      <FooterButton text="clear all" disabled={!selected} clearAll={clearAll} />
     </div>
   );
 }

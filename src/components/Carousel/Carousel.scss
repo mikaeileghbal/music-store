@@ -1,0 +1,32 @@
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+
+  .inner {
+    width: calc(400%);
+    display: grid;
+    grid-auto-flow: column;
+    transition: 0.6s;
+    display: grid;
+    gap: 10px;
+    //grid-template-columns: repeat(5, 1fr);
+
+    .card {
+    }
+  }
+
+  .carousel-group {
+    background-color: darkmagenta;
+    border: 1px solid black;
+
+    .carousel-item {
+      border: 1px solid yellow;
+    }
+
+    img {
+      width: 100%;
+      grid-column: 1 / 6;
+      object-fit: cover;
+    }
+  }
+}

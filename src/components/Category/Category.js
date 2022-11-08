@@ -1,25 +1,18 @@
 import { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { loadData } from "../../data/ActionCreators";
 import { DataTypes } from "../../data/Types";
-import CategoryItem from "../CategoryItem/CategoryItem";
+import { CategoryItem } from "../../components";
 
 import "./Category.scss";
 
-const mapStateToProps = (state) => ({
-  categories: state.categories,
-});
+export default function Category() {
+  const categories = useSelector((state) => state.modelData.categories);
+  const dispatch = useDispatch();
 
-const mapDispatchToProps = {
-  loadData,
-};
-
-const Category = connect(mapStateToProps, mapDispatchToProps)(CategoryPresent);
-
-function CategoryPresent({ categories, loadData }) {
   useEffect(() => {
-    loadData(DataTypes.CATEGORIES);
+    dispatch(loadData(DataTypes.CATEGORIES));
   }, [loadData]);
 
   return (
@@ -39,5 +32,3 @@ function CategoryPresent({ categories, loadData }) {
     </div>
   );
 }
-
-export default Category;

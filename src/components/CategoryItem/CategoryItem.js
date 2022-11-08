@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
+
 import "./CatgoryItem.scss";
 
 export default function CategoryItem({
@@ -10,14 +10,6 @@ export default function CategoryItem({
   price = 0,
   description = "",
 }) {
-  const navigate = useNavigate();
-
-  const showCategory = (e) => {
-    console.log("clicked");
-    e.preventDefault();
-    navigate(`/category:1`);
-  };
-
   return (
     <article className="card">
       <CatImage image={image} category={category} />
