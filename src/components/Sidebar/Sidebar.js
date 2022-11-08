@@ -1,30 +1,9 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
+import { useSelector } from "react-redux";
 import { isSelected } from "../../utils/hooks";
 
 import FilterMenu from "../FilterMenu/FilterMenu";
 import "./Sidebar.scss";
-
-const MenuItems = [
-  "Rock & Pop",
-  "Metal",
-  "R&B & Soul",
-  "K-pop",
-  "Reggae",
-  "General",
-  "Classical",
-  "Dance",
-  "Country",
-];
-
-const selection = {
-  date: {
-    "k-pop": "true",
-    rock: "true",
-  },
-  genre: {
-    pop: "true",
-  },
-};
 
 const SidebarContext = createContext({});
 
@@ -33,6 +12,8 @@ export const useSidebar = () => useContext(SidebarContext);
 export default function Sidebar() {
   const [groupSelection, setGroupSelection] = useState({});
   const [selected, setSelected] = useState(false);
+  const { filterMenu } = useSelector((state) => state.stateData);
+  console.log("filtermenu", filterMenu);
 
   const handleGroupSelection = (selected, name) => {
     setGroupSelection({
@@ -54,13 +35,8 @@ export default function Sidebar() {
   };
 
   useEffect(() => {
-    console.log("group selection:", groupSelection);
     setSelected(isSelected(groupSelection));
   }, [groupSelection]);
-
-  useEffect(() => {
-    //handleGroupSelection(selection);
-  }, [selection]);
 
   return (
     <SidebarContext.Provider
@@ -71,9 +47,9 @@ export default function Sidebar() {
       }}
     >
       <div className="sidebar">
-        <FilterMenu MenuItems={MenuItems} name="genre" />
-        <FilterMenu MenuItems={MenuItems} name="format" />
-        <FilterMenu MenuItems={MenuItems} name="date" />
+        <FilterMenu MenuItems={filterMenu.date} name="genre" />
+        <FilterMenu MenuItems={filterMenu.genre} name="format" />
+        <FilterMenu MenuItems={filterMenu.year} name="date" />
         <FooterButtons selected={selected} />
       </div>
     </SidebarContext.Provider>

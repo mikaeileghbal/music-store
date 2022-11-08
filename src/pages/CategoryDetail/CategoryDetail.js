@@ -11,7 +11,7 @@ import Options from "../../components/Options/Options";
 import Pager from "../../components/Pager/Pager";
 
 const mapStateProps = (state) => ({
-  products: state.products,
+  products: state.modelData.products,
 });
 
 const mapDispatchToProps = {

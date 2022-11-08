@@ -7,7 +7,7 @@ import album from "../../assets/images/killing-me.webp";
 import { Carousel, List, ListItem, Product, Social } from "../../components";
 
 export default function ProductDetail() {
-  const { products } = useSelector((state) => state);
+  const { products } = useSelector((state) => state.modelData);
   const [carouselProducts, setCarouselProducts] = useState([]);
   const dispatch = useDispatch();
 
