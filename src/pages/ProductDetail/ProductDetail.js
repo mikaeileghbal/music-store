@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./ProductDetail.scss";
 import { VscZoomIn } from "react-icons/vsc";
 
@@ -9,7 +9,6 @@ import { Carousel, List, ListItem, Product, Social } from "../../components";
 export default function ProductDetail() {
   const { products } = useSelector((state) => state.modelData);
   const [carouselProducts, setCarouselProducts] = useState([]);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const selectedProducts = products.slice(0, 20);
