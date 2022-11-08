@@ -10,31 +10,15 @@ import { useState } from "react";
 import Options from "../../components/Options/Options";
 import Pager from "../../components/Pager/Pager";
 
-// const mapStateProps = (state) => ({
-//   products: state.products,
-// });
-
-// const mapDispatchToProps = {
-//   loadData,
-// };
-
-// const CategoryDetail = connect(
-//   mapStateProps,
-//   mapDispatchToProps
-// )(CategoryDetailPresentation);
-
-//function CategoryDetailPresentation({ products, loadData }) {
 function CategoryDetail() {
-  const products = useSelector((state) => state.products);
+  const { products } = useSelector((state) => state.modelData);
   const dispatch = useDispatch();
   const { category } = useParams();
   const [items, setItems] = useState([]);
 
-  // useEffect(() => {
-  //   loadData(DataTypes.PRODUCTS);
-  // }, [loadData]);
-
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(loadData(DataTypes.PRODUCTS));
+  }, [loadData]);
 
   useEffect(() => {
     setItems(products.filter((product) => product.category === category));

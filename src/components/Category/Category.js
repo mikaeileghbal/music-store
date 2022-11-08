@@ -8,13 +8,11 @@ import { CategoryItem } from "../../components";
 import "./Category.scss";
 
 export default function Category() {
-  const categories = useSelector((state) => state.categories);
-  const products = useSelector((state) => state.products);
+  const categories = useSelector((state) => state.modelData.categories);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadData(DataTypes.CATEGORIES));
-    dispatch(loadData(DataTypes.PRODUCTS));
   }, [loadData]);
 
   return (

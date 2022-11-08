@@ -9,6 +9,6 @@ export const shopReducer = (state, action) => {
         [action.payload.dataType]: action.payload.data,
       };
     default:
-      return state || data;
+      return state || data.modelData;
   }
 };

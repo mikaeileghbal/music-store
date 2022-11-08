@@ -5,7 +5,7 @@ export const loadData = (dataType) => ({
   type: ActionTypes.DATA_LOAD,
   payload: {
     dataType: dataType,
-    data: phData[dataType],
+    data: phData.modelData[dataType],
   },
 });
 
