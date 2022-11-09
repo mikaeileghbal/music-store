@@ -1,4 +1,5 @@
 import React from "react";
+import Social from "../Social/Social";
 import "./Footer.scss";
 
 export default function Footer() {
@@ -88,6 +89,7 @@ export default function Footer() {
                   </li>
                 </ul>
               </nav>
+              <Social />
             </div>
           </div>
         </div>

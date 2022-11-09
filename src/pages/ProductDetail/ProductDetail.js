@@ -63,7 +63,7 @@ function AlbumDescription() {
         </p>
         <MetaDetail />
       </div>
-      <div class="social-wrapper">
+      <div class="social-container">
         <span>Share:</span>
         <Social />
       </div>
@@ -73,17 +73,19 @@ function AlbumDescription() {
 
 function MetaDetail() {
   return (
-    <List className="meta-detail">
-      <ListItem>
-        Format: <span>CD Single</span>
-      </ListItem>
-      <ListItem>
-        Category: <span>K-pop</span>
-      </ListItem>
+    <div className="meta-detail">
       <List>
-        Released: <span>14th December 2021</span>
+        <ListItem>
+          Format: <span>CD Single</span>
+        </ListItem>
+        <ListItem>
+          Category: <span>K-pop</span>
+        </ListItem>
+        <ListItem>
+          Released: <span>14th December 2021</span>
+        </ListItem>
       </List>
-    </List>
+    </div>
   );
 }
 

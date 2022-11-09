@@ -11,20 +11,22 @@ import "./Social.scss";
 
 export default function Social() {
   return (
-    <SocialList>
-      <SocialItem to="tweeter.com" className="social-icon">
-        <FaTwitter />
-      </SocialItem>
-      <SocialItem to="facebook.com" className="social-icon">
-        <FaInstagram />
-      </SocialItem>
-      <SocialItem to="instagram.com" className="social-icon">
-        <FaFacebookF />
-      </SocialItem>
-      <SocialItem to="linkedin.com" className="social-icon">
-        <FaLinkedinIn />
-      </SocialItem>
-    </SocialList>
+    <div className="social-wrapper">
+      <SocialList>
+        <SocialItem to="tweeter.com" className="social-icon">
+          <FaTwitter />
+        </SocialItem>
+        <SocialItem to="facebook.com" className="social-icon">
+          <FaInstagram />
+        </SocialItem>
+        <SocialItem to="instagram.com" className="social-icon">
+          <FaFacebookF />
+        </SocialItem>
+        <SocialItem to="linkedin.com" className="social-icon">
+          <FaLinkedinIn />
+        </SocialItem>
+      </SocialList>
+    </div>
   );
 }
 function SocialList({ children }) {
@@ -33,7 +35,7 @@ function SocialList({ children }) {
 
 function SocialItem({ children, to, className }) {
   return (
-    <li>
+    <li className="social__item">
       <a href={to} className={className}>
         {children}
       </a>
