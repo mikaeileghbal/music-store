@@ -13,16 +13,16 @@ export default function Social() {
   return (
     <div className="social-wrapper">
       <SocialList>
-        <SocialItem to="tweeter.com" className="social-icon">
+        <SocialItem to="tweeter.com" className="social-icon tweeter">
           <FaTwitter />
         </SocialItem>
-        <SocialItem to="facebook.com" className="social-icon">
-          <FaInstagram />
-        </SocialItem>
-        <SocialItem to="instagram.com" className="social-icon">
+        <SocialItem to="facebook.com" className="social-icon facebook">
           <FaFacebookF />
         </SocialItem>
-        <SocialItem to="linkedin.com" className="social-icon">
+        <SocialItem to="instagram.com" className="social-icon instagram">
+          <FaInstagram />
+        </SocialItem>
+        <SocialItem to="linkedin.com" className="social-icon linkedin">
           <FaLinkedinIn />
         </SocialItem>
       </SocialList>

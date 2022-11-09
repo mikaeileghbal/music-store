@@ -89,7 +89,10 @@ export default function Footer() {
                   </li>
                 </ul>
               </nav>
-              <Social />
+              <div className="footer__social__container">
+                <h3 className="footer__block__heading">Stay in touch</h3>
+                <Social />
+              </div>
             </div>
           </div>
         </div>
