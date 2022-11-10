@@ -77,45 +77,24 @@
 
 .meta-detail {
   margin-top: 30px;
-  padding: 10px 0;
+  padding: 14px 0;
   border-top: 1px solid #d4d6d9;
   border-bottom: 1px solid #d4d6d9;
 
   li {
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 2;
 
-    > span {
+    span {
       font-weight: 700;
     }
   }
 }
 
-.social-wrapper {
+.social-container {
   display: flex;
   align-items: center;
-
   > span {
-    font-size: 14px;
-    font-weight: 600;
-  }
-  .social {
-    display: flex;
-
-    .social-icon {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #00acee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: 8px;
-
-      svg {
-        color: white;
-      }
-    }
+    margin-right: 8px;
   }
 }

@@ -35,7 +35,15 @@ export default function Carousel({ items, render }) {
 
   return (
     <div className="carousel">
-      <div className="carousel-title">You might like...</div>
+      <div className="carousel__header">
+        <h2 className="carousel__header__title">You might like...</h2>
+        <CarouselAction
+          handleNext={handleNext}
+          handlePrev={handlePrev}
+          currentIndex={currentIndex}
+          length={items.length / 5}
+        />
+      </div>{" "}
       <div className="carousel-container">
         <div
           className="inner"
@@ -44,28 +52,26 @@ export default function Carousel({ items, render }) {
           {items.map((item) => render(item))}
         </div>
       </div>
-      <CarouselAction
-        handleNext={handleNext}
-        handlePrev={handlePrev}
-        currentIndex={currentIndex}
-        length={items.length / 5}
-      />
     </div>
   );
 }
 
 function CarouselAction({ handlePrev, handleNext, currentIndex, length }) {
   return (
-    <div className="buttons-wrap">
-      <button type="button" onClick={handlePrev}>
-        Prev
-      </button>
-      <span>
-        {currentIndex + 1} / {length}
-      </span>
-      <button type="button" onClick={handleNext}>
-        Next
-      </button>
+    <div className="buttons__wrap">
+      <button
+        className="button__previous"
+        type="button"
+        onClick={handlePrev}
+      ></button>
+      <span className="number">{currentIndex + 1}</span>
+      <span className="divide"></span>
+      <span className="length">{length}</span>
+      <button
+        className="button__next"
+        type="button"
+        onClick={handleNext}
+      ></button>
     </div>
   );
 }
