@@ -22,10 +22,7 @@ export default function Sidebar() {
     });
   };
 
-  const clearAll = () => {
-    // setSelection({});
-    // setGroupSelection({});
-  };
+  const clearAll = () => {};
 
   const removeUncheckedItems = (list) => {
     for (const key in list) {
@@ -36,16 +33,13 @@ export default function Sidebar() {
 
   useEffect(() => {
     setSelected(isSelected(groupSelection));
+    console.log(groupSelection);
   }, [groupSelection]);
 
+  const providerValue = { groupSelection, handleGroupSelection, clearAll };
+
   return (
-    <SidebarContext.Provider
-      value={{
-        groupSelection,
-        handleGroupSelection,
-        clearAll,
-      }}
-    >
+    <SidebarContext.Provider value={providerValue}>
       <div className="sidebar">
         <FilterMenu MenuItems={filterMenu.date} name="genre" />
         <FilterMenu MenuItems={filterMenu.genre} name="format" />
