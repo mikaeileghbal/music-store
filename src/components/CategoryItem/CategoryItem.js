@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useSelection } from "../../utils/hooks";
 
 import "./CatgoryItem.scss";
 
@@ -25,14 +27,14 @@ export default function CategoryItem({
 
 function CatImage({ image, category }) {
   return (
-    <figure className="cat-image">
-      <Link to={`/category/${category}`} className="cat-link">
+    <Link to={`/category/${category}`} className="cat-link">
+      <figure className="cat-image">
         <div className="cat-image-wrapper">
           <img src={`../images/${image}`} alt="category name" />
         </div>
-      </Link>
-      <div>{/* the yello icon goes here */}</div>
-    </figure>
+        <div>{/* the yello icon goes here */}</div>
+      </figure>
+    </Link>
   );
 }
 

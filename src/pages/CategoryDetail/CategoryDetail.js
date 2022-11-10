@@ -23,6 +23,7 @@ function CategoryDetail() {
   useEffect(() => {
     setItems(products.filter((product) => product.category === category));
     console.log(items);
+    console.log("filtered prod:", products);
   }, [category]);
 
   return (
@@ -44,6 +45,7 @@ function CategoryDetail() {
                   category={p.category}
                   description={p.description}
                   price={p.price}
+                  to={`/${p.name}`}
                 />
               ))}
             </div>
