@@ -4,7 +4,15 @@ import "./ProductDetail.scss";
 import { VscZoomIn } from "react-icons/vsc";
 
 import album from "../../assets/images/killing-me.webp";
-import { Carousel, List, ListItem, Product, Social } from "../../components";
+import {
+  Carousel,
+  List,
+  ListItem,
+  Product,
+  Social,
+  Tab,
+  TabItem,
+} from "../../components";
 
 export default function ProductDetail() {
   const { products } = useSelector((state) => state.modelData);
@@ -23,9 +31,16 @@ export default function ProductDetail() {
       </section>
       <section className="section-add"></section>
       <section className="section-like">
-        <Carousel render={render} items={carouselProducts} />
+        <Carousel render={renderCarousel} items={carouselProducts} />
       </section>
-      <section className="section-details"></section>
+      <section className="section-details">
+        <Tab>
+          <TabItem name="description" render={renderDescription} />
+          <TabItem name="tracks" render={renderTracks} />
+          <TabItem name="details" render={renderDetails} />
+          <TabItem name="delivery" render={renderDelivery} />
+        </Tab>
+      </section>
     </div>
   );
 }
@@ -35,7 +50,7 @@ function AlbumImage() {
     <div class="album-art">
       <div class="left">
         <img src={album} alt="album" />
-        <button className="button icon-btn">
+        <button className="button icon-btn button-zoom">
           <VscZoomIn /> zoom
         </button>
       </div>
@@ -89,14 +104,32 @@ function MetaDetail() {
   );
 }
 
-function render(product) {
+function renderCarousel(product) {
   return (
     <Product
+      key={product.id}
       category={product.category}
       image={product.image}
       title={product.title}
       description={product.description}
       price={product.price}
+      showbtn={false}
     />
   );
+}
+
+function renderDescription() {
+  return <p>Description</p>;
+}
+
+function renderTracks() {
+  return <p>Tracks list</p>;
+}
+
+function renderDetails() {
+  return <p>Details</p>;
+}
+
+function renderDelivery() {
+  return <p>Delivery</p>;
 }

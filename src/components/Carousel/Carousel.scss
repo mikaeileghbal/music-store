@@ -48,20 +48,32 @@
 .buttons__wrap {
   //background-color: red;
 
-  button {
-    background-color: transparent;
+  .button__previous,
+  .button__next {
     border: none;
     width: 14px;
     height: 14px;
     border-bottom: 4px solid #787878;
     border-right: 4px solid #787878;
-    transform: rotate(-45deg);
-    margin-left: 8px;
+    cursor: pointer;
+    transition: 0.3s;
   }
 
-  button.button__previous {
+  .button__previous {
     transform: rotate(135deg);
-    margin-left: -10px;
+    margin-right: 8px;
+
+    &:hover {
+      transform: rotate(135deg) translate(2px, 2px);
+    }
+  }
+  .button__next {
+    transform: rotate(-45deg);
+    margin-left: 8px;
+
+    &:hover {
+      transform: rotate(-45deg) translate(2px, 2px);
+    }
   }
 
   > span {
@@ -74,7 +86,7 @@
     display: inline-block;
   }
   .number {
-    transform: translateY(-3px);
+    transform: translate(-3px, -3px);
   }
   .length {
     transform: translate(3px, 5px);
@@ -87,5 +99,7 @@
   height: 20px;
   border-bottom: 1px solid #363636;
   transform: rotate(-50deg);
-  margin-left: -5px;
+  margin-left: -10px;
+  padding: 10px;
+  opacity: 0.2;
 }

@@ -110,6 +110,15 @@ a {
   width: 100%;
 }
 
+.button-zoom {
+  background: transparent;
+  color: #ec0577;
+  border: none;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
 button:disabled {
   background-color: transparent;
   color: gray;

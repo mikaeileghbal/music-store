@@ -67,7 +67,11 @@ function CarouselAction({ handlePrev, handleNext, currentIndex, length }) {
       <span className="number">{currentIndex + 1}</span>
       <span className="divide"></span>
       <span className="length">{length}</span>
-      <button type="button" onClick={handleNext}></button>
+      <button
+        className="button__next"
+        type="button"
+        onClick={handleNext}
+      ></button>
     </div>
   );
 }

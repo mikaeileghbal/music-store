@@ -11,6 +11,8 @@ import Carousel from "./Carousel/Carousel";
 import Social from "./Social/Social";
 import List from "./List/List";
 import ListItem from "./ListItem/ListItem";
+import Tab from "./Tab/Tab";
+import TabItem from "./TabItem/TabItem";
 
 export {
   Cart,
@@ -26,4 +28,6 @@ export {
   Social,
   List,
   ListItem,
+  Tab,
+  TabItem,
 };
