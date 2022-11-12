@@ -1,0 +1,45 @@
+.social-wrapper {
+  display: flex;
+  align-items: center;
+
+  .social__item:not(:first-child) {
+    margin-left: 8px;
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .social {
+    display: flex;
+
+    .social-icon {
+      display: inline-block;
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #00acee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        color: white;
+      }
+    }
+
+    .tweeter {
+      background-color: #00acee;
+    }
+    .facebook {
+      background-color: #3b5998;
+    }
+    .instagram {
+      background-color: #ffcf41;
+    }
+    .linkedin {
+      background-color: #0976b4;
+    }
+  }
+}

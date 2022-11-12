@@ -9,7 +9,11 @@ export default function Product({
   title,
   price = 0,
   description = "",
+<<<<<<< HEAD
   to,
+=======
+  showbtn,
+>>>>>>> develop
 }) {
   return (
     <article className="card">
@@ -19,6 +23,7 @@ export default function Product({
         description={description}
         price={price}
         category={category}
+        showbtn={showbtn}
       />
     </article>
   );
@@ -37,7 +42,7 @@ function CatImage({ image, category, title }) {
   );
 }
 
-function CatContent({ title, description, price, category }) {
+function CatContent({ title, description, price, category, showbtn = true }) {
   return (
     <div className="cat-content">
       <h2 className="title">{title}</h2>
@@ -46,10 +51,12 @@ function CatContent({ title, description, price, category }) {
       {price > 0 && <p className="price">{`$${price}`}</p>}
       <p className="media-type">CD box set</p>
       <div className="button-wrapper">
-        <button className="button button--category button--100">
-          add to basket
-          <MdOutlineKeyboardArrowRight size={24} />
-        </button>
+        {showbtn && (
+          <button className="button button--category button--100">
+            add to basket
+            <MdOutlineKeyboardArrowRight size={24} />
+          </button>
+        )}
       </div>
     </div>
   );
