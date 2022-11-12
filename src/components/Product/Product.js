@@ -9,11 +9,7 @@ export default function Product({
   title,
   price = 0,
   description = "",
-<<<<<<< HEAD
-  to,
-=======
   showbtn,
->>>>>>> develop
 }) {
   return (
     <article className="card">
