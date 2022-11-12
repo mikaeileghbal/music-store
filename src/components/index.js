@@ -13,6 +13,7 @@ import List from "./List/List";
 import ListItem from "./ListItem/ListItem";
 import Tab from "./Tab/Tab";
 import TabItem from "./TabItem/TabItem";
+import RenderTrackList from "./RenderTrackList/RenderTrackList";
 
 export {
   Cart,
@@ -30,4 +31,5 @@ export {
   ListItem,
   Tab,
   TabItem,
+  RenderTrackList,
 };

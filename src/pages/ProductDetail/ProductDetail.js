@@ -9,6 +9,7 @@ import {
   List,
   ListItem,
   Product,
+  RenderTrackList,
   Social,
   Tab,
   TabItem,
@@ -37,10 +38,10 @@ export default function ProductDetail() {
       </div>
       <section className="section-details">
         <Tab>
-          <TabItem name="Description" render={renderDescription} />
-          <TabItem name="Track Listing" render={renderTracks} />
-          <TabItem name="Product Details" render={renderDetails} />
-          <TabItem name="Delivery and Returns" render={renderDelivery} />
+          <TabItem name="Description" render={<RenderDescription />} />
+          <TabItem name="Track Listing" render={<RenderTrackList />} />
+          <TabItem name="Product Details" render={<RenderDetails />} />
+          <TabItem name="Delivery and Returns" render={<RenderDelivery />} />
         </Tab>
       </section>
     </>
@@ -120,7 +121,7 @@ function renderCarousel(product) {
   );
 }
 
-function renderDescription() {
+function RenderDescription() {
   return (
     <p>
       Music from the motion picture 'Top Gun: Maverick', featuring the singles
@@ -138,86 +139,7 @@ function renderDescription() {
   );
 }
 
-function renderTracks() {
-  return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Track</th>
-            <th>Track name</th>
-            <th>Artist</th>
-            <th>time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Track 1:</th>
-            <td>Main title</td>
-            <td>Various Perfomers</td>
-            <td>3:36</td>
-          </tr>
-          <tr>
-            <th>Track 2:</th>
-            <td>Main title</td>
-            <td>Various Perfomers</td>
-            <td>3:36</td>
-          </tr>
-          <tr>
-            <th>Track 3:</th>
-            <td>Main title</td>
-            <td>Various Perfomers</td>
-            <td>3:36</td>
-          </tr>
-          <tr>
-            <th>Track 4:</th>
-            <td>Main title</td>
-            <td>Various Perfomers</td>
-            <td>3:36</td>
-          </tr>
-          <tr>
-            <th>Track 5:</th>
-            <td>Main title</td>
-            <td>Various Perfomers</td>
-            <td>3:36</td>
-          </tr>
-          <tr>
-            <th>Track 6:</th>
-            <td>Main title</td>
-            <td>Various Perfomers</td>
-            <td>3:36</td>
-          </tr>
-          <tr>
-            <th>Track 7:</th>
-            <td>Main title</td>
-            <td>Various Perfomers</td>
-            <td>3:36</td>
-          </tr>
-          <tr>
-            <th>Track 8:</th>
-            <td>Main title</td>
-            <td>Various Perfomers</td>
-            <td>3:36</td>
-          </tr>
-          <tr>
-            <th>Track 9:</th>
-            <td>Main title</td>
-            <td>Various Perfomers</td>
-            <td>3:36</td>
-          </tr>
-          <tr>
-            <th>Track 10:</th>
-            <td>Main title</td>
-            <td>Various Perfomers</td>
-            <td>3:36</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-function renderDetails() {
+function RenderDetails() {
   return (
     <div>
       <table>
@@ -240,7 +162,7 @@ function renderDetails() {
   );
 }
 
-function renderDelivery() {
+function RenderDelivery() {
   return (
     <div>
       <strong>When will my order arrive?</strong>
