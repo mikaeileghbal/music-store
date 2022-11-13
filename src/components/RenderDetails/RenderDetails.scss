@@ -1,0 +1,13 @@
+table.detail__table {
+  border: 1px solid #d3d6d9;
+  border-left: 6px solid #d3d6d9;
+
+  tr {
+    background-color: white;
+  }
+
+  td:nth-child(2) {
+    border-left: 1px solid #d3d6d9;
+    width: 70%;
+  }
+}
