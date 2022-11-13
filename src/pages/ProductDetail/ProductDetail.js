@@ -9,6 +9,10 @@ import {
   List,
   ListItem,
   Product,
+  RenderDelivery,
+  RenderDescription,
+  RenderDetails,
+  RenderTrackList,
   Social,
   Tab,
   TabItem,
@@ -24,24 +28,26 @@ export default function ProductDetail() {
   }, [products]);
 
   return (
-    <div class="container">
-      <section className="section-album">
-        <AlbumImage />
-        <AlbumDescription />
-      </section>
-      <section className="section-add"></section>
-      <section className="section-like">
-        <Carousel render={renderCarousel} items={carouselProducts} />
-      </section>
+    <>
+      <div class="container">
+        <section className="section-album">
+          <AlbumImage />
+          <AlbumDescription />
+        </section>
+        <section className="section-add"></section>
+        <section className="section-like">
+          <Carousel render={renderCarousel} items={carouselProducts} />
+        </section>
+      </div>
       <section className="section-details">
         <Tab>
-          <TabItem name="description" render={renderDescription} />
-          <TabItem name="tracks" render={renderTracks} />
-          <TabItem name="details" render={renderDetails} />
-          <TabItem name="delivery" render={renderDelivery} />
+          <TabItem name="Description" render={<RenderDescription />} />
+          <TabItem name="Track Listing" render={<RenderTrackList />} />
+          <TabItem name="Product Details" render={<RenderDetails />} />
+          <TabItem name="Delivery and Returns" render={<RenderDelivery />} />
         </Tab>
       </section>
-    </div>
+    </>
   );
 }
 
@@ -116,20 +122,4 @@ function renderCarousel(product) {
       showbtn={false}
     />
   );
-}
-
-function renderDescription() {
-  return <p>Description</p>;
-}
-
-function renderTracks() {
-  return <p>Tracks list</p>;
-}
-
-function renderDetails() {
-  return <p>Details</p>;
-}
-
-function renderDelivery() {
-  return <p>Delivery</p>;
 }
