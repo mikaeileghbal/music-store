@@ -14,6 +14,9 @@ import ListItem from "./ListItem/ListItem";
 import Tab from "./Tab/Tab";
 import TabItem from "./TabItem/TabItem";
 import RenderTrackList from "./RenderTrackList/RenderTrackList";
+import RenderDetails from "./RenderDetails/RenderDetails";
+import RenderDescription from "./RenderDescription/RenderDescription";
+import RenderDelivery from "./RenderDelivery/RenderDelivery";
 
 export {
   Cart,
@@ -32,4 +35,7 @@ export {
   Tab,
   TabItem,
   RenderTrackList,
+  RenderDetails,
+  RenderDescription,
+  RenderDelivery,
 };
