@@ -18,6 +18,11 @@ export default function Pager({ pageCount }) {
     if (page < pageCount) setPage((page) => page + 1);
   };
 
+  const handleSelectPage = (index) => {
+    console.log(index);
+    setPage(index);
+  };
+
   return (
     <div className="page__container">
       <div className="page__controls">
@@ -29,7 +34,7 @@ export default function Pager({ pageCount }) {
         >
           <MdKeyboardArrowLeft size={24} />
         </button>
-        <PagerPages page={page} pages={pages} />
+        <PagerPages page={page} pages={pages} onSelect={handleSelectPage} />
         <button
           className="page__button next"
           disabled={page === pageCount}
@@ -52,11 +57,15 @@ function PagerStatus({ page, pageCount }) {
   );
 }
 
-function PagerPages({ page, pages }) {
+function PagerPages({ page, pages, onSelect }) {
   return (
     <div>
       {pages.map((item) => (
-        <Page key={item} current={item === page}>
+        <Page
+          key={item}
+          current={item === page}
+          onSelect={() => onSelect(item)}
+        >
           {item}
         </Page>
       ))}
@@ -64,9 +73,13 @@ function PagerPages({ page, pages }) {
   );
 }
 
-function Page({ children, current }) {
+function Page({ children, current, onSelect }) {
   const getCurrentPageClass = (current) => {
     return current ? "page current-page" : "page";
   };
-  return <span className={getCurrentPageClass(current)}>{children}</span>;
+  return (
+    <span onClick={onSelect} className={getCurrentPageClass(current)}>
+      {children}
+    </span>
+  );
 }
