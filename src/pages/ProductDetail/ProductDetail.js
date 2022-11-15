@@ -5,6 +5,7 @@ import { VscZoomIn } from "react-icons/vsc";
 
 import album from "../../assets/images/killing-me.webp";
 import {
+  AddToCart,
   Carousel,
   List,
   ListItem,
@@ -34,7 +35,9 @@ export default function ProductDetail() {
           <AlbumImage />
           <AlbumDescription />
         </section>
-        <section className="section-add"></section>
+        <section className="section-add">
+          <AddToCart />
+        </section>
         <section className="section-like">
           <Carousel render={renderCarousel} items={carouselProducts} />
         </section>
