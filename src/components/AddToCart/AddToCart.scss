@@ -1,6 +1,7 @@
 .add__container {
   display: flex;
   margin-bottom: 50px;
+  margin-top: 25px;
 }
 
 .add__block {
@@ -21,6 +22,7 @@
     }
     p {
       font-size: 14px;
+      line-height: 20px;
     }
   }
 
@@ -29,6 +31,9 @@
     width: calc(100% / 12 * 7);
     background-color: #ffffff;
     padding: 30px 110px;
+    .row {
+      max-width: 530px;
+    }
   }
 
   .row {
@@ -42,6 +47,8 @@
   .quantity {
     display: flex;
     flex-direction: column;
+    margin-right: 20px;
+    min-width: 250px;
 
     .controls__wrap {
       margin-top: 5px;
@@ -92,11 +99,21 @@
   }
 
   .button__add {
-    padding: 15px 20px;
+    width: 196px;
+    padding: 14px 20px;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 1px;
     transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    //padding-left: 22px;
   }
+}
+
+.col.delivery {
+  font-size: 12px;
+  max-width: 200px;
+  min-width: 200px;
 }

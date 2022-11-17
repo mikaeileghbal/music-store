@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import "./AddToCart.scss";
 
 export default function AddToCart() {
@@ -6,17 +8,6 @@ export default function AddToCart() {
     <div className="add__container">
       <InfoBlock />
       <ControlBlock />
-    </div>
-  );
-}
-
-function ControlBlock() {
-  return (
-    <div className="add__block controls">
-      <div className="row">
-        <Controls />
-        <DeliveryInfo />
-      </div>
     </div>
   );
 }
@@ -45,20 +36,49 @@ function InfoBlock() {
   );
 }
 
+function ControlBlock() {
+  return (
+    <div className="add__block controls">
+      <div className="row">
+        <Controls />
+        <DeliveryInfo />
+      </div>
+    </div>
+  );
+}
+
 function Controls() {
+  const [qty, setQty] = useState(1);
+
+  const onChange = (e) => {
+    setQty(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    if (e.target.value === "+") setQty((old) => Math.min(Number(old) + 1, 99));
+    else setQty((old) => Math.max(Number(old) - 1, 1));
+  };
+
   return (
     <div className="col">
       <div className="quantity">
         <label>QTY</label>
         <div className="controls__wrap">
-          <input type="submit" value="-" className="down" />
-          <input type="number" className="number" value="1" min="1" max="99" />
-          <input type="submit" value="+" className="up" />
+          <input type="submit" value="-" className="down" onClick={onSubmit} />
+          <input
+            type="number"
+            className="number"
+            value={qty}
+            onChange={onChange}
+            min="1"
+            max="99"
+          />
+          <input type="submit" value="+" className="up" onClick={onSubmit} />
         </div>
       </div>
       <div className="button__wrap">
         <button className="button button--flat button__add">
-          ADD TO BASKET
+          ADD TO BASKET <MdOutlineKeyboardArrowRight size={24} />
         </button>
       </div>
     </div>
@@ -67,7 +87,7 @@ function Controls() {
 
 function DeliveryInfo() {
   return (
-    <div className="col">
+    <div className="col delivery">
       <p>
         Delivery to the UK only
         <br />
