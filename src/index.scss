@@ -61,7 +61,6 @@ a {
 .card {
   background-color: white;
   padding: 1em;
-  margin-bottom: 1em;
 }
 
 .button--category {
@@ -120,7 +119,7 @@ a {
   gap: 5px;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 button:disabled {
@@ -137,4 +136,17 @@ button:disabled:hover {
 ul,
 ol {
   list-style-type: none;
+}
+
+input:not([type="checkbox"]) {
+  padding: 10px 15px;
+  height: 40px;
+  border: 1px solid #d3d6d9;
+  background: #fff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
