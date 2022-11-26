@@ -18,7 +18,7 @@
   flex-direction: column;
   padding: 40px 25px 25px;
   flex: 1 1 auto;
-  border-top: 3px solid #fcc900;
+  border-top: 3px solid #00c7b1; //#fcc900;
 }
 
 .cat-content::before {
@@ -28,7 +28,7 @@
   top: -20px;
   width: 36px;
   height: 36px;
-  background-color: #fcc900;
+  background-color: #00c7b1; // #fcc900;
   transform: rotate(45deg);
   border: none;
 }

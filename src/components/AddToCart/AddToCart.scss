@@ -1,0 +1,119 @@
+.add__container {
+  display: flex;
+  margin-bottom: 50px;
+  margin-top: 25px;
+}
+
+.add__block {
+  &.info {
+    //flex: 1 1 40%;
+
+    width: calc(100% / 12 * 5);
+    background-color: #3d3d3d;
+    color: white;
+    padding: 20px 30px;
+    margin-right: 20px;
+
+    .col__heading {
+      margin-bottom: 3px;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 25px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &.controls {
+    //flex: 1 1 60%;
+    width: calc(100% / 12 * 7);
+    background-color: #ffffff;
+    padding: 30px 110px;
+    .row {
+      max-width: 530px;
+    }
+  }
+
+  .row {
+    display: flex;
+
+    .col {
+      padding-right: 20px;
+    }
+  }
+
+  .quantity {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    min-width: 250px;
+
+    .controls__wrap {
+      margin-top: 5px;
+    }
+  }
+
+  .button__wrap {
+    margin-top: 20px;
+  }
+
+  .down,
+  .up {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d4d6d9;
+    background-color: #fff;
+    color: var(--theme-color);
+    font-size: 24px;
+    vertical-align: top;
+    line-height: 1.15;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  input[type="number"] {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    position: relative;
+    width: 42px;
+    padding-right: 3px;
+    padding-bottom: 9px;
+    padding-left: 3px;
+    background-color: #fff;
+    font-size: 14px;
+    text-align: center;
+    -moz-appearance: textfield;
+    margin-left: -1px;
+    margin-right: -1px;
+
+    &:focus {
+      border-color: var(--theme-color);
+    }
+  }
+  label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .button__add {
+    width: 196px;
+    padding: 14px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    //padding-left: 22px;
+  }
+}
+
+.col.delivery {
+  font-size: 12px;
+  max-width: 200px;
+  min-width: 200px;
+}
