@@ -41,6 +41,29 @@
       padding-bottom: 10px;
       border-bottom: 1px solid #e6e2df;
     }
+
+    &__footer {
+      margin-top: 15px;
+    }
+
+    &__body {
+      .button__wrap {
+        padding: 20px 0;
+
+        border-top: 1px solid #d4d6d9;
+        border-bottom: 1px solid #d4d6d9;
+      }
+
+      footer {
+        padding: 15px;
+      }
+
+      button {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
   }
 }
 

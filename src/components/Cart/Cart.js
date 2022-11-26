@@ -26,7 +26,8 @@ export default function Cart({ onToggleCart }) {
         <div className="cart__control__body">
           <section>
             <header></header>
-            <div>
+            <div></div>
+            <footer>
               <table>
                 <tr>
                   <td>subtotal:</td>
@@ -39,8 +40,13 @@ export default function Cart({ onToggleCart }) {
                   <td>29.00</td>
                 </tr>
               </table>
-            </div>
-            <footer></footer>
+              <div className="button__wrap">
+                <button className="button button--category button--flat">
+                  <span>view basket & checkout</span>
+                  <span>&gt;</span>
+                </button>
+              </div>
+            </footer>
           </section>
         </div>
         <div className="cart__control__footer">
