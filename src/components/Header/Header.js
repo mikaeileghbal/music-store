@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Header.scss";
 import { FaSearch, FaShoppingCart, FaTimes } from "react-icons/fa";
 import { useState } from "react";
+import Cart from "../Cart/Cart";
 
 const links = [
   { href: "/", text: "home" },
@@ -10,10 +11,15 @@ const links = [
 ];
 
 export default function Header() {
-  const [toggle, setToggle] = useState(false);
+  const [toggleSearch, setToggleSearch] = useState(false);
+  const [toggleCart, setToggleCart] = useState(false);
 
-  const toggleSearch = (e) => {
-    setToggle(!toggle);
+  const onToggleSearch = (e) => {
+    setToggleSearch(!toggleSearch);
+  };
+
+  const onToggleCart = (e) => {
+    setToggleCart((old) => !old);
   };
 
   return (
@@ -24,15 +30,16 @@ export default function Header() {
         </Link>
         <Nav />
         <div className="button-container">
-          {toggle && <Search />}
-          <ButtonHeader onClick={toggleSearch}>
-            {toggle ? <FaTimes /> : <FaSearch />}
+          {toggleSearch && <Search />}
+          <ButtonHeader onClick={onToggleSearch}>
+            {toggleSearch ? <FaTimes /> : <FaSearch />}
           </ButtonHeader>
-          <ButtonHeader>
+          <ButtonHeader onClick={onToggleCart}>
             <FaShoppingCart />
           </ButtonHeader>
         </div>
       </div>
+      {toggleCart && <Cart />}
     </header>
   );
 }
