@@ -39,7 +39,7 @@ export default function Header() {
           </ButtonHeader>
         </div>
       </div>
-      {toggleCart && <Cart />}
+      {toggleCart && <Cart onToggleCart={onToggleCart} />}
     </header>
   );
 }

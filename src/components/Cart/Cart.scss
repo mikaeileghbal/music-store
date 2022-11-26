@@ -1,0 +1,63 @@
+.cart__container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  .cart__inner {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    transition: 0.3s;
+    animation: fade 0.4s ease;
+  }
+
+  .cart__control {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 495px;
+    height: 100%;
+    max-width: 495px;
+    padding: 20px;
+    border-left: 10px solid #363636;
+    background-color: white;
+    animation: slide 0.4s ease;
+
+    button {
+      position: relative;
+      right: 0;
+      padding: 0.5rem 0.6rem;
+    }
+
+    &__header,
+    &__footer {
+      display: flex;
+      color: black;
+      justify-content: flex-end;
+      gap: 10px;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e6e2df;
+    }
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
