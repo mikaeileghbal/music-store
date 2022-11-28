@@ -87,6 +87,7 @@ a {
   border: 1px solid var(--theme-color);
   background-color: var(--theme-color);
   color: white;
+  transition: 0.3s;
 
   &:hover {
     color: white;
