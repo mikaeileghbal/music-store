@@ -3,7 +3,7 @@ import "./RenderDetails.scss";
 
 export default function RenderDetails() {
   return (
-    <div>
+    <div className="table-container">
       <table className="detail__table">
         <tbody>
           <tr>
