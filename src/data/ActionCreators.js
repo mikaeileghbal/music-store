@@ -9,4 +9,12 @@ export const loadData = (dataType) => ({
   },
 });
 
-console.log(loadData(DataTypes.CATEGORIES));
+export const addToCart = (product, qty) => {
+  return {
+    type: ActionTypes.ADD_TO_CART,
+    payload: {
+      product,
+      qty,
+    },
+  };
+};

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import "./Cart.scss";
 
 export default function Cart({ onToggleCart }) {
@@ -40,16 +41,14 @@ function CartControlHeader({ onClose }) {
 }
 
 function CartControlBody() {
+  const { cart } = useSelector((state) => state.stateData);
+  console.log("cart: ", cart);
+
   return (
     <div className="cart__control__body">
       <section>
         <header></header>
-        <CartProducts
-          products={[
-            { id: 1, title: "products1" },
-            { id: 2, title: "product2" },
-          ]}
-        />
+        <CartProducts products={cart.products} />
         <CartSummary />
       </section>
     </div>
@@ -107,5 +106,5 @@ function Table({ item }) {
 }
 
 function Product({ product }) {
-  return <div>{product.title}</div>;
+  return <div>{product.name}</div>;
 }
