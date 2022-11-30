@@ -45,7 +45,10 @@ function CartControlBody() {
       <section>
         <header></header>
         <CartProducts
-          products={[{ title: "products1" }, { title: "product2" }]}
+          products={[
+            { id: 1, title: "products1" },
+            { id: 2, title: "product2" },
+          ]}
         />
         <CartSummary />
       </section>
@@ -68,7 +71,13 @@ function CartControlFooter({ onClose }) {
 }
 
 function CartProducts({ products }) {
-  return <div>Products</div>;
+  return (
+    <div>
+      {products.map((product) => (
+        <Product key={product.id} product={product} />
+      ))}
+    </div>
+  );
 }
 
 function CartSummary() {
@@ -95,4 +104,8 @@ function Table({ item }) {
       </tr>
     </table>
   );
+}
+
+function Product({ product }) {
+  return <div>{product.title}</div>;
 }
