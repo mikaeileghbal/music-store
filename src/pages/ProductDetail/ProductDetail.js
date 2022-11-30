@@ -24,6 +24,8 @@ export default function ProductDetail() {
   const { products } = useSelector((state) => state.modelData);
   const [carouselProducts, setCarouselProducts] = useState([]);
 
+  const product = products.filter((p) => p.name === "Kayak")[0];
+
   useEffect(() => {
     const selectedProducts = products.slice(0, 20);
     setCarouselProducts(selectedProducts);
@@ -37,7 +39,7 @@ export default function ProductDetail() {
           <AlbumDescription />
         </section>
         <section className="section-add">
-          <AddToCart />
+          <AddToCart product={product} />
         </section>
         <section className="section-like">
           <Carousel render={renderCarousel} items={carouselProducts} />
