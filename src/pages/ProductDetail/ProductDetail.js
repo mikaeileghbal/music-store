@@ -17,6 +17,7 @@ import {
   Social,
   Tab,
   TabItem,
+  Zoom,
 } from "../../components";
 
 export default function ProductDetail() {
@@ -55,11 +56,23 @@ export default function ProductDetail() {
 }
 
 function AlbumImage() {
+  const [open, setOpen] = useState(false);
+
+  const openZoom = () => {
+    setOpen(true);
+  };
+
+  const closeZoom = () => {
+    console.log("Clicked");
+    setOpen(false);
+  };
+
   return (
     <div class="album-art">
       <div class="left">
+        {open && <Zoom image={album} onClose={closeZoom} />}
         <img src={album} alt="album" />
-        <button className="button icon-btn button-zoom">
+        <button className="button icon-btn button-zoom" onClick={openZoom}>
           <VscZoomIn /> zoom
         </button>
       </div>
