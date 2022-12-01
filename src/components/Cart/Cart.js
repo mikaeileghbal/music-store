@@ -41,14 +41,14 @@ function CartControlHeader({ onClose }) {
 }
 
 function CartControlBody() {
-  const { cart } = useSelector((state) => state.stateData);
-  console.log("cart: ", cart);
+  const { cartData } = useSelector((state) => state);
+  console.log("cart: ", cartData);
 
   return (
     <div className="cart__control__body">
       <section>
         <header></header>
-        <CartProducts products={cart.products} />
+        <CartProducts cartData={cartData} />
         <CartSummary />
       </section>
     </div>
@@ -69,11 +69,12 @@ function CartControlFooter({ onClose }) {
   );
 }
 
-function CartProducts({ products }) {
+function CartProducts({ cartData }) {
+  console.log("cart products:", cartData);
   return (
     <div>
-      {products.map((product) => (
-        <Product key={product.id} product={product} />
+      {cartData.cart.map((item) => (
+        <Product key={item.product.id} product={item.product} qty={item.qty} />
       ))}
     </div>
   );
@@ -97,14 +98,21 @@ function CartSummary() {
 function Table({ item }) {
   return (
     <table>
-      <tr>
-        <td>{item.title}</td>
-        <td>{item.amount}</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>{item.title}</td>
+          <td>{item.amount}</td>
+        </tr>
+      </tbody>
     </table>
   );
 }
 
-function Product({ product }) {
-  return <div>{product.name}</div>;
+function Product({ product, qty }) {
+  return (
+    <div className="cart__product">
+      <span>{product.name}</span>
+      <span>{qty}</span>
+    </div>
+  );
 }

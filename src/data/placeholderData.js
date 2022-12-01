@@ -361,17 +361,6 @@ export const data = {
   },
 
   stateData: {
-    cart: {
-      products: [
-        { id: 1, name: "p1" },
-        { id: 2, name: "p2" },
-        { id: 3, name: "p3" },
-        { id: 4, name: "p4" },
-      ],
-      subtotal: 0,
-      total: 0,
-    },
-
     filterMenu: {
       date: [
         "1999",
@@ -408,4 +397,5 @@ export const data = {
       ],
     },
   },
+  cartData: {},
 };
