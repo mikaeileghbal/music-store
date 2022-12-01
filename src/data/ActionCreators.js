@@ -8,13 +8,3 @@ export const loadData = (dataType) => ({
     data: phData.modelData[dataType],
   },
 });
-
-export const addToCart = (product, qty) => {
-  return {
-    type: ActionTypes.ADD_TO_CART,
-    payload: {
-      product,
-      qty,
-    },
-  };
-};

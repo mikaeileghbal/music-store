@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../data/ActionCreators";
+import { addToCart } from "../../data/cartActionCreators";
 import "./AddToCart.scss";
 
 export default function AddToCart({ product }) {
