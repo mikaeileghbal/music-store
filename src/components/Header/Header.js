@@ -3,6 +3,7 @@ import "./Header.scss";
 import { FaSearch, FaShoppingCart, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 import Cart from "../Cart/Cart";
+import { useSelector } from "react-redux";
 
 const links = [
   { href: "/", text: "home" },
@@ -34,13 +35,22 @@ export default function Header() {
           <ButtonHeader onClick={onToggleSearch}>
             {toggleSearch ? <FaTimes /> : <FaSearch />}
           </ButtonHeader>
-          <ButtonHeader onClick={onToggleCart}>
-            <FaShoppingCart />
-          </ButtonHeader>
+          <ShoppingCart onToggleCart={onToggleCart} />
         </div>
       </div>
       {toggleCart && <Cart onToggleCart={onToggleCart} />}
     </header>
+  );
+}
+
+function ShoppingCart({ onToggleCart }) {
+  const { cartItems } = useSelector((state) => state.cartData);
+  console.log("cartItems:", cartItems);
+  return (
+    <ButtonHeader onClick={onToggleCart} className="button-cart">
+      <FaShoppingCart />
+      {cartItems > 0 && <span className="cart-items">{cartItems}</span>}
+    </ButtonHeader>
   );
 }
 

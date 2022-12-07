@@ -34,6 +34,23 @@ nav {
 
 .button-container {
   margin-left: auto;
+
+  .button-cart {
+    position: relative;
+  }
+
+  .cart-items {
+    position: absolute;
+    top: 10px;
+    background-color: #ec0577;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 2px;
+  }
 }
 
 .logo {
