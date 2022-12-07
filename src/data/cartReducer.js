@@ -27,6 +27,8 @@ export const cartReducer = (state, action) => {
       }
       newState.cartItems += qty;
       newState.cartPrice += product.price * qty;
+
+      localStorage.setItem("musicCart", JSON.stringify(newState));
       return newState;
 
     case ActionTypes.CART_UPDATE:
@@ -40,6 +42,8 @@ export const cartReducer = (state, action) => {
           return item;
         }
       });
+
+      localStorage.setItem("musicCart", JSON.stringify(newState));
       return newState;
 
     case ActionTypes.CART_REMOVE:
@@ -49,12 +53,19 @@ export const cartReducer = (state, action) => {
       newState.cartItems -= selection.qty;
       newState.cartPrice -= selection.product.price * selection.qty;
       newState.cart = newState.cart.filter((item) => item !== selection);
+
+      localStorage.setItem("musicCart", JSON.stringify(newState));
       return newState;
 
     case ActionTypes.CART_CLEAR:
-      return { ...newState, cart: [], cartItems: 0, cartPrice: 0 };
+      newState = { ...newState, cart: [], cartItems: 0, cartPrice: 0 };
+
+      localStorage.setItem("musicCart", JSON.stringify(newState));
+      return newState;
 
     default:
-      return state || data.cartData;
+      return state || localStorage.getItem("musicCart")
+        ? JSON.parse(localStorage.getItem("musicCart"))
+        : data.cartData;
   }
 };

@@ -81,9 +81,10 @@ function CartProducts({ cartData }) {
 }
 
 function CartSummary() {
+  const { cartPrice } = useSelector((state) => state.cartData);
   return (
     <footer>
-      <Table item={{ title: "subtotal:", amount: 29.0 }} />
+      <Table item={{ title: "subtotal:", amount: cartPrice }} />
       <Table item={{ title: "total", amount: 29.0 }} />
       <div className="button__wrap">
         <button className="button button--category button--flat">
@@ -111,8 +112,16 @@ function Table({ item }) {
 function Product({ product, qty }) {
   return (
     <div className="cart__product">
-      <span>{product.name}</span>
-      <span>{qty}</span>
+      <div className="cart_product__image">
+        <img src={`/images/${product.image}`} alt={product.name} />
+      </div>
+      <div className="cart__product_info">
+        <div className="cart__product__info__detail">
+          <span className="name">{product.name}</span>
+          <span className="qty">{qty}</span>
+        </div>
+        <div>{product.description}</div>
+      </div>
     </div>
   );
 }
