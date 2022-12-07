@@ -68,7 +68,38 @@
   }
   .cart__product {
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+
+    .cart_product__image {
+      border: 1px solid red;
+      width: 100px;
+      height: 70px;
+      margin-right: 1em;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .cart__product_info {
+      flex: 1 1 auto;
+      border: 1px solid red;
+    }
+
+    .cart__product__info__detail {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .name {
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .qty {
+      font-weight: 600;
+    }
   }
 }
 
