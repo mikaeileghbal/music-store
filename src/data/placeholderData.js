@@ -362,17 +362,6 @@ export const data = {
 
   stateData: {
     filterMenu: {
-      date: [
-        "1999",
-        "2000",
-        "2001",
-        "2002",
-        "Reggae",
-        "General",
-        "Classical",
-        "Dance",
-        "Country",
-      ],
       genre: [
         "Rock & Pop",
         "Metal",
@@ -384,17 +373,15 @@ export const data = {
         "Dance",
         "Country",
       ],
-      year: [
-        "Rock & Pop",
-        "Metal",
-        "R&B & Soul",
-        "K-pop",
-        "Reggae",
-        "General",
-        "Classical",
-        "Dance",
-        "Country",
+      format: ["CD Album", "CD Box Set", "CD Single"],
+      artist: [
+        "50 Cent",
+        "ABBA",
+        "Michael Jackson",
+        "George Michael",
+        "Pink Floyd",
       ],
+      date: ["1999", "2000", "2001", "2002"],
     },
   },
   cartData: {},
