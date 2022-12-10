@@ -1,7 +1,8 @@
 import React from "react";
 import { FaArrowRight, FaTimes } from "react-icons/fa";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../../data/cartActionCreators";
 import "./Cart.scss";
 
 export default function Cart({ onToggleCart }) {
@@ -109,7 +110,11 @@ function Table({ item, strong }) {
         <tr>
           <td>{strong ? <strong>{item.title}</strong> : <>{item.title}</>}</td>
           <td>
-            {strong ? <strong>${item.amount}</strong> : <>${item.amount}</>}
+            {strong ? (
+              <strong>${item.amount.toFixed(2)}</strong>
+            ) : (
+              <>${item.amount.toFixed(2)}</>
+            )}
           </td>
         </tr>
       </tbody>
@@ -118,6 +123,12 @@ function Table({ item, strong }) {
 }
 
 function Product({ product, qty }) {
+  const dispatch = useDispatch();
+
+  const handleRemove = () => {
+    dispatch(removeFromCart(product));
+  };
+
   return (
     <div className="cart__product">
       <div className="cart_product__image">
@@ -129,7 +140,7 @@ function Product({ product, qty }) {
         <p className="cart__product__info__qty">Quantity: {qty}</p>
       </div>
       <div className="cart__product__remove">
-        <button>
+        <button onClick={handleRemove}>
           <FaTimes size={14} />
         </button>
       </div>

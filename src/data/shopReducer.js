@@ -8,6 +8,7 @@ export const shopReducer = (state, action) => {
         ...state,
         [action.payload.dataType]: action.payload.data,
       };
+
     default:
       return state || data.modelData;
   }

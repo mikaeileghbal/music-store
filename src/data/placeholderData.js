@@ -156,6 +156,7 @@ export const data = {
         description: "A boat for one person",
         price: 275,
         image: "3vinyl55_feature_panel.webp",
+        barcode: "887766554411",
       },
       {
         id: 2,
@@ -164,6 +165,7 @@ export const data = {
         description: "Protective and fashionable",
         price: 48.95,
         image: "3vinyl55_feature_panel.webp",
+        barcode: "887766554412",
       },
       {
         id: 3,
@@ -172,6 +174,7 @@ export const data = {
         description: "FIFA-approved size and weight",
         price: 19.5,
         image: "90s-fp.webp",
+        barcode: "887766554413",
       },
       {
         id: 4,
@@ -180,6 +183,7 @@ export const data = {
         description: "Give your playing field a professional touch",
         price: 34.95,
         image: "3vinyl55_feature_panel.webp",
+        barcode: "887766554414",
       },
       {
         id: 5,
@@ -188,6 +192,7 @@ export const data = {
         description: "Flat-packed 35,000-seat stadium",
         price: 79500,
         image: "90s-fp.webp",
+        barcode: "887766554415",
       },
       {
         id: 6,
@@ -196,6 +201,7 @@ export const data = {
         description: "Improve brain efficiency by 75%",
         price: 16,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554416",
       },
       {
         id: 7,
@@ -204,6 +210,7 @@ export const data = {
         description: "Secretly give your opponent a disadvantage",
         price: 29.95,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554417",
       },
       {
         id: 8,
@@ -212,6 +219,7 @@ export const data = {
         description: "A fun game for the family",
         price: 75,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554418",
       },
       {
         id: 9,
@@ -220,6 +228,7 @@ export const data = {
         description: "Gold-plated, diamond-studded King",
         price: 1200,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554419",
       },
       {
         id: 10,
@@ -228,6 +237,7 @@ export const data = {
         description: "Flat-packed 35,000-seat stadium",
         price: 79500,
         image: "90s-fp.webp",
+        barcode: "887766554420",
       },
       {
         id: 11,
@@ -236,6 +246,7 @@ export const data = {
         description: "Improve brain efficiency by 75%",
         price: 16,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554420",
       },
       {
         id: 12,
@@ -244,6 +255,7 @@ export const data = {
         description: "Secretly give your opponent a disadvantage",
         price: 29.95,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554421",
       },
       {
         id: 13,
@@ -252,6 +264,7 @@ export const data = {
         description: "A fun game for the family",
         price: 75,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554422",
       },
       {
         id: 14,
@@ -260,6 +273,7 @@ export const data = {
         description: "Gold-plated, diamond-studded King",
         price: 1200,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554423",
       },
       {
         id: 15,
@@ -268,6 +282,7 @@ export const data = {
         description: "Gold-plated, diamond-studded King",
         price: 1200,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554424",
       },
       {
         id: 16,
@@ -276,6 +291,7 @@ export const data = {
         description: "Flat-packed 35,000-seat stadium",
         price: 79500,
         image: "90s-fp.webp",
+        barcode: "887766554425",
       },
       {
         id: 17,
@@ -284,6 +300,7 @@ export const data = {
         description: "Improve brain efficiency by 75%",
         price: 16,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554426",
       },
       {
         id: 18,
@@ -292,6 +309,7 @@ export const data = {
         description: "Secretly give your opponent a disadvantage",
         price: 29.95,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554427",
       },
       {
         id: 19,
@@ -300,6 +318,7 @@ export const data = {
         description: "A fun game for the family",
         price: 75,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554428",
       },
       {
         id: 20,
@@ -308,6 +327,7 @@ export const data = {
         description: "Gold-plated, diamond-studded King",
         price: 1200,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554429",
       },
       {
         id: 21,
@@ -316,6 +336,7 @@ export const data = {
         description: "Gold-plated, diamond-studded King",
         price: 1200,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554430",
       },
       {
         id: 22,
@@ -324,6 +345,7 @@ export const data = {
         description: "Flat-packed 35,000-seat stadium",
         price: 79500,
         image: "90s-fp.webp",
+        barcode: "887766554431",
       },
       {
         id: 23,
@@ -332,6 +354,7 @@ export const data = {
         description: "Improve brain efficiency by 75%",
         price: 16,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554432",
       },
       {
         id: 24,
@@ -340,6 +363,7 @@ export const data = {
         description: "Secretly give your opponent a disadvantage",
         price: 29.95,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554433",
       },
       {
         id: 25,
@@ -348,6 +372,7 @@ export const data = {
         description: "A fun game for the family",
         price: 75,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554434",
       },
       {
         id: 26,
@@ -356,6 +381,7 @@ export const data = {
         description: "Gold-plated, diamond-studded King",
         price: 1200,
         image: "botysf-feature_panel.webp",
+        barcode: "887766554435",
       },
     ],
   },

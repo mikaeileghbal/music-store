@@ -127,6 +127,8 @@
 
   .cart__product__remove {
     button {
+      padding: 10px;
+      align-self: center;
       background-color: transparent;
       border: none;
       color: var(--theme-color);
