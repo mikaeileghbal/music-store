@@ -48,7 +48,7 @@ export const cartReducer = (state, action) => {
 
     case ActionTypes.CART_REMOVE:
       let selection = newState.cart.find(
-        (item) => item.product.id === action.payload.product.is
+        (item) => item.product.id === action.payload.product.id
       );
       newState.cartItems -= selection.qty;
       newState.cartPrice -= selection.product.price * selection.qty;

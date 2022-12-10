@@ -1,6 +1,8 @@
 import React from "react";
-import { FaTimes } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { FaArrowRight, FaTimes } from "react-icons/fa";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../../data/cartActionCreators";
 import "./Cart.scss";
 
 export default function Cart({ onToggleCart }) {
@@ -85,24 +87,35 @@ function CartSummary() {
   return (
     <footer>
       <Table item={{ title: "subtotal:", amount: cartPrice }} />
-      <Table item={{ title: "total", amount: 29.0 }} />
+      <Table
+        item={{ title: "total (inc.VAT)", amount: cartPrice + cartPrice * 0.2 }}
+        strong={true}
+      />
       <div className="button__wrap">
         <button className="button button--category button--flat">
           <span>view basket & checkout</span>
-          <span>&gt;</span>
+          <span>
+            <MdOutlineKeyboardArrowRight size={24} />
+          </span>
         </button>
       </div>
     </footer>
   );
 }
 
-function Table({ item }) {
+function Table({ item, strong }) {
   return (
     <table>
       <tbody>
         <tr>
-          <td>{item.title}</td>
-          <td>{item.amount}</td>
+          <td>{strong ? <strong>{item.title}</strong> : <>{item.title}</>}</td>
+          <td>
+            {strong ? (
+              <strong>${item.amount.toFixed(2)}</strong>
+            ) : (
+              <>${item.amount.toFixed(2)}</>
+            )}
+          </td>
         </tr>
       </tbody>
     </table>
@@ -110,17 +123,26 @@ function Table({ item }) {
 }
 
 function Product({ product, qty }) {
+  const dispatch = useDispatch();
+
+  const handleRemove = () => {
+    dispatch(removeFromCart(product));
+  };
+
   return (
     <div className="cart__product">
       <div className="cart_product__image">
         <img src={`/images/${product.image}`} alt={product.name} />
       </div>
       <div className="cart__product_info">
-        <div className="cart__product__info__detail">
-          <span className="name">{product.name}</span>
-          <span className="qty">{qty}</span>
-        </div>
-        <div>{product.description}</div>
+        <p className="cart__product__info__name">{product.name}</p>
+        <p className="cart__product__info__price">${product.price}</p>
+        <p className="cart__product__info__qty">Quantity: {qty}</p>
+      </div>
+      <div className="cart__product__remove">
+        <button onClick={handleRemove}>
+          <FaTimes size={14} />
+        </button>
       </div>
     </div>
   );

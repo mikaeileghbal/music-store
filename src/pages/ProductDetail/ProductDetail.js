@@ -19,12 +19,15 @@ import {
   TabItem,
   Zoom,
 } from "../../components";
+import { useParams } from "react-router";
 
 export default function ProductDetail() {
+  const params = useParams();
   const { products } = useSelector((state) => state.modelData);
   const [carouselProducts, setCarouselProducts] = useState([]);
 
-  const product = products.filter((p) => p.name === "Kayak")[0];
+  const product = products.filter((p) => p.name === params.title)[0];
+  console.log("product: ", product);
 
   useEffect(() => {
     const selectedProducts = products.slice(0, 20);
@@ -35,8 +38,8 @@ export default function ProductDetail() {
     <>
       <div class="container">
         <section className="section-album">
-          <AlbumImage />
-          <AlbumDescription />
+          <AlbumImage image={product.image} />
+          <AlbumDescription product={product} />
         </section>
         <section className="section-add">
           <AddToCart product={product} />
@@ -57,7 +60,7 @@ export default function ProductDetail() {
   );
 }
 
-function AlbumImage() {
+function AlbumImage({ image }) {
   const [open, setOpen] = useState(false);
 
   const openZoom = () => {
@@ -72,35 +75,35 @@ function AlbumImage() {
   return (
     <div class="album-art">
       <div class="left">
-        {open && <Zoom image={album} onClose={closeZoom} />}
-        <img src={album} alt="album" />
+        {open && <Zoom image={`/images/${image}`} onClose={closeZoom} />}
+        <img src={`/images/${image}`} alt="album" />
         <button className="button icon-btn button-zoom" onClick={openZoom}>
           <VscZoomIn /> zoom
         </button>
       </div>
       <div class="right">
-        <img src={album} alt="album" />
+        <img src={`/images/${image}`} alt="album" />
       </div>
     </div>
   );
 }
 
-function AlbumDescription() {
+function AlbumDescription({ product }) {
   return (
     <div class="album-description">
-      <h1>killing me</h1>
-      <h2>chungha</h2>
+      <h1>{product.name}</h1>
+      <h2>{product.description}</h2>
       <div class="meta-info">
-        <p className="price">$34.99</p>
+        <p className="price">${product.price}</p>
         <p>
           Buy now, pay with <span>Klarna.</span>
           <button className="link">Learn more</button>
         </p>
         <p>
           <span className="barcode">barcode:</span>
-          <span>8809704423894</span>
+          <span>{product.barcode}</span>
         </p>
-        <MetaDetail />
+        <MetaDetail product={product} />
       </div>
       <div class="social-container">
         <span>Share:</span>
@@ -110,7 +113,7 @@ function AlbumDescription() {
   );
 }
 
-function MetaDetail() {
+function MetaDetail({ product }) {
   return (
     <div className="meta-detail">
       <List>
@@ -118,7 +121,7 @@ function MetaDetail() {
           Format: <span>CD Single</span>
         </ListItem>
         <ListItem>
-          Category: <span>K-pop</span>
+          Category: <span>{product.category}</span>
         </ListItem>
         <ListItem>
           Released: <span>14th December 2021</span>
