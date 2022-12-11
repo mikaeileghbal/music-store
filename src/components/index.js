@@ -19,6 +19,7 @@ import RenderDescription from "./RenderDescription/RenderDescription";
 import RenderDelivery from "./RenderDelivery/RenderDelivery";
 import AddToCart from "./AddToCart/AddToCart";
 import Zoom from "./Zoom/Zoom";
+import BasketView from "./BasketView.js/BasketView";
 
 export {
   Cart,
@@ -42,4 +43,5 @@ export {
   RenderDelivery,
   AddToCart,
   Zoom,
+  BasketView,
 };
