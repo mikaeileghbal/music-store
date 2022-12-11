@@ -2,6 +2,7 @@ import React from "react";
 import { FaArrowRight, FaTimes } from "react-icons/fa";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { removeFromCart } from "../../data/cartActionCreators";
 import "./Cart.scss";
 
@@ -22,7 +23,7 @@ function CartControl({ onClose }) {
   return (
     <div className="cart__control">
       <CartControlHeader onClose={onClose} />
-      <CartControlBody />
+      <CartControlBody onClose={onClose} />
       <CartControlFooter onClose={onClose} />
     </div>
   );
@@ -42,16 +43,15 @@ function CartControlHeader({ onClose }) {
   );
 }
 
-function CartControlBody() {
+function CartControlBody({ onClose }) {
   const { cartData } = useSelector((state) => state);
-  console.log("cart: ", cartData);
 
   return (
     <div className="cart__control__body">
       <section>
         <header></header>
         <CartProducts cartData={cartData} />
-        <CartSummary />
+        <CartSummary onClose={onClose} />
       </section>
     </div>
   );
@@ -82,8 +82,15 @@ function CartProducts({ cartData }) {
   );
 }
 
-function CartSummary() {
+function CartSummary({ onClose }) {
   const { cartPrice } = useSelector((state) => state.cartData);
+  const navigate = useNavigate();
+
+  const gotoBasket = () => {
+    onClose();
+    navigate("/basket");
+  };
+
   return (
     <footer>
       <Table item={{ title: "subtotal:", amount: cartPrice }} />
@@ -92,7 +99,10 @@ function CartSummary() {
         strong={true}
       />
       <div className="button__wrap">
-        <button className="button button--category button--flat">
+        <button
+          className="button button--category button--flat"
+          onClick={gotoBasket}
+        >
           <span>view basket & checkout</span>
           <span>
             <MdOutlineKeyboardArrowRight size={24} />

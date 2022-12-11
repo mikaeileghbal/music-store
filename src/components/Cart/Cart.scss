@@ -137,7 +137,8 @@
       transition: 0.125s;
 
       &:hover {
-        border: 1px solid var(--theme-color);
+        //border: 1px solid var(--theme-color);
+        color: lighten($color: #ec0577, $amount: 30%);
       }
     }
   }

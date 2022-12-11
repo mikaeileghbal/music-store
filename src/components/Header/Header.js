@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Header.scss";
 import { FaSearch, FaShoppingCart, FaTimes } from "react-icons/fa";
 import { useState } from "react";
@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 const links = [
   { href: "/", text: "home" },
   { href: "/basket", text: "basket" },
-  { href: "/album", text: "album" },
 ];
 
 export default function Header() {
@@ -57,7 +56,9 @@ function ShoppingCart({ onToggleCart }) {
 function LinkItem({ text, href }) {
   return (
     <li>
-      <Link to={href}>{text}</Link>
+      <NavLink to={href} activeClassName="active">
+        {text}
+      </NavLink>
     </li>
   );
 }
