@@ -144,6 +144,10 @@
   }
 }
 
+.scroll {
+  max-height: 54vh;
+  overflow-y: auto;
+}
 @keyframes fade {
   from {
     opacity: 0;

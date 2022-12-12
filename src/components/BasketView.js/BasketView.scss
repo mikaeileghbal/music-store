@@ -16,11 +16,8 @@
   }
 }
 
-table.basket__table,
-table.basket__detail__table {
-  //border: 1px solid #d3d6d9;
+table.basket__table {
   border: none;
-  //border-left: 6px solid #d3d6d9;
   width: 100%;
 
   tr {
@@ -79,6 +76,13 @@ table.basket__detail__table {
 }
 
 table.basket__detail__table {
+  border: none;
+  width: 100%;
+
+  tr {
+    background-color: white;
+  }
+
   th,
   td {
     padding: 1.5em 1em;
@@ -90,6 +94,10 @@ table.basket__detail__table {
 
   td {
     text-align: right;
+  }
+
+  button {
+    width: 100%;
   }
 }
 
