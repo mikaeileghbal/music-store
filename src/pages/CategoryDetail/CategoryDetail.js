@@ -29,7 +29,7 @@ function CategoryDetail() {
   return (
     <div className="category-detail container">
       <div className="category-header">
-        <h2 className="category-name">{category}</h2>
+        <h2 className="page-title">{category}</h2>
       </div>
       <div className="container category">
         <Sidebar />

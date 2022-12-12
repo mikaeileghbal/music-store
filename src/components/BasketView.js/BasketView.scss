@@ -1,7 +1,10 @@
-.basket__container {
-  display: flex;
+.basket__section {
   max-width: 1240px;
   margin: 0 auto;
+}
+
+.basket__container {
+  display: flex;
   gap: 1em;
 
   .basket__products {
@@ -13,7 +16,8 @@
   }
 }
 
-table.basket__table {
+table.basket__table,
+table.basket__detail__table {
   //border: 1px solid #d3d6d9;
   border: none;
   //border-left: 6px solid #d3d6d9;
@@ -47,6 +51,7 @@ table.basket__table {
   }
 
   button {
+    display: inline-block;
     padding: 10px;
     align-self: center;
     background-color: transparent;
@@ -60,5 +65,34 @@ table.basket__table {
       //border: 1px solid var(--theme-color);
       color: lighten($color: #ec0577, $amount: 30%);
     }
+
+    &.update {
+      color: lightseagreen;
+    }
   }
+
+  input {
+    display: inline-block;
+    width: 40px;
+    border: 1px solid #999;
+  }
+}
+
+table.basket__detail__table {
+  th,
+  td {
+    padding: 1.5em 1em;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  td {
+    text-align: right;
+  }
+}
+
+.action__wrap {
+  display: flex;
 }
