@@ -68,7 +68,7 @@ function BasketProducts({ cart }) {
                   </button>
                 </div>
               </td>
-              <td>{product.price * qty}</td>
+              <td>${(product.price * qty).toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
@@ -93,6 +93,13 @@ function BasketDetails({ cartItems, cartPrice }) {
           <tr>
             <th>Total (Inc VAT)</th>
             <td>${(cartPrice + cartPrice * 0.2).toFixed(2)}</td>
+          </tr>
+          <tr>
+            <td colSpan="2">
+              <button className="button button--category button--flat">
+                Checkout
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
