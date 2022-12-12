@@ -28,7 +28,7 @@ export default function Product({
 function CatImage({ image, category, title }) {
   return (
     <figure className="cat-image">
-      <Link to={`/${title}`} className="cat-link">
+      <Link to={`/cd/${title}`} className="cat-link">
         <div className="cat-image-wrapper">
           <img src={`../images/${image}`} alt="category name" />
         </div>

@@ -1,0 +1,98 @@
+.basket__section {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.basket__container {
+  display: flex;
+  gap: 1em;
+
+  .basket__products {
+    flex: 1 1 65%;
+  }
+
+  .basket__detail {
+    flex: 1 1 35%;
+  }
+}
+
+table.basket__table,
+table.basket__detail__table {
+  //border: 1px solid #d3d6d9;
+  border: none;
+  //border-left: 6px solid #d3d6d9;
+  width: 100%;
+
+  tr {
+    background-color: white;
+  }
+
+  td {
+    padding: 1em;
+    padding-bottom: 1em;
+  }
+
+  .image__column {
+    width: 100px;
+  }
+
+  img {
+    width: 80px;
+    width: 80px;
+    object-fit: cover;
+  }
+
+  h2 {
+    //margin: 0;
+  }
+
+  p {
+    //margin: 0;
+  }
+
+  button {
+    display: inline-block;
+    padding: 10px;
+    align-self: center;
+    background-color: transparent;
+    border: none;
+    color: var(--theme-color);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: 0.125s;
+
+    &:hover {
+      //border: 1px solid var(--theme-color);
+      color: lighten($color: #ec0577, $amount: 30%);
+    }
+
+    &.update {
+      color: lightseagreen;
+    }
+  }
+
+  input {
+    display: inline-block;
+    width: 40px;
+    border: 1px solid #999;
+  }
+}
+
+table.basket__detail__table {
+  th,
+  td {
+    padding: 1.5em 1em;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  td {
+    text-align: right;
+  }
+}
+
+.action__wrap {
+  display: flex;
+}

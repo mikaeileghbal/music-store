@@ -1,11 +1,8 @@
+import { useSelector } from "react-redux";
+import { BasketView } from "../../components";
+
 export default function Basket() {
-  return (
-    <div className="container">
-      <div className="content">
-        <div className="card">
-          <h1>Basket</h1>
-        </div>
-      </div>
-    </div>
-  );
+  const { cartData } = useSelector((state) => state);
+
+  return <BasketView cartData={cartData} />;
 }

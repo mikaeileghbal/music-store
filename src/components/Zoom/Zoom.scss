@@ -1,0 +1,36 @@
+.zoom__container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10rem;
+  z-index: 60;
+
+  .zoom__image__wrapp {
+    background-color: white;
+    padding: 3em;
+    border: 10px solid black;
+    max-width: 60%;
+
+    .zoom__image__button {
+      text-align: right;
+    }
+
+    button {
+      margin: 1em 0;
+      align-self: flex-end;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}

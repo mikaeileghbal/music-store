@@ -27,7 +27,7 @@ export default function CategoryItem({
 
 function CatImage({ image, category }) {
   return (
-    <Link to={`/category/${category}`} className="cat-link">
+    <Link to={`/${category}`} className="cat-link">
       <figure className="cat-image">
         <div className="cat-image-wrapper">
           <img src={`../images/${image}`} alt="category name" />
@@ -45,7 +45,7 @@ function CatContent({ title, description, price, category }) {
       {description.length > 0 && <p>{description}</p>}
       {price > 0 && <p>{`$${price}`}</p>}
       <p className="link-wrapper">
-        <Link to={`/category/${category}`} className="button button--category">
+        <Link to={`/${category}`} className="button button--category">
           view all
         </Link>
       </p>

@@ -87,6 +87,7 @@ a {
   border: 1px solid var(--theme-color);
   background-color: var(--theme-color);
   color: white;
+  transition: 0.3s;
 
   &:hover {
     color: white;
@@ -149,4 +150,12 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #363636;
+  text-transform: capitalize;
+  padding: 0px 0 24px;
 }

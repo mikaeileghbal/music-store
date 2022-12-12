@@ -3,7 +3,7 @@ import "./RenderTrackList.scss";
 
 export default function RenderTrackList() {
   return (
-    <div>
+    <div className="table-container">
       <table>
         <thead>
           <tr>

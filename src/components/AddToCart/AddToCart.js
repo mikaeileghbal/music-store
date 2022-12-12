@@ -1,13 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../data/cartActionCreators";
 import "./AddToCart.scss";
 
-export default function AddToCart() {
+export default function AddToCart({ product }) {
+  console.log("product in addtocart:", product);
   return (
     <div className="add__container">
       <InfoBlock />
-      <ControlBlock />
+      <ControlBlock product={product} />
     </div>
   );
 }
@@ -36,19 +39,20 @@ function InfoBlock() {
   );
 }
 
-function ControlBlock() {
+function ControlBlock({ product }) {
   return (
     <div className="add__block controls">
       <div className="row">
-        <Controls />
+        <Controls product={product} />
         <DeliveryInfo />
       </div>
     </div>
   );
 }
 
-function Controls() {
+function Controls({ product }) {
   const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
 
   const onChange = (e) => {
     setQty(e.target.value);
@@ -57,6 +61,10 @@ function Controls() {
   const onSubmit = (e) => {
     if (e.target.value === "+") setQty((old) => Math.min(Number(old) + 1, 99));
     else setQty((old) => Math.max(Number(old) - 1, 1));
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product, qty));
   };
 
   return (
@@ -77,7 +85,10 @@ function Controls() {
         </div>
       </div>
       <div className="button__wrap">
-        <button className="button button--flat button__add">
+        <button
+          className="button button--flat button__add"
+          onClick={handleAddToCart}
+        >
           ADD TO BASKET <MdOutlineKeyboardArrowRight size={24} />
         </button>
       </div>

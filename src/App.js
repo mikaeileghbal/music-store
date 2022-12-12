@@ -20,13 +20,9 @@ function App() {
         <main className="main">
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route
-              exact
-              path="/category/:category"
-              element={<CategoryDetail />}
-            />
+            <Route exact path="/:category" element={<CategoryDetail />} />
             <Route exact path="/basket" element={<Basket />} />
-            <Route exact path="/:name" element={<ProductDetail />} />
+            <Route exact path="/:volume/:title" element={<ProductDetail />} />
             <Route path="*" element={<NotFound404 />} />
           </Routes>
         </main>
