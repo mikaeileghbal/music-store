@@ -14,7 +14,7 @@ export default function BasketView({ cartData }) {
       <BasketHeader />
 
       <div className="basket__container">
-        <BasketProducts cart={cart} />
+        <BasketProducts cart={cart} cartPrice={cartPrice} />
         <BasketDetails cartItems={cartItems} cartPrice={cartPrice} />
       </div>
     </section>
@@ -29,11 +29,14 @@ function BasketHeader() {
   );
 }
 
-function BasketBanner() {
+function BasketBanner({ cartPrice }) {
   return (
     <div className="basket__banner">
       <p>
-        Total to pay (inc. VAT): <span className="total">$91.20</span>
+        Total to pay (inc. VAT):{" "}
+        <span className="total">
+          {formatPrice(cartPrice + cartPrice * 0.2)}
+        </span>
       </p>
       <p className="discount">
         Free delivery on orders over <span>$20</span>
@@ -43,8 +46,10 @@ function BasketBanner() {
   );
 }
 
-function BasketProducts({ cart }) {
+function BasketProducts({ cart, cartPrice }) {
   const dispatch = useDispatch();
+
+  console.log(cart);
 
   const handleRemove = (product) => {
     console.log(product);
@@ -57,7 +62,7 @@ function BasketProducts({ cart }) {
 
   return (
     <section className="basket__products">
-      <BasketBanner />
+      <BasketBanner cartPrice={cartPrice} />
       <table className="basket__table">
         <thead>
           <tr>
