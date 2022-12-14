@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { removeFromCart } from "../../data/cartActionCreators";
 import "./BasketView.scss";
 
+const formatPrice = (price) => `$${price.toFixed(2)}`;
+
 export default function BasketView({ cartData }) {
   const { cart, cartPrice, cartItems } = cartData;
   return (
@@ -84,7 +86,7 @@ function BasketProducts({ cart }) {
               <td className="product__column">
                 <h2>{product.name}</h2>
                 <p>
-                  Unit price: <span>${product.price.toFixed(2)}</span>
+                  Unit price: <span>{formatPrice(product.price)}</span>
                 </p>
               </td>
               <td>
@@ -99,7 +101,7 @@ function BasketProducts({ cart }) {
                 </div>
               </td>
               <td className="price__column">
-                ${(product.price * qty).toFixed(2)}
+                {formatPrice(product.price * qty)}
               </td>
             </tr>
           ))}
@@ -120,11 +122,11 @@ function BasketDetails({ cartItems, cartPrice }) {
           </tr>
           <tr>
             <th>Subtotal</th>
-            <td>${cartPrice.toFixed(2)}</td>
+            <td>{formatPrice(cartPrice)}</td>
           </tr>
           <tr>
             <th>Total (Inc VAT)</th>
-            <td>${(cartPrice + cartPrice * 0.2).toFixed(2)}</td>
+            <td>{formatPrice(cartPrice + cartPrice * 0.2)}</td>
           </tr>
           <tr>
             <td colSpan="2">
