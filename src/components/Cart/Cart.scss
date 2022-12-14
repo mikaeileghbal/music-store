@@ -25,6 +25,7 @@
     border-left: 10px solid #363636;
     background-color: white;
     animation: slide 0.4s ease;
+    overflow-y: auto;
 
     button {
       position: relative;
@@ -144,10 +145,6 @@
   }
 }
 
-.scroll {
-  max-height: 54vh;
-  overflow-y: auto;
-}
 @keyframes fade {
   from {
     opacity: 0;

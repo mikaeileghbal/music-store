@@ -74,7 +74,7 @@ function CartControlFooter({ onClose }) {
 function CartProducts({ cartData }) {
   console.log("cart products:", cartData);
   return (
-    <div className="scroll">
+    <div>
       {cartData?.cart?.map((item) => (
         <Product key={item.product.id} product={item.product} qty={item.qty} />
       ))}
