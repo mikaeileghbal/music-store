@@ -13,13 +13,13 @@
   margin: 0;
 }
 
-::-webkit-scrollbar {
-  /* width: 0.5em; */
-  background-color: silver;
-}
-::-webkit-scrollbar-thumb {
-  background-color: gray;
-}
+// ::-webkit-scrollbar {
+//   /* width: 0.5em; */
+//   background-color: silver;
+// }
+// ::-webkit-scrollbar-thumb {
+//   background-color: gray;
+// }
 
 body {
   margin: 0;
@@ -50,7 +50,7 @@ a {
 }
 
 .button {
-  padding: 8px 12px;
+  padding: 10px 16px;
   font-size: 16px;
   border: 1px solid #3d3d3d;
   background-color: #1a1a1a;
@@ -64,7 +64,7 @@ a {
 }
 
 .button--category {
-  background-color: white;
+  background-color: transparent;
   border: 2px solid var(--theme-color);
   color: var(--theme-color);
   text-transform: uppercase;

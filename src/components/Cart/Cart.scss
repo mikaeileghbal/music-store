@@ -26,6 +26,7 @@
     background-color: white;
     animation: slide 0.4s ease;
     overflow-y: auto;
+    font-size: 14px;
 
     button {
       position: relative;
@@ -44,7 +45,7 @@
     }
 
     &__header {
-      border-bottom: 1px solid #e6e2df;
+      border-bottom: 2px solid #e6e2df;
     }
 
     &__footer {
@@ -77,9 +78,9 @@
 
     .cart_product__image {
       //border: 1px solid red;
-      width: 100px;
-      height: 70px;
-      margin-right: 1em;
+      width: 76px;
+      height: 76px;
+      margin-right: 1.5em;
 
       img {
         width: 100%;
@@ -91,20 +92,30 @@
     .cart__product_info {
       flex: 1 1 auto;
       //border: 1px solid red;
-      font-weight: 700;
+      font-weight: 600;
+      line-height: 1.5;
     }
 
     .cart__product__info__name {
       font-size: 18px;
       margin-bottom: 0.5em;
+
+      a {
+        color: black;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     .cart__product__info__price {
-      font-size: 16px;
+      font-size: 14px;
+      font-weight: 700;
     }
 
     .cart__product__info__qty {
-      font-size: 16px;
+      font-size: 14px;
+      margin-top: 5px;
     }
 
     .qty {

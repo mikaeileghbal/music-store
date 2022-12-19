@@ -35,7 +35,7 @@ export default function ProductDetail() {
   }, [products]);
 
   return (
-    <>
+    <section className="detail-section">
       <div class="container">
         <section className="section-album">
           <AlbumImage image={product.image} />
@@ -56,7 +56,7 @@ export default function ProductDetail() {
           <TabItem name="Delivery and Returns" render={<RenderDelivery />} />
         </Tab>
       </section>
-    </>
+    </section>
   );
 }
 
