@@ -1,6 +1,10 @@
+.sticky {
+  position: sticky;
+  top: 90px;
+}
 .basket__section {
-  max-width: 1240px;
-  margin: 0 auto;
+  background-color: white;
+  padding: 3em 0;
 }
 
 .basket__container {
@@ -9,11 +13,13 @@
   position: relative;
 
   .basket__products {
-    flex: 1 1 60%;
+    flex: 1 1 65%;
   }
 
   .basket__detail {
-    flex: 1 1 40%;
+    background-color: #f2f2f2;
+    flex: 1 1 35%;
+    padding: 1.5em;
   }
 }
 
@@ -23,7 +29,7 @@ table.basket__table {
   width: 100%;
 
   thead {
-    border-bottom: 4px solid #d3d4d6;
+    border-bottom: 5px solid #d4d6d9;
   }
 
   th {
@@ -55,18 +61,18 @@ table.basket__table {
   }
 
   .product__column {
-    width: 45%;
+    width: 40%;
   }
 
   .price__column {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 15px;
     text-align: right;
   }
 
   img {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
   }
 
@@ -74,7 +80,8 @@ table.basket__table {
     color: var(--theme-color);
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+    margin-top: -1.5em;
   }
 
   p {
@@ -108,7 +115,9 @@ table.basket__table {
 
     &.remove__button {
       padding-left: 0;
-      padding-right: 2em;
+      padding-right: 4em;
+      font-size: 11px;
+      letter-spacing: 1px;
     }
   }
 
@@ -121,6 +130,7 @@ table.basket__table {
 
     &:focus {
       outline: 1px solid #333;
+      border-radius: 3px;
       border: 1px solid #333;
     }
   }
@@ -131,16 +141,15 @@ table.basket__detail__table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
-  position: sticky;
   top: 70px;
 
   tr {
-    background-color: #e6e7eb;
+    background-color: #f2f2f2;
   }
 
   th,
   td {
-    padding: 1.5em 1em;
+    padding: 1.5em 2em;
   }
 
   th {
@@ -157,7 +166,7 @@ table.basket__detail__table {
 }
 
 .remove__text {
-  margin-left: 0.5rem;
+  margin-left: 0.3rem;
 }
 
 .remove__icon {
@@ -176,7 +185,7 @@ table.basket__detail__table {
 
 .basket__banner {
   padding: 1em 1em;
-  background-color: #e6e7eb;
+  background-color: #f2f2f2;
   margin-bottom: 3em;
   text-align: center;
 
@@ -194,10 +203,93 @@ table.basket__detail__table {
   }
 
   .total {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .discount {
     color: var(--theme-color);
+    font-size: 16px;
+  }
+}
+
+form.discount {
+  label {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  input {
+    margin-right: 0.4em;
+    height: 38px;
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    width: 100%;
+
+    &:focus {
+      border-color: var(--theme-color);
+    }
+  }
+}
+
+.detail__wrap {
+  display: flex;
+  align-items: center;
+  padding: 4px 0 20px;
+  border-bottom: 1px solid #d3d4d6;
+}
+
+.detail__link {
+  margin-top: 10px;
+  color: var(--theme-color);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.subtotal__table,
+.total__table {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+
+  th {
+    text-align: left;
+    font-weight: 400;
+  }
+
+  td {
+    text-align: right;
+    padding-bottom: 4px;
+    font-weight: 500;
+  }
+}
+
+.total__table {
+  th,
+  td {
+    font-weight: 700;
+  }
+
+  td {
+    font-size: 20px;
+  }
+}
+
+.detail__buttons {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    margin: 10px 0;
+    font-weight: 600;
+  }
+
+  button {
+    padding: 0.8em 1.5em;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 600;
   }
 }

@@ -3,6 +3,7 @@ import { FaArrowRight, FaTimes } from "react-icons/fa";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { removeFromCart } from "../../data/cartActionCreators";
 import "./Cart.scss";
 
@@ -145,7 +146,9 @@ function Product({ product, qty }) {
         <img src={`/images/${product.image}`} alt={product.name} />
       </div>
       <div className="cart__product_info">
-        <p className="cart__product__info__name">{product.name}</p>
+        <p className="cart__product__info__name">
+          <Link to={`/cd/${product.name}`}>{product.name}</Link>
+        </p>
         <p className="cart__product__info__price">${product.price}</p>
         <p className="cart__product__info__qty">Quantity: {qty}</p>
       </div>

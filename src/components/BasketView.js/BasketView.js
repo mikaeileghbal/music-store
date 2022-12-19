@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { removeFromCart } from "../../data/cartActionCreators";
 import "./BasketView.scss";
 
@@ -11,11 +12,13 @@ export default function BasketView({ cartData }) {
   const { cart, cartPrice, cartItems } = cartData;
   return (
     <section className="basket__section">
-      <BasketHeader />
+      <div className="container">
+        <BasketHeader />
 
-      <div className="basket__container">
-        <BasketProducts cart={cart} cartPrice={cartPrice} />
-        <BasketDetails cartItems={cartItems} cartPrice={cartPrice} />
+        <div className="basket__container">
+          <BasketProducts cart={cart} cartPrice={cartPrice} />
+          <BasketDetails cartItems={cartItems} cartPrice={cartPrice} />
+        </div>
       </div>
     </section>
   );
@@ -101,7 +104,7 @@ function BasketProducts({ cart, cartPrice }) {
                     className="update"
                     onClick={() => handleUpdate(product, qty)}
                   >
-                    update
+                    Update
                   </button>
                 </div>
               </td>
@@ -119,29 +122,85 @@ function BasketProducts({ cart, cartPrice }) {
 function BasketDetails({ cartItems, cartPrice }) {
   return (
     <section className="basket__detail">
-      <table className="basket__detail__table">
+      <div className="sticky">
+        <DetailForm />
+        <DetailLink />
+        <DetailSubtotal />
+        <DetailTotal />
+        <DetailButtons />
+      </div>
+    </section>
+  );
+}
+
+function DetailForm() {
+  return (
+    <form className="discount">
+      <label htmlFor="discount">Discount Code</label>
+      <div className="detail__wrap">
+        <input type="text" id="discount" name="discount" />
+        <button className="button button--category button--flat" type="submit">
+          apply
+        </button>
+      </div>
+    </form>
+  );
+}
+
+function DetailLink() {
+  return (
+    <div className="detail__wrap">
+      <Link className="detail__link" to={`#`}>
+        Been referred by a friend?
+      </Link>
+    </div>
+  );
+}
+
+function DetailSubtotal() {
+  return (
+    <div className="detail__wrap">
+      <table className="subtotal__table">
         <tbody>
           <tr>
-            <th>Item count</th>
-            <td>{cartItems}</td>
+            <th>Subtotal:</th>
+            <td>$56.36</td>
           </tr>
           <tr>
-            <th>Subtotal</th>
-            <td>{formatPrice(cartPrice)}</td>
-          </tr>
-          <tr>
-            <th>Total (Inc VAT)</th>
-            <td>{formatPrice(cartPrice + cartPrice * 0.2)}</td>
-          </tr>
-          <tr>
-            <td colSpan="2">
-              <button className="button button--category button--flat">
-                Checkout
-              </button>
-            </td>
+            <th>Tax:</th>
+            <td>$11.2</td>
           </tr>
         </tbody>
       </table>
-    </section>
+    </div>
+  );
+}
+
+function DetailTotal() {
+  return (
+    <div className="detail__wrap">
+      <table className="total__table">
+        <tbody>
+          <tr>
+            <th>Total to pay (inc. VAT):</th>
+            <td>$67.96</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function DetailButtons() {
+  return (
+    <div className="detail__wrap detail__buttons">
+      <button className="button button--category">
+        proceed to guest checkout
+      </button>
+      <span>or</span>
+      <button className="button button--category button--flat">
+        sign in to checkout
+      </button>
+    </div>
   );
 }
