@@ -2,6 +2,7 @@
 
 :root {
   --theme-color: #ec0577;
+  --green: #00c7b1;
 }
 
 *,
@@ -12,13 +13,13 @@
   margin: 0;
 }
 
-::-webkit-scrollbar {
-  /* width: 0.5em; */
-  background-color: silver;
-}
-::-webkit-scrollbar-thumb {
-  background-color: gray;
-}
+// ::-webkit-scrollbar {
+//   /* width: 0.5em; */
+//   background-color: silver;
+// }
+// ::-webkit-scrollbar-thumb {
+//   background-color: gray;
+// }
 
 body {
   margin: 0;
@@ -49,7 +50,7 @@ a {
 }
 
 .button {
-  padding: 8px 12px;
+  padding: 10px 16px;
   font-size: 16px;
   border: 1px solid #3d3d3d;
   background-color: #1a1a1a;
@@ -60,11 +61,10 @@ a {
 .card {
   background-color: white;
   padding: 1em;
-  margin-bottom: 1em;
 }
 
 .button--category {
-  background-color: white;
+  background-color: transparent;
   border: 2px solid var(--theme-color);
   color: var(--theme-color);
   text-transform: uppercase;
@@ -87,6 +87,7 @@ a {
   border: 1px solid var(--theme-color);
   background-color: var(--theme-color);
   color: white;
+  transition: 0.3s;
 
   &:hover {
     color: white;
@@ -119,7 +120,7 @@ a {
   gap: 5px;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 button:disabled {
@@ -136,4 +137,25 @@ button:disabled:hover {
 ul,
 ol {
   list-style-type: none;
+}
+
+input:not([type="checkbox"]) {
+  padding: 10px 15px;
+  height: 40px;
+  border: 1px solid #d3d6d9;
+  background: #fff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #363636;
+  text-transform: capitalize;
+  padding: 0px 0 24px;
 }

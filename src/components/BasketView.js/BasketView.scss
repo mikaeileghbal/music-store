@@ -1,0 +1,295 @@
+.sticky {
+  position: sticky;
+  top: 90px;
+}
+.basket__section {
+  background-color: white;
+  padding: 3em 0;
+}
+
+.basket__container {
+  display: flex;
+  gap: 7em;
+  position: relative;
+
+  .basket__products {
+    flex: 1 1 65%;
+  }
+
+  .basket__detail {
+    background-color: #f2f2f2;
+    flex: 1 1 35%;
+    padding: 1.5em;
+  }
+}
+
+table.basket__table {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+
+  thead {
+    border-bottom: 5px solid #d4d6d9;
+  }
+
+  th {
+    padding: 1em 0;
+    text-align: left;
+    font-size: 14px;
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  tr {
+    //background-color: white;
+    border-bottom: 1px solid #d3d4d6;
+  }
+
+  td {
+    padding: 1em 0;
+    padding-bottom: 1em;
+
+    &:not(:first-child, :last-child) {
+      padding-right: 1em;
+    }
+  }
+
+  .image__column {
+    width: 100px;
+  }
+
+  .product__column {
+    width: 40%;
+  }
+
+  .price__column {
+    font-weight: 700;
+    font-size: 15px;
+    text-align: right;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  h2 {
+    color: var(--theme-color);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    margin-top: -1.5em;
+  }
+
+  p {
+    font-size: 14px;
+
+    span {
+      margin-left: 1rem;
+    }
+  }
+
+  button {
+    display: inline-flex;
+    padding: 10px;
+    font-size: 12px;
+    align-items: center;
+    align-self: center;
+    background-color: transparent;
+    border: none;
+    color: var(--theme-color);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: 0.125s;
+
+    &:hover {
+      color: lighten($color: #ec0577, $amount: 30%);
+    }
+
+    &.update {
+      color: var(--theme-color);
+    }
+
+    &.remove__button {
+      padding-left: 0;
+      padding-right: 4em;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+  }
+
+  input {
+    display: inline-block;
+    width: 40px;
+    border: 1px solid #999;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+
+    &:focus {
+      outline: 1px solid #333;
+      border-radius: 3px;
+      border: 1px solid #333;
+    }
+  }
+}
+
+table.basket__detail__table {
+  border: none;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  top: 70px;
+
+  tr {
+    background-color: #f2f2f2;
+  }
+
+  th,
+  td {
+    padding: 1.5em 2em;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  td {
+    text-align: right;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+.remove__text {
+  margin-left: 0.3rem;
+}
+
+.remove__icon {
+  border-radius: 50%;
+  border: 1px solid var(--theme-color);
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action__wrap {
+  display: flex;
+}
+
+.basket__banner {
+  padding: 1em 1em;
+  background-color: #f2f2f2;
+  margin-bottom: 3em;
+  text-align: center;
+
+  p {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .small {
+    font-size: 12px;
+    font-weight: 400;
+    color: grey;
+    margin-top: 0.5em;
+  }
+
+  .total {
+    font-size: 22px;
+  }
+
+  .discount {
+    color: var(--theme-color);
+    font-size: 16px;
+  }
+}
+
+form.discount {
+  label {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  input {
+    margin-right: 0.4em;
+    height: 38px;
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    width: 100%;
+
+    &:focus {
+      border-color: var(--theme-color);
+    }
+  }
+}
+
+.detail__wrap {
+  display: flex;
+  align-items: center;
+  padding: 4px 0 20px;
+  border-bottom: 1px solid #d3d4d6;
+}
+
+.detail__link {
+  margin-top: 10px;
+  color: var(--theme-color);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.subtotal__table,
+.total__table {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+
+  th {
+    text-align: left;
+    font-weight: 400;
+  }
+
+  td {
+    text-align: right;
+    padding-bottom: 4px;
+    font-weight: 500;
+  }
+}
+
+.total__table {
+  th,
+  td {
+    font-weight: 700;
+  }
+
+  td {
+    font-size: 20px;
+  }
+}
+
+.detail__buttons {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    margin: 10px 0;
+    font-weight: 600;
+  }
+
+  button {
+    padding: 0.8em 1.5em;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}

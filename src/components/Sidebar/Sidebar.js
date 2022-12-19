@@ -41,9 +41,10 @@ export default function Sidebar() {
   return (
     <SidebarContext.Provider value={providerValue}>
       <div className="sidebar">
-        <FilterMenu MenuItems={filterMenu.date} name="genre" />
-        <FilterMenu MenuItems={filterMenu.genre} name="format" />
-        <FilterMenu MenuItems={filterMenu.year} name="date" />
+        <FilterMenu MenuItems={filterMenu.genre} name="genre" />
+        <FilterMenu MenuItems={filterMenu.format} name="format" />
+        <FilterMenu MenuItems={filterMenu.artist} name="artist" />
+        <FilterMenu MenuItems={filterMenu.date} name="date" />
         <FooterButtons selected={selected} />
       </div>
     </SidebarContext.Provider>

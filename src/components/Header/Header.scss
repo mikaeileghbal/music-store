@@ -29,11 +29,33 @@ nav {
     font-size: 14px;
     font-weight: 600;
     padding: 1em 0;
+
+    &.active {
+      color: var(--theme-color);
+    }
   }
 }
 
 .button-container {
   margin-left: auto;
+
+  .button-cart {
+    position: relative;
+  }
+
+  .cart-items {
+    position: absolute;
+    bottom: 14px;
+    transform: translateX(-6px);
+    background-color: #ec0577;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px 2px;
+  }
 }
 
 .logo {
@@ -74,6 +96,7 @@ nav {
   margin-right: 1em;
   background-color: white;
   padding: 0px;
+  height: 38px;
 }
 
 input[type="text"] {
@@ -82,4 +105,5 @@ input[type="text"] {
   outline: none;
   border: none;
   margin: 0;
+  height: 100%;
 }
