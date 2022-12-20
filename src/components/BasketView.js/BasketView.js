@@ -83,7 +83,7 @@ function BasketProducts({ cart, cartPrice }) {
                   onClick={() => handleRemove(product)}
                 >
                   <span className="remove__icon">
-                    <FaTimes />
+                    <FaTimes size={12} />
                   </span>
                   <span className="remove__text">REMOVE</span>
                 </button>
@@ -128,6 +128,8 @@ function BasketDetails({ cartItems, cartPrice }) {
         <DetailSubtotal />
         <DetailTotal />
         <DetailButtons />
+        <DetailDelivery />
+        <DetailPayment />
       </div>
     </section>
   );
@@ -201,6 +203,36 @@ function DetailButtons() {
       <button className="button button--category button--flat">
         sign in to checkout
       </button>
+      <div className="detail__account">
+        Need an acount?{" "}
+        <Link className="detail__link" to={`#`}>
+          Register now
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function DetailDelivery() {
+  return (
+    <div className="detail__wrap detail__delivery">
+      <p>Free delivery on orders over $20</p>
+    </div>
+  );
+}
+
+function DetailPayment() {
+  return (
+    <div className="detail__wrap detail__methods">
+      Secure payment with:
+      <div className="method__container">
+        <div className="method__item"></div>
+        <div className="method__item"></div>
+        <div className="method__item"></div>
+        <div className="method__item"></div>
+        <div className="method__item"></div>
+        <div className="method__item"></div>
+      </div>
     </div>
   );
 }
