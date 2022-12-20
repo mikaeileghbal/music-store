@@ -1,4 +1,5 @@
 import React from "react";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useSelection } from "../../utils/hooks";
@@ -46,7 +47,8 @@ function CatContent({ title, description, price, category }) {
       {price > 0 && <p>{`$${price}`}</p>}
       <p className="link-wrapper">
         <Link to={`/${category}`} className="button button--category">
-          view all
+          <span>view all</span>
+          <MdOutlineKeyboardArrowRight size={24} />
         </Link>
       </p>
     </div>
