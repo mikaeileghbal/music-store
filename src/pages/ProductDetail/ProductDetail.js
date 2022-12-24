@@ -49,6 +49,7 @@ export default function ProductDetail() {
             render={renderCarousel}
             items={carouselProducts}
             header="You Might Like..."
+            groupSize={5}
           />
         </section>
       </div>

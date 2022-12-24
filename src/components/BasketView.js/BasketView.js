@@ -131,6 +131,7 @@ function BasketItems({ cart, onRemove, onUpdate }) {
     </table>
   );
 }
+
 function BasketDetails({ cartItems, cartPrice }) {
   return (
     <section className="basket__detail">
@@ -255,9 +256,10 @@ function BasketSlide() {
   return (
     <div className="basket__carousel">
       <Carousel
-        items={products.slice(0, 12)}
+        items={products.slice(0, 21)}
         render={renderCarousel}
         header="Before You Go..."
+        groupSize={3}
       />
     </div>
   );

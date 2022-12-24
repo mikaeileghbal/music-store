@@ -2,6 +2,7 @@
   display: flex;
   margin-bottom: 50px;
   margin-top: 25px;
+  gap: 20px;
 }
 
 .add__block {
@@ -12,7 +13,7 @@
     background-color: #3d3d3d;
     color: white;
     padding: 20px 30px;
-    margin-right: 20px;
+    //margin-right: 20px;
 
     .col__heading {
       margin-bottom: 3px;
@@ -31,7 +32,7 @@
     width: calc(100% / 12 * 7);
     background-color: #ffffff;
     padding: 30px 50px 30px 110px;
-    margin-right: 20px;
+    //margin-right: 20px;
 
     .row {
       max-width: 530px;
