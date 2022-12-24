@@ -14,6 +14,7 @@
 
   .basket__products {
     flex: 1 1 65%;
+    overflow: hidden;
   }
 
   .basket__detail {
@@ -106,7 +107,7 @@ table.basket__table {
     transition: 0.125s;
 
     &:hover {
-      color: lighten($color: #ec0577, $amount: 30%);
+      //color: lighten($color: #ec0577, $amount: 30%);
     }
 
     &.update {
@@ -170,10 +171,11 @@ table.basket__detail__table {
 }
 
 .remove__icon {
+  padding: 0;
   border-radius: 50%;
   border: 1px solid var(--theme-color);
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -239,8 +241,9 @@ form.discount {
 }
 
 .detail__link {
-  margin-top: 10px;
   color: var(--theme-color);
+  margin-top: 1em;
+  font-size: 15px;
 
   &:hover {
     text-decoration: underline;
@@ -277,7 +280,7 @@ form.discount {
 }
 
 .detail__buttons {
-  padding: 30px 0;
+  padding: 30px 0 22px;
   display: flex;
   flex-direction: column;
 
@@ -291,5 +294,54 @@ form.discount {
     width: 100%;
     font-size: 15px;
     font-weight: 600;
+    text-align: center;
+    display: inline-block;
   }
+}
+
+.detail__account,
+.detail__delivery,
+.detail__methods {
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 1.5em;
+}
+
+.detail__account {
+}
+
+.detail__delivery {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+
+  p {
+    display: block;
+    width: 100%;
+    margin: 0px 0 5px;
+  }
+}
+
+.method__container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+
+  .method__item {
+    width: 48px;
+    height: 32px;
+    border: 1px solid grey;
+    background-color: white;
+  }
+}
+
+.basket__carousel {
+  width: 100%;
+  //background-color: aqua;
+  overflow: hidden;
+  padding: 0;
 }
