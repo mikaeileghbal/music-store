@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import "./Carousel.scss";
 
-export default function Carousel({ items, render }) {
+export default function Carousel({ items, render, header }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -36,7 +36,7 @@ export default function Carousel({ items, render }) {
   return (
     <div className="carousel">
       <div className="carousel__header">
-        <h2 className="carousel__header__title">You might like...</h2>
+        <h2 className="carousel__header__title">{header}</h2>
         <CarouselAction
           handleNext={handleNext}
           handlePrev={handlePrev}

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./ProductDetail.scss";
 import { VscZoomIn } from "react-icons/vsc";
-
 import album from "../../assets/images/killing-me.webp";
 import {
   AddToCart,
@@ -20,6 +19,7 @@ import {
   Zoom,
 } from "../../components";
 import { useParams } from "react-router";
+import { renderCarousel } from "../../utils/helper";
 
 export default function ProductDetail() {
   const params = useParams();
@@ -45,7 +45,11 @@ export default function ProductDetail() {
           <AddToCart product={product} />
         </section>
         <section className="section-like">
-          <Carousel render={renderCarousel} items={carouselProducts} />
+          <Carousel
+            render={renderCarousel}
+            items={carouselProducts}
+            header="You Might Like..."
+          />
         </section>
       </div>
       <section className="section-details">
@@ -128,19 +132,5 @@ function MetaDetail({ product }) {
         </ListItem>
       </List>
     </div>
-  );
-}
-
-function renderCarousel(product) {
-  return (
-    <Product
-      key={product.id}
-      category={product.category}
-      image={product.image}
-      title={product.title}
-      description={product.description}
-      price={product.price}
-      showbtn={false}
-    />
   );
 }
