@@ -2,19 +2,38 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import "./Carousel.scss";
 
-export default function Carousel({ items, render }) {
+export default function Carousel({ items, groupSize, render, header }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const groupCount = Math.ceil(items.length / groupSize);
+
+  const groupItems = (items, groupSize) => {
+    console.log(groupSize, items);
+    let rows = items
+      .map(function (item) {
+        return render(item);
+      })
+      .reduce((r, element, index) => {
+        index % groupSize === 0 && r.push([]);
+        r[r.length - 1].push(element);
+        return r;
+      }, [])
+      .map((row) => <div className="carousel-group">{row}</div>);
+
+    return rows;
+  };
+
+  const groupedItems = groupItems(items, groupSize);
 
   const handlePrev = () => {
     if (currentIndex === 0) {
-      setCurrentIndex(items.length / 5 - 1);
+      setCurrentIndex(items.length / groupSize - 1);
     } else {
       setCurrentIndex((state) => state - 1);
     }
   };
 
   const handleNext = () => {
-    if (currentIndex === items.length / 5 - 1) {
+    if (currentIndex === items.length / groupSize - 1) {
       setCurrentIndex(0);
     } else {
       setCurrentIndex((state) => state + 1);
@@ -36,20 +55,24 @@ export default function Carousel({ items, render }) {
   return (
     <div className="carousel">
       <div className="carousel__header">
-        <h2 className="carousel__header__title">You might like...</h2>
+        <h2 className="carousel__header__title">{header}</h2>
         <CarouselAction
           handleNext={handleNext}
           handlePrev={handlePrev}
           currentIndex={currentIndex}
-          length={items.length / 5}
+          length={items.length / groupSize}
         />
       </div>{" "}
       <div className="carousel-container">
         <div
           className="inner"
-          style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+          style={{
+            transform: `translateX(-${currentIndex * (100 / groupCount)}%)`,
+            width: `calc(100% * ${groupCount})`,
+            gridTemplateColumns: `repeat(${groupCount},1fr)`,
+          }}
         >
-          {items.map((item) => render(item))}
+          {groupedItems.map((item) => item)}
         </div>
       </div>
     </div>

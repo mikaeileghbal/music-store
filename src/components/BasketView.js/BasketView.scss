@@ -14,6 +14,7 @@
 
   .basket__products {
     flex: 1 1 65%;
+    overflow: hidden;
   }
 
   .basket__detail {
@@ -336,4 +337,11 @@ form.discount {
     border: 1px solid grey;
     background-color: white;
   }
+}
+
+.basket__carousel {
+  width: 100%;
+  //background-color: aqua;
+  overflow: hidden;
+  padding: 0;
 }
