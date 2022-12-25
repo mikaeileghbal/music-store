@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router";
 import { Product } from "../components";
 
 export function renderCarousel(product) {
@@ -26,4 +28,15 @@ export function renderCarouselWithButton(product) {
       showbtn={true}
     />
   );
+}
+
+export function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [pathname]);
 }
