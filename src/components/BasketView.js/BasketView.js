@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeFromCart } from "../../data/cartActionCreators";
-import { renderCarousel } from "../../utils/helper";
+import { renderCarouselWithButton } from "../../utils/helper";
 import Carousel from "../Carousel/Carousel";
 import "./BasketView.scss";
 
@@ -257,7 +257,7 @@ function BasketSlide() {
     <div className="basket__carousel">
       <Carousel
         items={products.slice(0, 21)}
-        render={renderCarousel}
+        render={renderCarouselWithButton}
         header="Before You Go..."
         groupSize={3}
       />

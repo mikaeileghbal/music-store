@@ -47,12 +47,13 @@ function CatContent({ title, description, price, category, showbtn = true }) {
       {price > 0 && <p className="price">{`$${price}`}</p>}
       <p className="media-type">CD box set</p>
       <div className="button-wrapper">
-        {showbtn && (
-          <button className="button button--category button--100">
-            add to basket
-            <MdOutlineKeyboardArrowRight size={24} />
-          </button>
-        )}
+        <button
+          className="button button--category button--100"
+          style={{ visibility: `${showbtn ? "visible" : "hidden"}` }}
+        >
+          add to basket
+          <MdOutlineKeyboardArrowRight size={24} />
+        </button>
       </div>
     </div>
   );

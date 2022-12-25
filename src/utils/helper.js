@@ -13,3 +13,17 @@ export function renderCarousel(product) {
     />
   );
 }
+
+export function renderCarouselWithButton(product) {
+  return (
+    <Product
+      key={product.id}
+      category={product.category}
+      image={product.image}
+      title={product.name}
+      description={product.description}
+      price={product.price}
+      showbtn={true}
+    />
+  );
+}
