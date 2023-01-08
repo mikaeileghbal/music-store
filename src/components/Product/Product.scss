@@ -7,8 +7,13 @@
 }
 
 .cat-image {
+  .cat-image-wrapper {
+    aspect-ratio: 1 / 1;
+  }
+
   img {
     width: 100%;
+
     margin: 0;
     object-fit: cover;
   }

@@ -10,16 +10,14 @@ import "./BasketView.scss";
 
 const formatPrice = (price) => `$${price.toFixed(2)}`;
 
-export default function BasketView({ cartData }) {
-  const { cart, cartPrice, cartItems } = cartData;
+export default function BasketView() {
   return (
     <section className="basket__section">
       <div className="container">
         <BasketHeader />
-
         <div className="basket__container">
-          <BasketProducts cart={cart} cartPrice={cartPrice} />
-          <BasketDetails cartItems={cartItems} cartPrice={cartPrice} />
+          <BasketProducts />
+          <BasketDetails />
         </div>
       </div>
     </section>
@@ -34,7 +32,29 @@ function BasketHeader() {
   );
 }
 
-function BasketBanner({ cartPrice }) {
+function BasketProducts() {
+  const dispatch = useDispatch();
+
+  const handleRemove = (product) => {
+    dispatch(removeFromCart(product));
+  };
+
+  const handleUpdate = (product, qty) => {
+    console.log({ product, qty });
+  };
+
+  return (
+    <section className="basket__products">
+      <BasketBanner />
+      <BasketItems onRemove={handleRemove} onUpdate={handleUpdate} />
+      <BasketSlide />
+    </section>
+  );
+}
+
+function BasketBanner() {
+  const { cartPrice } = useSelector((state) => state.cartData);
+
   return (
     <div className="basket__banner">
       <p>
@@ -51,34 +71,9 @@ function BasketBanner({ cartPrice }) {
   );
 }
 
-function BasketProducts({ cart, cartPrice }) {
-  const dispatch = useDispatch();
+function BasketItems({ onRemove, onUpdate }) {
+  const { cart } = useSelector((state) => state.cartData);
 
-  console.log(cart);
-
-  const handleRemove = (product) => {
-    console.log(product);
-    dispatch(removeFromCart(product));
-  };
-
-  const handleUpdate = (product, qty) => {
-    console.log({ product, qty });
-  };
-
-  return (
-    <section className="basket__products">
-      <BasketBanner cartPrice={cartPrice} />
-      <BasketItems
-        cart={cart}
-        onRemove={handleRemove}
-        onUpdate={handleUpdate}
-      />
-      <BasketSlide />
-    </section>
-  );
-}
-
-function BasketItems({ cart, onRemove, onUpdate }) {
   return (
     <table className="basket__table">
       <thead>
@@ -132,7 +127,7 @@ function BasketItems({ cart, onRemove, onUpdate }) {
   );
 }
 
-function BasketDetails({ cartItems, cartPrice }) {
+function BasketDetails() {
   return (
     <section className="basket__detail">
       <div className="sticky">
@@ -173,17 +168,19 @@ function DetailLink() {
 }
 
 function DetailSubtotal() {
+  const { cartPrice } = useSelector((state) => state.cartData);
+
   return (
     <div className="detail__wrap">
       <table className="subtotal__table">
         <tbody>
           <tr>
             <th>Subtotal:</th>
-            <td>$56.36</td>
+            <td>{cartPrice}</td>
           </tr>
           <tr>
             <th>Tax:</th>
-            <td>$11.2</td>
+            <td>{cartPrice * 0.2}</td>
           </tr>
         </tbody>
       </table>
@@ -192,13 +189,15 @@ function DetailSubtotal() {
 }
 
 function DetailTotal() {
+  const { cartPrice } = useSelector((state) => state.cartData);
+
   return (
     <div className="detail__wrap">
       <table className="total__table">
         <tbody>
           <tr>
             <th>Total to pay (inc. VAT):</th>
-            <td>$67.96</td>
+            <td>{formatPrice(cartPrice + cartPrice * 0.2)}</td>
           </tr>
         </tbody>
       </table>
