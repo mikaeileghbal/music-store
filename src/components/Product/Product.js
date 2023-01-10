@@ -1,6 +1,8 @@
 import React from "react";
+import { useState } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
+import CartNotify from "../CartNotify/CartNotify";
 import "./Product.scss";
 
 export default function Product({
@@ -39,22 +41,27 @@ function CatImage({ image, category, title }) {
 }
 
 function CatContent({ title, description, price, category, showbtn = true }) {
-  return (
-    <div className="cat-content">
-      <h2 className="title">{title}</h2>
-      <h3 className="artist">artist</h3>
+  const handleAddToBasket = () => {};
 
-      {price > 0 && <p className="price">{`$${price}`}</p>}
-      <p className="media-type">CD box set</p>
-      <div className="button-wrapper">
-        <button
-          className="button button--category button--100"
-          style={{ visibility: `${showbtn ? "visible" : "hidden"}` }}
-        >
-          add to basket
-          <MdOutlineKeyboardArrowRight size={24} />
-        </button>
+  return (
+    <>
+      <div className="cat-content">
+        <h2 className="title">{title}</h2>
+        <h3 className="artist">artist</h3>
+
+        {price > 0 && <p className="price">{`$${price}`}</p>}
+        <p className="media-type">CD box set</p>
+        <div className="button-wrapper">
+          <button
+            onClick={handleAddToBasket}
+            className="button button--category button--100"
+            style={{ visibility: `${showbtn ? "visible" : "hidden"}` }}
+          >
+            add to basket
+            <MdOutlineKeyboardArrowRight size={24} />
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

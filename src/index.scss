@@ -86,7 +86,7 @@ a {
 }
 
 .button--flat {
-  border: 1px solid var(--theme-color);
+  border: 2px solid var(--theme-color);
   background-color: var(--theme-color);
   color: white;
   transition: 0.3s;
@@ -94,7 +94,7 @@ a {
   &:hover {
     color: white;
     background-color: #1a1a1a;
-    border: 1px solid #1a1a1a;
+    border: 2px solid #1a1a1a;
   }
 }
 

@@ -36,6 +36,7 @@ function BasketProducts() {
   const dispatch = useDispatch();
 
   const handleRemove = (product) => {
+    console.log("remove", product);
     dispatch(removeFromCart(product));
   };
 
@@ -85,45 +86,49 @@ function BasketItems({ onRemove, onUpdate }) {
       </thead>
       <tbody>
         {cart.map(({ product, qty }) => (
-          <tr key={product.id}>
-            <td>
-              <button
-                className="remove__button"
-                onClick={() => onRemove(product)}
-              >
-                <span className="remove__icon">
-                  <FaTimes size={12} />
-                </span>
-                <span className="remove__text">REMOVE</span>
-              </button>
-            </td>
-            <td className="image__column">
-              <img src={`images/${product.image}`} alt={product.name} />
-            </td>
-            <td className="product__column">
-              <h2>{product.name}</h2>
-              <p>
-                Unit price: <span>{formatPrice(product.price)}</span>
-              </p>
-            </td>
-            <td>
-              <div className="action__wrap">
-                <input type="text" value={qty} name="qty" />
-                <button
-                  className="update"
-                  onClick={() => onUpdate(product, qty)}
-                >
-                  Update
-                </button>
-              </div>
-            </td>
-            <td className="price__column">
-              {formatPrice(product.price * qty)}
-            </td>
-          </tr>
+          <BasketItemRow
+            key={product.id}
+            product={product}
+            qty={qty}
+            onUpdate={onUpdate}
+            onRemove={onRemove}
+          />
         ))}
       </tbody>
     </table>
+  );
+}
+
+function BasketItemRow({ product, qty, onUpdate, onRemove }) {
+  return (
+    <tr>
+      <td>
+        <button className="remove__button" onClick={() => onRemove(product)}>
+          <span className="remove__icon">
+            <FaTimes size={12} />
+          </span>
+          <span className="remove__text">REMOVE</span>
+        </button>
+      </td>
+      <td className="image__column">
+        <img src={`images/${product.image}`} alt={product.name} />
+      </td>
+      <td className="product__column">
+        <h2>{product.name}</h2>
+        <p>
+          Unit price: <span>{formatPrice(product.price)}</span>
+        </p>
+      </td>
+      <td>
+        <div className="action__wrap">
+          <input type="text" value={qty} name="qty" />
+          <button className="update" onClick={() => onUpdate(product, qty)}>
+            Update
+          </button>
+        </div>
+      </td>
+      <td className="price__column">{formatPrice(product.price * qty)}</td>
+    </tr>
   );
 }
 
