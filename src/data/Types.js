@@ -9,4 +9,5 @@ export const ActionTypes = {
   CART_UPDATE: "cart_update",
   CART_REMOVE: "cart_remove",
   CART_CLEAR: "cart_clear",
+  SET_CART_NOTIFY_DISPLAY: "set_cart_notify_display",
 };

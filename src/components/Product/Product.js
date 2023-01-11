@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { showCartNotify } from "../../data/stateActionCreator";
 import CartNotify from "../CartNotify/CartNotify";
 import "./Product.scss";
 
@@ -41,7 +43,10 @@ function CatImage({ image, category, title }) {
 }
 
 function CatContent({ title, description, price, category, showbtn = true }) {
-  const handleAddToBasket = () => {};
+  const dispatch = useDispatch();
+  const handleAddToBasket = () => {
+    dispatch(showCartNotify());
+  };
 
   return (
     <>

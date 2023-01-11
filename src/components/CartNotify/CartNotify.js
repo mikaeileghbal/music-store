@@ -2,8 +2,11 @@ import React from "react";
 import "./CartNotify.scss";
 import { FaTimes } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { closeCartNotify } from "../../data/stateActionCreator";
 
-export default function CartNotify({ onClose }) {
+export default function CartNotify() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const product = {
     title: "Romures",
@@ -12,7 +15,12 @@ export default function CartNotify({ onClose }) {
     image: "festivals_feature_panel.webp",
   };
 
-  const goToBasket = () => navigate("/basket");
+  const goToBasket = () => {
+    navigate("/basket");
+    onClose();
+  };
+
+  const onClose = () => dispatch(closeCartNotify());
 
   return (
     <div className="notify-container">
@@ -38,7 +46,9 @@ export default function CartNotify({ onClose }) {
           </figcaption>
         </figure>
         <div className="notify-footer flex">
-          <button className="button button--category">continue shopping</button>
+          <button className="button button--category" onClick={onClose}>
+            continue shopping
+          </button>
           <button
             className="button button--category button--flat"
             onClick={goToBasket}

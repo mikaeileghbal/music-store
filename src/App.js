@@ -10,7 +10,7 @@ import {
   ProductDetail,
   NotFound404,
 } from "./pages";
-import { Footer, Header, CartNotify } from "./components";
+import { Footer, Header, Notification } from "./components";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        <CartNotify />
+        <Notification />
       </>
     </Provider>
   );

@@ -21,6 +21,7 @@ import AddToCart from "./AddToCart/AddToCart";
 import Zoom from "./Zoom/Zoom";
 import BasketView from "./BasketView.js/BasketView";
 import CartNotify from "./CartNotify/CartNotify";
+import Notification from "./Notification/Notification";
 
 export {
   Cart,
@@ -46,4 +47,5 @@ export {
   Zoom,
   BasketView,
   CartNotify,
+  Notification,
 };
