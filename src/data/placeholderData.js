@@ -409,7 +409,7 @@ export const data = {
       ],
       date: ["1999", "2000", "2001", "2002"],
     },
-    showCartNotify: true,
+    showCartNotify: false,
   },
   cartData: {},
 };

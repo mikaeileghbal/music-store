@@ -1,7 +1,7 @@
 import React from "react";
 import "./CartNotify.scss";
 import { FaTimes } from "react-icons/fa";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { closeCartNotify } from "../../data/stateActionCreator";
 

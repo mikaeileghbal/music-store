@@ -24,6 +24,7 @@ function CategoryDetail() {
     setItems(products.filter((product) => product.category === category));
     console.log(items);
     console.log("filtered prod:", products);
+    console.log(items);
   }, [category]);
 
   return (
@@ -38,15 +39,7 @@ function CategoryDetail() {
           <div className="content">
             <div className="category">
               {items?.map((p) => (
-                <Product
-                  key={p.id}
-                  title={p.name}
-                  image={p.image}
-                  category={p.category}
-                  description={p.description}
-                  price={p.price}
-                  to={`/${p.name}`}
-                />
+                <Product key={p.id} product={p} to={`/${p.name}`} />
               ))}
             </div>
             <Pager pageCount={10} />
