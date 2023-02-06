@@ -27,7 +27,6 @@ export default function FilterMenu({ MenuItems, name }) {
   };
 
   useEffect(() => {
-    console.log(selection);
     handleGroupSelection(selection, name);
   }, [selection]);
 

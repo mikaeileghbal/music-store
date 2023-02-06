@@ -9,7 +9,6 @@ import CartNotify from "../CartNotify/CartNotify";
 import "./Product.scss";
 
 export default function Product({ product, showbtn }) {
-  console.log(product);
   return (
     <article className="card">
       <CatImage product={product} />

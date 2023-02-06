@@ -22,9 +22,6 @@ function CategoryDetail() {
 
   useEffect(() => {
     setItems(products.filter((product) => product.category === category));
-    console.log(items);
-    console.log("filtered prod:", products);
-    console.log(items);
   }, [category]);
 
   return (
