@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
 import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import { isSelected } from "../../utils/hooks";
 
 import FilterMenu from "../FilterMenu/FilterMenu";
@@ -13,7 +14,7 @@ export default function Sidebar() {
   const [groupSelection, setGroupSelection] = useState({});
   const [selected, setSelected] = useState(false);
   const { filterMenu } = useSelector((state) => state.stateData);
-  console.log("filtermenu", filterMenu);
+  const [serachParams, setSearchParams] = useSearchParams({});
 
   const handleGroupSelection = (selected, name) => {
     setGroupSelection({
@@ -31,9 +32,25 @@ export default function Sidebar() {
     return list;
   };
 
+  const buildQueryString = () => {
+    let params = Object.entries(groupSelection);
+
+    params = params.filter((item) =>
+      Object.keys(item[1]).length === 0 ? null : item
+    );
+    console.log("params: ", params);
+    let string = {};
+    params.forEach((item) => {
+      console.log(item);
+      string = { ...string, [item[0]]: Object.keys(item[1])[0] };
+    });
+    console.log(string);
+    setSearchParams(string);
+  };
+
   useEffect(() => {
     setSelected(isSelected(groupSelection));
-    console.log(groupSelection);
+    buildQueryString();
   }, [groupSelection]);
 
   const providerValue = { groupSelection, handleGroupSelection, clearAll };
