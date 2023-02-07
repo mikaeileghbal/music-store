@@ -32,8 +32,8 @@ export default function Sidebar() {
     return list;
   };
 
-  const buildQueryString = () => {
-    let params = Object.entries(groupSelection);
+  const buildQueryString = (searchObject) => {
+    let params = Object.entries(searchObject);
 
     params = params.filter((item) =>
       Object.keys(item[1]).length === 0 ? null : item
@@ -42,15 +42,23 @@ export default function Sidebar() {
     let string = {};
     params.forEach((item) => {
       console.log(item);
-      string = { ...string, [item[0]]: Object.keys(item[1])[0] };
+      string = {
+        ...string,
+        [item[0]]: Object.keys(item[1]).reduce((result, item) => {
+          return `${result},${item}`;
+        }),
+      };
     });
     console.log(string);
     setSearchParams(string);
   };
 
+  const applyFilters = () => {
+    buildQueryString(groupSelection);
+  };
+
   useEffect(() => {
     setSelected(isSelected(groupSelection));
-    buildQueryString();
   }, [groupSelection]);
 
   const providerValue = { groupSelection, handleGroupSelection, clearAll };
@@ -62,29 +70,34 @@ export default function Sidebar() {
         <FilterMenu MenuItems={filterMenu.format} name="format" />
         <FilterMenu MenuItems={filterMenu.artist} name="artist" />
         <FilterMenu MenuItems={filterMenu.date} name="date" />
-        <FooterButtons selected={selected} />
+        <FooterButtons selected={selected} onApply={applyFilters} />
       </div>
     </SidebarContext.Provider>
   );
 }
 
-function FooterButtons({ selected }) {
+function FooterButtons({ selected, onApply }) {
   const { clearAll } = useSidebar();
 
   return (
     <div className="button-wrapper">
-      <FooterButton text="apply" disabled={false} flat="button--flat" />
+      <FooterButton
+        text="apply"
+        disabled={false}
+        flat="button--flat"
+        onApply={onApply}
+      />
       <FooterButton text="clear all" disabled={!selected} clearAll={clearAll} />
     </div>
   );
 }
 
-function FooterButton({ disabled, text, clearAll, flat }) {
+function FooterButton({ disabled, text, clearAll, flat, onApply }) {
   return (
     <button
       disabled={disabled}
       className={`button button--category button--filter ${flat}`}
-      onClick={clearAll}
+      onClick={onApply ? onApply : clearAll}
     >
       {text}
     </button>
