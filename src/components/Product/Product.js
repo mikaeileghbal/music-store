@@ -1,34 +1,27 @@
 import React from "react";
+import { useState } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../data/cartActionCreators";
+import { showCartNotify } from "../../data/stateActionCreator";
+import CartNotify from "../CartNotify/CartNotify";
 import "./Product.scss";
 
-export default function Product({
-  image,
-  category,
-  title,
-  price = 0,
-  description = "",
-  showbtn,
-}) {
+export default function Product({ product, showbtn }) {
   return (
     <article className="card">
-      <CatImage image={image} category={category} title={title} />
-      <CatContent
-        title={title}
-        description={description}
-        price={price}
-        category={category}
-        showbtn={showbtn}
-      />
+      <CatImage product={product} />
+      <CatContent product={product} showbtn={showbtn} />
     </article>
   );
 }
 
-function CatImage({ image, category, title }) {
+function CatImage({ product }) {
+  const { image, category, name } = product;
   return (
     <figure className="cat-image">
-      <Link to={`/cd/${title}`} className="cat-link">
+      <Link to={`/cd/${name}`} className="cat-link">
         <div className="cat-image-wrapper">
           <img src={`../images/${image}`} alt="category name" />
         </div>
@@ -38,22 +31,35 @@ function CatImage({ image, category, title }) {
   );
 }
 
-function CatContent({ title, description, price, category, showbtn = true }) {
-  return (
-    <div className="cat-content">
-      <h2 className="title">{title}</h2>
-      <h3 className="artist">artist</h3>
+function CatContent({ product, showbtn = true }) {
+  const { image, category, name, price, description } = product;
 
-      {price > 0 && <p className="price">{`$${price}`}</p>}
-      <p className="media-type">CD box set</p>
-      <div className="button-wrapper">
-        {showbtn && (
-          <button className="button button--category button--100">
+  const dispatch = useDispatch();
+
+  const handleAddToBasket = () => {
+    dispatch(addToCart(product, 1));
+    dispatch(showCartNotify());
+  };
+
+  return (
+    <>
+      <div className="cat-content">
+        <h2 className="title">{name}</h2>
+        <h3 className="artist">artist</h3>
+
+        {price > 0 && <p className="price">{`$${price}`}</p>}
+        <p className="media-type">CD box set</p>
+        <div className="button-wrapper">
+          <button
+            onClick={handleAddToBasket}
+            className="button button--category button--100"
+            style={{ visibility: `${showbtn ? "visible" : "hidden"}` }}
+          >
             add to basket
             <MdOutlineKeyboardArrowRight size={24} />
           </button>
-        )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
