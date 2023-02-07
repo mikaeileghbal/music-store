@@ -32,8 +32,8 @@ export default function Sidebar() {
     return list;
   };
 
-  const buildQueryString = () => {
-    let params = Object.entries(groupSelection);
+  const buildQueryString = (searchObject) => {
+    let params = Object.entries(searchObject);
 
     params = params.filter((item) =>
       Object.keys(item[1]).length === 0 ? null : item
@@ -42,7 +42,12 @@ export default function Sidebar() {
     let string = {};
     params.forEach((item) => {
       console.log(item);
-      string = { ...string, [item[0]]: Object.keys(item[1])[0] };
+      string = {
+        ...string,
+        [item[0]]: Object.keys(item[1]).reduce((result, item) => {
+          return `${result},${item}`;
+        }),
+      };
     });
     console.log(string);
     setSearchParams(string);
@@ -50,7 +55,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     setSelected(isSelected(groupSelection));
-    buildQueryString();
+    buildQueryString(groupSelection);
   }, [groupSelection]);
 
   const providerValue = { groupSelection, handleGroupSelection, clearAll };
