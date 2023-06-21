@@ -4,6 +4,7 @@ import { FaSearch, FaShoppingCart, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 import Cart from "../Cart/Cart";
 import { useSelector } from "react-redux";
+import { CSSTransition } from "react-transition-group";
 
 const links = [
   { href: "/", text: "home" },
@@ -37,7 +38,16 @@ export default function Header() {
           <ShoppingCart onToggleCart={onToggleCart} />
         </div>
       </div>
-      {toggleCart && <Cart onToggleCart={onToggleCart} />}
+
+      <CSSTransition
+        in={toggleCart}
+        timeout={{ enter: 400, exit: 400 }}
+        classNames="cart-slide"
+        unmountOnExit
+      >
+        <Cart onToggleCart={onToggleCart} />
+      </CSSTransition>
+      {/* {toggleCart && <Cart onToggleCart={onToggleCart} />} */}
     </header>
   );
 }

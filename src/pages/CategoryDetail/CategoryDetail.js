@@ -23,10 +23,11 @@ function CategoryDetail() {
     <section className="category-detail container">
       <div className="category-header">
         <h2 className="page-title">{category}</h2>
+        <p className="result">Showing 1-24 of 3376 results</p>
       </div>
       <div className="container category">
         <Sidebar />
-        <div className="container">
+        <div className="">
           <Options />
           <div className="content">
             <div className="category">

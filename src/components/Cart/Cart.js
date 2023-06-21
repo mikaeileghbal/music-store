@@ -1,11 +1,11 @@
 import React from "react";
-import { FaArrowRight, FaTimes } from "react-icons/fa";
+import "./Cart.scss";
+import { FaTimes } from "react-icons/fa";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { removeFromCart } from "../../data/cartActionCreators";
-import "./Cart.scss";
 
 export default function Cart({ onToggleCart }) {
   const onClose = (e) => {
@@ -15,6 +15,7 @@ export default function Cart({ onToggleCart }) {
   return (
     <div className="cart__container">
       <div className="cart__inner" onClick={onClose}></div>
+
       <CartControl onClose={onClose} />
     </div>
   );

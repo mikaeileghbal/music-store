@@ -20,14 +20,12 @@ export default function Product({ product, showbtn }) {
 function CatImage({ product }) {
   const { image, category, name } = product;
   return (
-    <figure className="cat-image">
-      <Link to={`/cd/${name}`} className="cat-link">
-        <div className="cat-image-wrapper">
-          <img src={`../images/${image}`} alt="category name" />
-        </div>
-      </Link>
-      <div>{/* the yello icon goes here */}</div>
-    </figure>
+    <Link to={`/cd/${name}`} className="cat-link">
+      <figure className="cat-image">
+        <img src={`../images/${image}`} alt="category name" />
+        <div>{/* the yello icon goes here */}</div>
+      </figure>
+    </Link>
   );
 }
 

@@ -30,9 +30,7 @@ function CatImage({ image, category }) {
   return (
     <Link to={`/${category}`} className="cat-link">
       <figure className="cat-image">
-        <div className="cat-image-wrapper">
-          <img src={`../images/${image}`} alt="category name" />
-        </div>
+        <img src={`../images/${image}`} alt="category name" />
         <div>{/* the yello icon goes here */}</div>
       </figure>
     </Link>
