@@ -107,3 +107,35 @@ input[type="text"] {
   margin: 0;
   height: 100%;
 }
+
+.cart-slide-enter > .cart__inner {
+  opacity: 0;
+}
+.cart-slide-enter > .cart__control {
+  transform: translate3D(100%, 0, 0);
+}
+
+.cart-slide-enter-active > .cart__inner {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+.cart-slide-enter-active > .cart__control {
+  transform: translate3D(0, 0, 0);
+  transition: transform 0.4s ease;
+}
+
+.cart-slide-exit > .cart__inner {
+  opacity: 1;
+}
+.cart-slide-exit > .cart__control {
+  transform: translate3D(0, 0, 0);
+}
+
+.cart-slide-exit-active > .cart__inner {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.cart-slide-exit-active > .cart__control {
+  transform: translate3D(100%, 0, 0);
+  transition: transform 0.4s ease;
+}
