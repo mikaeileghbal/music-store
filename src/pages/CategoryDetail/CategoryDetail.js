@@ -4,9 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Product, Sidebar } from "../../components";
 import { DataTypes } from "../../data/Types";
 import { loadData } from "../../data/ActionCreators";
-
 import "./CategoryDetail.scss";
-import { useState } from "react";
 import Options from "../../components/Options/Options";
 import Pager from "../../components/Pager/Pager";
 
@@ -14,15 +12,12 @@ function CategoryDetail() {
   const { products } = useSelector((state) => state.modelData);
   const dispatch = useDispatch();
   const { category } = useParams();
-  const [items, setItems] = useState([]);
+
+  const items = products?.filter((product) => product.category === category);
 
   useEffect(() => {
     dispatch(loadData(DataTypes.PRODUCTS));
-  }, [loadData]);
-
-  useEffect(() => {
-    setItems(products.filter((product) => product.category === category));
-  }, [category]);
+  }, [dispatch]);
 
   return (
     <section className="category-detail container">

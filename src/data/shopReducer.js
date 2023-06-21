@@ -1,7 +1,7 @@
 import { ActionTypes } from "./Types";
 import { data } from "./placeholderData";
 
-export const shopReducer = (state, action) => {
+export const shopReducer = (state = [], action) => {
   switch (action.type) {
     case ActionTypes.DATA_LOAD:
       return {

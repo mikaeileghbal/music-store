@@ -74,17 +74,25 @@ function CartControlFooter({ onClose }) {
 
 function CartProducts({ cartData }) {
   console.log("cart products:", cartData);
+
+  if (!cartData) return <div>No data</div>;
   return (
     <div>
-      {cartData?.cart?.map((item) => (
-        <Product key={item.product.id} product={item.product} qty={item.qty} />
-      ))}
+      {cartData &&
+        cartData.cart?.map((item) => (
+          <Product
+            key={item.product.id}
+            product={item.product}
+            qty={item.qty}
+          />
+        ))}
     </div>
   );
 }
 
 function CartSummary({ onClose }) {
   const { cartPrice } = useSelector((state) => state.cartData);
+
   const navigate = useNavigate();
 
   const gotoBasket = () => {

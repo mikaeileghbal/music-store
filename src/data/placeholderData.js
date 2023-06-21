@@ -411,5 +411,5 @@ export const data = {
     },
     showCartNotify: false,
   },
-  cartData: {},
+  cartData: { cart: [], cartItems: 0, cartPrice: 0 },
 };
