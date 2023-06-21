@@ -2,14 +2,12 @@
   display: block;
 }
 
-.cat-image-wrapper {
-  //display: flex;
-}
-
 .cat-image {
-  .cat-image-wrapper {
-    aspect-ratio: 1 / 1;
-  }
+  position: relative;
+  height: 0;
+  padding-top: 100%;
+  overflow: hidden;
+  background-color: gainsboro;
 
   img {
     width: 100%;
