@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./ProductDetail.scss";
 import { VscZoomIn } from "react-icons/vsc";
-import album from "../../assets/images/killing-me.webp";
+
 import {
   AddToCart,
   Carousel,
   List,
   ListItem,
-  Product,
   RenderDelivery,
   RenderDescription,
   RenderDetails,
@@ -38,7 +37,7 @@ export default function ProductDetail() {
     <section className="detail-section">
       <div class="container">
         <section className="section-album">
-          <AlbumImage image={product.image} />
+          <AlbumImage image={product?.image} />
           <AlbumDescription product={product} />
         </section>
         <section className="section-add">
@@ -94,6 +93,8 @@ function AlbumImage({ image }) {
 }
 
 function AlbumDescription({ product }) {
+  if (!product) return <div>No product</div>;
+
   return (
     <div class="album-description">
       <h1>{product.name}</h1>

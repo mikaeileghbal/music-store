@@ -14,6 +14,7 @@ import { ActionTypes } from "./Types";
 
 export const cartReducer = (state, action) => {
   let newState = { cart: [], cartItems: 0, cartPrice: 0, ...state };
+
   switch (action.type) {
     case ActionTypes.CART_ADD:
       const { product, qty } = action.payload;
@@ -64,8 +65,11 @@ export const cartReducer = (state, action) => {
       return newState;
 
     default:
-      return state || localStorage.getItem("musicCart")
-        ? JSON.parse(localStorage.getItem("musicCart"))
-        : data.cartData;
+      return (
+        state ||
+        (localStorage.getItem("musicCart")
+          ? JSON.parse(localStorage.getItem("musicCart"))
+          : data.cartData)
+      );
   }
 };

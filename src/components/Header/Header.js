@@ -43,12 +43,14 @@ export default function Header() {
 }
 
 function ShoppingCart({ onToggleCart }) {
-  const { cartItems } = useSelector((state) => state.cartData);
-  console.log("cartItems:", cartItems);
+  const { cartData } = useSelector((state) => state);
+  console.log("cartData:", cartData);
   return (
     <ButtonHeader onClick={onToggleCart} className="button-cart">
       <FaShoppingCart />
-      {cartItems > 0 && <span className="cart-items">{cartItems}</span>}
+      {cartData?.cartItems > 0 && (
+        <span className="cart-items">{cartData.cartItems}</span>
+      )}
     </ButtonHeader>
   );
 }
