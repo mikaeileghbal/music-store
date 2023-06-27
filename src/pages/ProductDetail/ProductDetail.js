@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./ProductDetail.scss";
 import { VscZoomIn } from "react-icons/vsc";
+import { CSSTransition } from "react-transition-group";
 
 import {
   AddToCart,
@@ -79,7 +80,16 @@ function AlbumImage({ image }) {
   return (
     <div class="album-art">
       <div class="left">
-        {open && <Zoom image={`/images/${image}`} onClose={closeZoom} />}
+        <CSSTransition
+          in={open}
+          timeout={{ enter: 400, exit: 400 }}
+          className="image-slide"
+          unmountOnExit
+        >
+          <Zoom image={`/images/${image}`} onClose={closeZoom} />
+        </CSSTransition>
+
+        {/* {open && <Zoom image={`/images/${image}`} onClose={closeZoom} />} */}
         <img src={`/images/${image}`} alt="album" />
         <button className="button icon-btn button-zoom" onClick={openZoom}>
           <VscZoomIn /> zoom

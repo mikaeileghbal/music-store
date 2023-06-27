@@ -10,7 +10,7 @@ export const data = {
       {
         id: 2,
         category: "jazz",
-        title: "limited edition",
+        title: "limited edition first edition and second edition",
         image: "90s-fp.webp",
       },
 
