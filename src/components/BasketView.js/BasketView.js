@@ -181,11 +181,11 @@ function DetailSubtotal() {
         <tbody>
           <tr>
             <th>Subtotal:</th>
-            <td>{cartPrice}</td>
+            <td>{formatPrice(cartPrice)}</td>
           </tr>
           <tr>
             <th>Tax:</th>
-            <td>{cartPrice * 0.2}</td>
+            <td>{formatPrice(cartPrice * 0.2)}</td>
           </tr>
         </tbody>
       </table>
@@ -260,7 +260,7 @@ function BasketSlide() {
   return (
     <div className="basket__carousel">
       <Carousel
-        items={products.slice(0, 21)}
+        items={products?.slice(0, 21)}
         render={renderCarouselWithButton}
         header="Before You Go..."
         groupSize={3}
